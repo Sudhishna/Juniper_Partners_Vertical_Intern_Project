@@ -1,0 +1,190 @@
+.new-list-builder-widget{
+  font-family: $body-font-family;
+  font-size: 12px;
+    
+  .grid-widget{
+    position: relative;
+    
+    .btn-group{
+      float:left;
+      width: 25px;
+      top: 0;
+      left: 0;
+      bottom: 0;
+      right: 0;
+      height: 65px;
+      position: absolute;
+      margin: auto;
+
+      div{
+        width: 25px;
+        height: 25px;
+        display: inline-block;
+        cursor: pointer;
+        border: 1px solid $border-color;
+        margin-bottom: 15px;
+        span{
+          width: 6px;
+          height: 12px;
+          display: inline-block;
+          margin: 5px 9px 0;
+
+          &.unselect{
+            @extend .icon_nav_big_arrow_right_hover;
+            transform: rotate(180deg);
+            margin: 6px 8px 0;
+          }
+        }
+      }
+    }
+    .select-container:hover .select{
+      @extend .icon_nav_big_arrow_right;
+    }
+    .unselect-container:hover .unselect{
+      @extend .icon_nav_big_arrow_right;
+    }
+
+    .panel1, .panel2{
+      float: left;
+      border: 1px solid $border-color;
+      .title-container{
+        padding: 10px;
+        .item-count{
+          float: right;
+        }
+      }
+
+      .filter-container{
+        padding-top: 5px;
+        border-top: 1px solid $border-color;
+        background:$table-head-bg;
+        position: relative;
+        width: 100%;
+        height: 43px;
+
+        .filter-menu-container{
+          display: inline-block;
+          float: right;
+          margin-top: 8px;
+          margin-right: 4px;
+          cursor: pointer;
+          display: none;
+          .icon_filter_menu{
+            width: 9px;
+            height: 16px;
+            display: inline-block;
+          }
+          &:hover .icon_filter_menu{
+            @extend .icon_filter_menu_hover;
+          }
+          
+        }
+
+        .filter-input-container{
+          display: inline-block;
+          margin: 0 8px;
+          position: absolute;
+          left: 0;
+          right: 0;
+          border: 1px solid $border-color;
+          background: $body-bg;
+
+          &.show-filter-menu{
+            right: 12px;
+          }
+
+          input{
+            border: 0;
+            transition: none;
+            box-shadow: unset;
+            width: 85%;
+          }
+
+          .filter-icon{
+            width: 18px;
+            height: 18px;
+            display: inline-block;
+            float: right;
+            cursor: pointer;
+            margin-right: 5px;
+            margin-top: -22px;
+            &.icon_delete_disable{
+              width: 16px;
+              height: 16px;
+            }
+          }
+        }
+      }
+
+      .ui-jqgrid {
+        .jqgrow{
+          height: 20px;
+        }
+        .ui-jqgrid-bdiv {
+          position: relative !important;
+          max-height: inherit;
+          top: 0px;
+          bottom: 0px;
+
+          > div{
+            border: 0 !important;
+          }
+          .ui-jqgrid-btable tbody tr{
+            border: none;
+            vertical-align: middle;
+            td{
+              background: $body-bg;
+              padding: 0 0 0 15px;
+              line-height: 12px;
+              input{
+                height: 20px;
+              }
+            }
+            &.jqgfirstrow{
+              height: 4px !important;
+            }
+          }
+        }
+        .ui-jqgrid-htable {
+          border-bottom: 1px solid $border-color;
+          border-top: 0;
+          border-left: 0;
+          .ui-jqgrid-labels th{
+            border-top: none !important;
+
+            input[type="checkbox"]{
+              margin-left: 5px;
+            }
+          }
+          .ui-jqgrid-labels th:last-child{
+            padding-top: 0;
+          }
+          
+        }
+      }
+
+    }
+    .panel2{
+      margin-left: 65px;
+    }
+  }
+}
+
+.list_builder_tooltip{
+  line-height: 14px;
+  padding: 3px 4px;
+}
+
+#test_new_list_builder{
+  .form_section{
+    margin-bottom: 30px;
+  }
+  .selected_items_buttons {
+    .elementinput {
+      width: auto;
+    }
+    .elementbuttons {
+      margin: 0 15px 0 0;
+    }
+  }
+}

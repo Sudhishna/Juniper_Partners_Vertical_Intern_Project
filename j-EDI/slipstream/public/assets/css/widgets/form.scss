@@ -1,0 +1,431 @@
+@mixin error-text-style {
+  margin-bottom: 0;
+  outline: none !important;
+  border-color:  $form-error-color;
+}
+
+.form-pattern{
+  &.onOverlay{
+    padding-left:10px;
+    padding-top:15px;
+    .form_section{
+      margin-left: 15px;
+    }
+    .slipstream-content-title{
+      padding-left: 15px;
+      padding-top: 15px;
+      position: absolute;
+      width: 100%;
+      div {
+        height: 26px;
+      }
+    }
+  }
+
+  > .row{
+    max-width:100%;
+  }
+
+  .row{
+    margin:0px !important;
+  }
+
+  .form_section{
+    margin-bottom: 15px;
+    .progressive_disclosure{
+      float: left;
+      display: inline-block;
+      @extend .icon_arrow_nav_sm_down, .icon_arrow_nav_sm_down-dims;
+      background-repeat: no-repeat;
+      cursor: pointer;
+      margin: 6px 2px 0px -14px;
+      &:hover{
+        @extend .icon_arrow_nav_sm_down_hover, .icon_arrow_nav_sm_down_hover-dims;
+        background-repeat: no-repeat;
+      }
+      &.collapsed{
+        @extend .icon_nav_sm_arrow_right, .icon_nav_sm_arrow_right-dims;
+        background-repeat: no-repeat;
+        margin-top: 5px;
+        &:hover{
+           @extend .icon_nav_sm_arrow_right_hover, .icon_nav_sm_arrow_right_hover-dims;
+        background-repeat: no-repeat;
+        }
+      }
+    }
+    .section_title h5{
+      height: 24px;
+    }
+    .section_description h6{
+      padding: 2px 0 9px;
+    }
+    .progressive_disclosure_content.collapsed{
+      display:none;
+    }
+    .toggle_section.optionselection{
+      margin: -5px 0px 25px;
+    }
+  }
+
+  .columns{
+    padding-left: 0px !important;
+  }
+
+  .content{
+    &.onOverlay{
+      min-height: 20px;
+      bottom: 65px;
+      position: absolute;
+      top: 66px;
+      overflow-y: auto;
+      overflow-x: hidden;
+      left: 0px;
+      padding-left: 12px;
+      padding-right: 12px;
+      .slipstream-content-wrapper {
+          padding-top:24px;
+      }
+    }
+  }
+
+  .buttons.onOverlay{
+    position: absolute;
+    bottom: 0px;
+    left: 0px;
+    right: 0px;
+    border-top: 1px solid $border-color;
+    padding-bottom: 15px;
+    padding-top: 10px;
+    padding-right: 30px;
+    width: 100%;
+    .elementinput{
+      float: right !important;
+      width: auto;
+      .cancelLink{
+        float: left;
+        display: inline-block;
+        height: 30px;
+        padding-top: 6px;
+        padding-right: 20px;
+      }
+    }
+  }
+
+  h3{
+    border-bottom:1px solid $border-color;
+    padding-bottom: 8px;
+    margin-bottom: 24px;
+  }
+
+  h5, h6{
+    padding: 0 0 20px 0;
+    margin-bottom: 0px;
+    font-family: $body-font-family;
+  }
+
+  h6{
+    font-size: 12px;
+  }
+  a{
+    color:$link-active-color;
+    font-size: 12px;
+  }
+  input{
+    margin: 0px;
+    height: 30px;
+    padding: 6px;
+  }
+
+  input:focus{
+    border-color: $input-active-border;
+  }
+
+  .elementlabel{
+    width: 165px;
+    height: 30px;
+    .labelwithfieldhelp {
+      max-width: calc(100% - 22px);
+    }
+  }
+
+  .elementinput{
+    width: 295px;
+    margin-bottom: 10px;
+
+  }
+
+  .auto-width .elementinput{
+    width: auto;
+  }
+
+  .optionselection{
+    height: 20px;
+    label{
+    font-weight: normal;
+    padding-top:10px;
+    color: $form-value-color;
+    vertical-align: top;
+      &.disabled{
+        color: #DDD;
+      }
+    }
+  }
+
+  .buttonsAlignedRight{
+    float: right !important;
+    width: auto;
+  }
+
+  .styleselect {
+    background: url('/assets/images/arrow_down.png') no-repeat top right;
+  
+    select {
+      background: transparent;
+      font: $form-font;
+      color:$form-label-color;
+      border: 1px solid $border-color;
+      margin-bottom: 0px;
+      height: 30px;
+      padding:6px;
+      outline: none;
+      -moz-appearance: none;
+      text-indent: 0.01px;
+      text-overflow: '';
+      option{
+        width: 295px;
+      }
+      option:disabled{
+        color:red;
+      }
+    }
+  }
+
+  textarea{
+    vertical-align:top;
+    resize: none;
+    height: auto;
+  }
+
+  .elementlink{
+    padding-left: 10px;
+    padding-top: 7px;
+    display: inline-block;
+  }
+
+  .elementicon{
+    display: inline-block;
+    margin: 5px 0px 5px 10px;
+  }
+
+  .elementbuttons{
+    margin-left: 15px;
+  }
+
+  .required:after {
+    content: "*";
+  }
+
+  .notshowrequired:after{
+    content: "";
+  }
+
+  .inline-text {
+    font-weight: normal;
+    padding-top:11px;
+    font-size: 0.75rem;
+    color: $form-label-color;
+    display: block;
+    margin-bottom: 0.5rem;
+  }
+
+  .inline-help {
+    display: block;
+    margin:0px;
+    font-size: 11px;
+    color: $form-label-color;
+  }
+
+  .help-style{
+    margin-top: 10px;
+    line-height: 14px;
+  }
+
+  .valid{
+    color: $form-valid-color;
+    font-weight: bold;
+  }
+
+  .error small.error, span.error, small.error {
+    @include form-error-message;
+  }
+
+  span.error, small.error {
+    display: none;
+  }
+
+  .error small.error {
+    margin:14px 0px 0px;
+    padding:0px;
+    font-style: normal;
+    font-size: 11px;
+    background: inherit;
+    color: $form-error-color;
+  }
+
+  .error {
+    input {
+      @include error-text-style;
+    }
+    textarea {
+      @include error-text-style;
+    }
+    select {
+      @include error-text-style;
+    }
+    a{
+      color:$link-active-color;
+    }
+  }
+  .errorimage:before {
+    @extend .icon_error, .icon_error-dims;
+    content: "";
+    float: left;
+    margin-right: 5px;
+    margin-top: -5px;
+  }
+
+  .alert-box {
+    border-width: 2px;
+    border-color:$form-error-color;
+    font-size: 12px;
+    background-color: white;
+    color: $form-error-color;
+    display: none;
+    a {
+      color: $link-active-color;
+      &:hover {
+        text-decoration: underline;
+      }
+      &:focus {
+        text-decoration: underline;
+      }
+      &:visited {
+        color: $link-visited-color;
+      }
+    }
+  }
+
+  .hideHelp, .hideIcon{
+    display: none;
+  }
+
+  input[disabled]{
+    background-color: $input-disabled-background;
+  }
+
+  .list-builder .elementinput{
+    width: auto !important;
+    &>input{
+      width: 295px;
+    }
+  }
+
+  .delete_row{
+      @extend .icon_close, .icon_close-dims;
+      background-repeat: no-repeat;
+      background-origin: left;
+      margin: 7px;
+      cursor: pointer;
+  }
+
+  div[data-widgetidentifier^=datePicker_] .elementinput{
+    width:auto;
+  }
+
+  div[data-widgetidentifier^=time_] .time-widget{
+    float:left;
+  }
+
+  div[data-widgetidentifier^=dateTime_] {
+    &> .elementinput{
+      width:auto;
+    }
+//    div[data-widget=dateTime]{
+//      position: absolute;
+//      left: 328px;
+//      .row_time_input .elementinput{
+//        width: 82px;
+//      }
+//    }
+  }
+  .fileupload_container{
+    position: relative;
+    .fileupload-button{
+      position: absolute;
+      top: 0;
+      left: 310px;
+      text-align: center;
+      line-height: 20px;
+      cursor: pointer; 
+    }
+    input.fileupload{
+      opacity: 0;
+      position: absolute;
+      width: 70px;
+      height: 30px;
+      top: 0;
+      left: 310px;
+      margin: 0;
+      padding: 0;
+      cursor: pointer;
+      display: block;
+    }
+    .fileupload::-webkit-file-upload-button {
+      visibility: hidden;
+    }
+  }
+  
+}
+
+#test_form_widget{
+  #copy_rows_form{
+    .copy_multiple{
+      float: left;
+      padding: 5px;
+      &.first_element{
+        clear: both;
+      }
+    }
+    .copy_row_buttons .elementinput {
+      width: auto;
+    }
+    #section_widget{
+      clear: both;
+      padding-top: 20px;
+    }
+
+  }
+
+  #sample_form{
+    .buttons_row .elementinput{
+      width: auto;
+    }
+    .test-elementicon1{
+     @extend .icon_create, .icon_create-dims;
+     background-repeat: no-repeat;
+     background-origin: left;
+      &:hover{
+      @extend .icon_create_hover, .icon_create_hover-dims;
+      background-repeat: no-repeat;
+      background-origin: left;
+      }
+    }
+  }
+
+  #declarative_sample_form{
+    .twoColumns{
+      width: 50%;
+    }
+  }
+}
+

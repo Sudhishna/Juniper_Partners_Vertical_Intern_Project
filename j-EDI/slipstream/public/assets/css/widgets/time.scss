@@ -1,0 +1,35 @@
+.time-widget {
+  .row_time_input {
+    float: left;
+    .elementinput {
+      width: 80px;
+      input {
+        margin: 0;
+        width: 67px;
+        height: 30px;
+      }
+    }
+    small.error {
+      width: 200px;
+    }
+  }
+  .row_time_period {
+    float: left;
+    .elementinput {
+      width: 80px;
+      background: url('/assets/images/arrow_down.png') no-repeat top right;
+      select {
+        background: transparent;
+        font: 12px $body-font-family;
+        color: $form-label-color;
+        margin: 0;
+        width: 72px;
+        height: 30px;
+        padding: 6px;
+        -moz-appearance: none;
+        text-indent: 0.01px;
+        text-overflow: '';
+      }
+    }
+  }
+}

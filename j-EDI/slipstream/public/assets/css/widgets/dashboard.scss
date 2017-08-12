@@ -1,0 +1,605 @@
+.dashboard {
+    $buttonBackgroundColor: #fff;
+    $buttonBorderColor: #bbb;
+    $buttonTextColor: #565656;
+
+    $thumbnailBorderColor: #aaa;
+    $thumbnailTitleColor: #454545;
+    $thumbnailBadgeBackground: #fff;
+    $thumbnailBadgeTextColor: #ccc;
+    $thumbnailBadgeBorderColor: #ccc;
+    $thumbnailContainerBorderColor: #bbb;
+    $thumbnailContainerArrowColor: #333;
+    $thumbnailContainerBackgroundColor: #f5f5f5;
+
+    $placeHolderBorderColor: #aaa;
+
+    $dashletContainerBorderColor: #ccc;
+    $dashletGripperColor: #999;
+    $dashletBackgroundColor: #fff;
+    $dashletBorderColor: #aaa;
+    $dashletOverlayColor: #fff;
+    $dashletHoverColor: #eee;
+    $dashletFilterTitleColor: #666;
+    $dashletFilterFontFamily: Arial, Helvetica, sans-serif;
+
+    overflow-x: hidden;
+
+    .f-dropdown {
+        opacity: 0;
+    }
+
+    .open {
+        opacity: 1;
+        @include prefixed(transition-property, opacity);
+        @include prefixed(transition-duration, 0s);
+        @include prefixed(transition-delay, 1.0s);
+    }
+
+    .dashboardThumbnail {
+        width: 170px;
+        height: 136px;
+        overflow: hidden;
+        border: none;
+    }
+
+    .dashletSizeDefault {
+        height: 300px;
+        overflow: hidden;
+    }
+
+    .dashletSizeSmall {
+        height: 200px;
+        overflow: hidden;
+    }
+
+    .dashletSizeSingle {
+        height: 300px;
+        overflow: hidden;
+    }
+
+    .dashletSizeVertical {
+        height: 620px;
+        overflow: hidden;
+    }
+
+    .dashletSizeDouble {
+        height: 300px;
+        overflow: hidden;
+    }
+
+    .dashletSizeLarge {
+        height: 620px;
+        overflow: hidden;
+    }
+
+    .dashletSizeWide {
+        height: 300px;
+        overflow: hidden;
+    }
+
+    .hover-thumbnail {
+        display:block;
+    }
+
+    .hover-dashlet {
+        display:none;
+    }
+    
+    .dashboardButton {
+        @include button;
+        background-color: $buttonBackgroundColor !important;
+        border: 1px solid $buttonBorderColor;
+        margin-bottom: 0px;
+        color: $buttonTextColor !important;
+        font-size: 12px !important;
+        padding: 7px !important;
+    }
+
+    .dashboardAddButton {
+        background-color: $buttonBackgroundColor !important;
+        color: $buttonTextColor !important;
+        height: 32px;
+        margin-right: 10px;
+        span {
+            padding-left: 10px;
+            padding-right: 3px;
+        }
+    }
+
+    .dashboardAddButton.opened {
+        height: 37px;
+        border-bottom-width: 0px;
+        margin-bottom: -1px;
+    }
+
+    .dashboardRefreshButton {
+        width: 32px;
+        height: 32px;
+        .refreshing {
+            @include prefixed(animation, rotation 2s infinite linear);
+        }
+    }
+
+    .thumbnailContainerClosed {
+        border-bottom: 1px solid $buttonBorderColor;
+    }
+
+    .dashboardTitleContainer {
+        margin: 0 !important;
+        max-width: 100%;
+
+        .dashboardTitle {
+            font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, sans-serif;
+            color: $title-font-color;
+            font-size: 20px;
+            padding-top: 10px;
+        }
+
+        .ua-field-help {
+            position: relative;
+            margin-right: 10px;
+            left: -4px;
+            vertical-align: middle;
+        }
+    }
+
+
+    .dashboardThumbnailContainer {             
+        .dashboardThumbnail {
+            position: absolute;
+            margin-top: 10px;
+            margin-bottom: 20px;
+            margin-left: 20px;
+            width: 180px;
+            .dashboardThumbnailContent {
+                overflow: hidden;
+                height: 110px;
+                width: 170px;
+                border: 1px solid $thumbnailBorderColor;
+                margin-bottom: 10px;
+                @include prefixed(box-sizing, border-box);
+                cursor: move;
+            }
+            
+            .dashboardThumbnailTitle {
+                font-family:  $dashletFilterFontFamily; 
+                color: $thumbnailTitleColor;
+                font-size: 8pt;
+                text-align: left;
+            }
+
+            .dashboardThumbnailBadge {
+                font-family:   $dashletFilterFontFamily;
+                font-size: 8pt;
+                text-align: center;
+                margin-top: -20px;
+                margin-left: 160px;
+
+                @include prefixed(border-radius, 50%);
+                width: 20px;
+                height: 20px;
+                background: $thumbnailBadgeBackground;
+                border: 1px solid $thumbnailBadgeBorderColor;
+                color: $thumbnailBadgeTextColor;
+                position: absolute;
+            }
+            list-style: none;
+        }
+
+        .ss-placeholder-child {
+            background: transparent;
+            border: 1px dashed $placeHolderBorderColor;
+        }
+
+        .ss-dragged-child {
+            cursor: move;
+        }
+    }
+
+    .dashboardDashletContainer {
+        position: relative;
+        margin: 20px 0 0 0;
+
+        li[data-ss-colspan='1'] { width: 400px; }
+        li[data-ss-colspan='2'] { width: 820px; }
+        li[data-ss-colspan='3'] { width: 1240px; }
+
+        li {
+            position: absolute;
+            border: 1px solid $dashletBorderColor;
+            @include prefixed(box-sizing, border-box);
+            list-style: none;
+            text-align: center;
+            padding-top: 0px;
+        }
+
+        .ss-placeholder-child {
+            background: transparent;
+            border: 1px dashed $placeHolderBorderColor;
+        }
+
+        .ss-dragged-child {
+            cursor: move;
+            &.dashboardThumbnail {
+                background-color: $thumbnailContainerBackgroundColor;             
+            }          
+            .dashboardThumbnailBadge {    
+                display: none;            
+            }
+        }
+
+        .dashboardDashlet {
+            overflow: hidden;
+            background-color: $dashletBackgroundColor;
+            .dashboardDashletHeader {
+                height: 34px;
+                width: 100%;
+                border: 2px solid $dashletBackgroundColor;
+                &:hover {
+                    cursor: move;
+                }
+
+                .dashletHandle {
+                    content: '';
+                    position: absolute;
+                    left: 2px;
+                    top: 1px;
+                    height: 26px;
+                    width: 6px;
+                    margin-top: 3px;
+                    margin-left: 4px;
+                    border: 2px dotted $dashletGripperColor;
+                    &:hover {
+                        border: 2px dotted $dashletBorderColor;
+                        height: 26px;
+                        cursor: move;
+                    }
+                }
+
+                .dashletTitle {
+                    font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, sans-serif; 
+                    color: $title-font-color;
+                    font-size: 16px;
+                    padding-left: 10px;
+                    padding-top: 3px;
+                    float:left !important;
+                    text-align: left;
+                    height: 30px;
+                    width: 95%;
+
+                    .dashletTitleText {
+                        outline: none;
+                        display: inline-block;
+                        overflow: hidden;
+                        white-space: nowrap; 
+                        text-overflow: ellipsis;
+                        width: 95%;
+                        margin-left: 16px;
+                        /*&:hover {
+                            cursor: pointer;
+                        }*/
+                    }
+                }
+
+                .editable { 
+                    background:white;
+                    border: 2px solid $buttonBorderColor !important;
+                    margin-left: 9px !important;
+                }
+
+                .editableText {
+                    white-space: normal; 
+                    text-overflow: clip !important;
+                }
+
+                .dashletActions {
+                        float: right;
+                        padding-right: 8px;
+                        color: $title-font-color;
+                        display:none;
+                        margin-top: 4px;
+                }
+                
+                &:hover {
+                    background-color: $dashletHoverColor;
+                    .dashletActions{
+                        display: block;
+                    }
+                    .dashletTitle {
+                        width: 70%;
+                    }
+                }
+
+                .dashletButton {
+                    background-color: inherit;
+                    margin-top: 22px;
+                    margin-left: 12px;
+                }
+           }
+
+            .dashboardDashletFiltersArea {
+                overflow-y: hidden;
+                font-family:  $dashletFilterFontFamily;
+                font-size: 12px;
+                color: $dashletFilterTitleColor;
+                max-height: 33px;
+                background-color: $dashletOverlayColor;
+                .dashboardDashletFilters{
+                    float: right;
+                    margin-left: 10px;
+                    margin-top: 0px;
+                    padding-right: 20px;
+                    padding-bottom: 3px;
+                    padding-top: 1px;
+                }
+
+                .dashletFilter{
+                   border: none;
+                   padding: 1px;
+                   padding-top: 2px;
+                   padding-right: 15px;
+                   margin: 0px;
+                   margin-left: 8px;
+                   color: #05a4ff;
+                   font-family: $dashletFilterFontFamily;
+                   font-weight: bold;
+                   background-color: inherit;
+                   background: url('/assets/images/arrow_down_centered.png') no-repeat right;
+                   //@extend .icon_arrow_down_centered, .icon_arrow_down_centered-dims;
+                   //background-repeat: no-repeat;
+                   //background-origin: right;
+                   &:hover{
+                    cursor: pointer;
+                   }
+                   &:focus {
+                     outline: none;
+                   }
+                }
+
+                .dashletFilter::-ms-expand{
+                   display:none;
+                   &:hover{
+                    cursor: pointer;
+                   }
+                   &:focus {
+                     outline: none;
+                   }
+                }
+
+                .dashboardDashletFilterLabel {
+                    display: inline-block;
+                    margin: 0;
+                    margin-right: 5px;
+                    font-weight: normal;
+                    color:  $dashletFilterTitleColor;
+                    font-size: 11px;
+                    font-family:   $dashletFilterFontFamily;
+                }   
+            }
+
+            .dashboardDashletContent {
+                overflow-y: auto;
+                overflow-x: hidden;
+                //max-height: 200px;
+                .grid-widget .action-filter-container {
+                    height: 0px;
+                    padding-top: 0px;
+                }
+                .grid-widget .ui-jqgrid{
+                    overflow-x: hidden;
+                    .ui-jqgrid-labels {
+                         th { border: 0px !important; };
+                         height: 23px;
+                    }
+                    .jqgrow {
+                        height: 24px;
+                    }
+                    .ui-jqgrid-bdiv .ui-jqgrid-btable tbody tr td {
+                        font-size: 11px;
+                    }
+                }
+                .barchart {
+                    background-color: $dashletOverlayColor;
+                }
+            }
+
+            .dashboardDashletFooter {
+                background-color: $dashletBackgroundColor;
+                position: absolute;
+                bottom: 0;
+                width: 100%;
+                .updated {
+                    font-family: $dashletFilterFontFamily;
+                    color: $dashletFilterTitleColor;
+                    font-size: 10px;
+                    float: left;
+                    padding-left: 10px;
+                }
+                .moreDetails {
+                    float:right;
+                    padding-right: 10px;
+                    font-size: 12px;
+                    padding-bottom: 4px;
+
+                    a {
+                        color: #3366cc;
+                        font-size: 10px;
+                        font-family:   $dashletFilterFontFamily;
+                    }
+                }
+            }
+
+            .dashletOverlay {
+                z-index: 2 !important;
+                display: none;
+                position: absolute;
+                /* width: 100%; */
+                /* height: 82.5%; */
+                top: 52px;
+                bottom: 0;
+                left: 0;
+                right: 0;
+                background-color: $dashletOverlayColor;
+                @include prefixed(opacity, 0.95);
+                @include prefixed(filter, alpha(opacity=95));
+            }
+
+            .dashletRefreshing {
+                z-index: 3 !important;
+                display: none;
+                position: absolute;
+                /* width: 100%; */
+                /* height: 65%; */
+                top: 52px;
+                bottom: 0;
+                left: 0;
+                right: 0;
+
+                .dashletRefreshStatusMessage {
+                    margin-top: 10%;
+                    text-align: center;
+                    line-height: 1.5;
+                    margin-left: 15px;
+                }
+
+                .dashletRefreshingContainer {
+                    text-align: center;
+
+                    .dashletRefreshingIndicator {
+                        margin: 40px;
+                        text-align: center;
+                        @include prefixed(animation, rotation 2s infinite linear);
+                    }
+                }
+            }
+
+            .dashletRefreshError {
+                z-index: 3 !important;
+                display: none;
+                position: absolute;
+                /* width: 100%; */
+                /* height: 82.5%; */
+                top: 40%;
+                bottom: 25px;
+                left: 0;
+                right: 0;
+
+
+                .dashletRefreshErrorContainer {
+                    //margin-top: 8%;
+                    text-align: center;
+
+                    .dashletRefreshStatusMessage {
+                        line-height: 1.5;
+                        margin-left: 15px;
+                    }
+                }
+                .dashletRefreshErrorIndicator{
+                    height: 35px;
+                }
+            }
+        }
+    }
+
+
+    .jcarousel-wrapper {
+        margin: 0px auto 0px auto;
+        /*height: 176px;*/
+        height: 154px;
+        postion: relative;
+        border: 1px solid $thumbnailContainerBorderColor;        
+        background-color: $dashletBackgroundColor;
+    }
+
+    .jcarousel {
+        position: relative;        
+        width: 100%;
+
+        ul {
+            width: 20000em;
+            position: relative;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+        img {
+            display: block;
+            max-width: 100%;
+            height: 110px;
+            width: auto;
+        }
+    }
+
+    .jcarousel-control-prev,
+    .jcarousel-control-next {
+        position: absolute;
+        margin-top: -157px;
+        width: 30px;
+        height: 30px;
+        text-align: center;
+         img {
+            height: 154px;
+        }
+    }
+
+    .jcarousel-control-prev {
+        left: 11px;       
+    }
+
+    .jcarousel-control-next {
+        right: 15px;
+    }
+
+
+    .dashboardDashlet .jqgrow {
+        background-color: $dashletBackgroundColor;
+    }
+    .dashboardDashlet .ui-jqgrid-view {
+        margin-left: 5px;
+    }
+
+    .dashboardDashlet .ui-jqgrid-htable {
+        border-left: 0px;
+        border-right: 0px;
+    }
+
+    .dashboardDashlet .grid-widget .ui-jqgrid .ui-jqgrid-htable{
+        border-top: 0px;
+    }
+
+    /* PATCH - Grid should take care of this.  Remove entire selector and nthchild when fixed in grid.  */
+    .dashboardDashlet .grid-widget .ui-jqgrid .ui-jqgrid-htable .ui-jqgrid-labels th{
+        &:last-child{
+            padding-top: 0px;
+        }
+    }
+
+    .dashboardDashlet .grid-widget .ui-jqgrid .ui-jqgrid-bdiv .ui-jqgrid-btable tbody tr{
+        border-top: 0px;
+        background-color: $dashletBackgroundColor;
+        &:hover{
+            border: 0px;
+        }
+    }
+
+    /* Remove last bottom border on list-widget.  */
+
+    .dashboardDashlet .grid-widget .ui-jqgrid .ui-jqgrid-bdiv > div{
+        border-bottom: 0px !important;
+    }
+
+    .dashlet {
+        background-color: $dashletBackgroundColor;
+    }
+
+}
+
+.customEditView .form-pattern .content {
+    padding-top: 0px !important;
+
+     .slipstream-content-wrapper{
+        padding-top: 0px;
+    }
+}
+

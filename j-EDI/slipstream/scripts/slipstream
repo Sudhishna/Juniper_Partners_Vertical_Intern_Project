@@ -1,0 +1,95 @@
+#!/bin/sh
+#
+# slipstream init file for starting up the slipstream daemon
+#
+# chkconfig: 345 15 85
+# description: Starts and stops the slipstream daemon.
+
+# Source function library.
+. /etc/rc.d/init.d/functions
+
+name="slipstream-server"
+NODE_ENV=production
+pidfile="/var/run/slipstream/slipstream.pid"
+SS_ROOT="/usr/local/slipstream"
+SS_USER=slipstream
+MAX_LOG_LINES=1000000
+LOG_DIR=/var/log/slipstream
+exec="${SS_ROOT}/node_modules/forever/bin/forever"
+redis_exec=/etc/init.d/redis
+
+lockfile=/var/lock/subsys/slipstream
+
+start() {
+    [ -x $exec ] || exit 5
+    #Start redis if not running
+    $redis_exec status &> /dev/null || ($redis_exec start; sleep 5)
+    echo -n $"Starting $name: "
+    daemon --user ${SS_USER} NODE_ENV=$NODE_ENV $exec start --uid=${name} \
+      -a -n ${MAX_LOG_LINES} -l $LOG_DIR/${name}.log    \
+      --minUptime 10000 --spinSleepTime 10000 \
+      --pidFile=${pidfile} --workingDir=${SS_ROOT} ${SS_ROOT}/app.js
+    retval=$?
+    echo
+    [ $retval -eq 0 ] && touch $lockfile
+    return $retval
+}
+
+stop() {
+    echo -n $"Stopping $name: "
+    daemon --user ${SS_USER} $exec stop ${name}
+    retval=$?
+    echo
+    [ $retval -eq 0 ] && rm -f $lockfile
+    return $retval
+}
+
+restart() {
+    stop
+    start
+}
+
+reload() {
+    false
+}
+
+rh_status() {
+    status -p $pidfile $name
+}
+
+rh_status_q() {
+    rh_status >/dev/null 2>&1
+}
+
+
+case "$1" in
+    start)
+        rh_status_q && exit 0
+        $1
+        ;;
+    stop)
+        rh_status_q || exit 0
+        $1
+        ;;
+    restart)
+        $1
+        ;;
+    reload)
+        rh_status_q || exit 7
+        $1
+        ;;
+    force-reload)
+        force_reload
+        ;;
+    status)
+        rh_status
+        ;;
+    condrestart|try-restart)
+        rh_status_q || exit 0
+        restart
+        ;;
+    *)
+        echo $"Usage: $0 {start|stop|status|restart|condrestart|try-restart}"
+        exit 2
+esac
+exit $?

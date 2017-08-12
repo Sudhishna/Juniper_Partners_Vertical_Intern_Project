@@ -1,0 +1,567 @@
+<form id="sample_form" name="sample_form" class="form-pattern validate" novalidate="" data-err-timeout="1000" data-valid-timeout="5000" form-pattern-validator="">
+<div class="row">
+<div class="row"><h3>Sample Form Widget</h3></div>
+<div id="errorDiv" data-alert="" class="alert-box errdivimage">
+    One or more fields have errors. Update the fields highlighted below. For detailed information on possible values see
+    <a href="http://www.juniper.net/techpubs/en_US/junos12.1x46/topics/task/configuration/j-web-basic-settings.html" target="_blank"> Configuring Basic Settings</a>
+</div>
+<div>
+<div class="row"><h5>Subtitle</h5></div>
+<div class="row">
+    <h6>
+        Subtitle text
+    </h6>
+</div>
+
+<!-- Input text field with required validation and a tooltip -->
+<!-- This example shows a text field
+     To add a tooltip around a label:
+       * include 'data-tooltip' within the label
+       * add 'class=has-tip' to the label
+       * tip-right, tip-left, tip-bottom or tip-top for positioning
+     To make a field required:
+       * add 'class = required' to the label
+       * include 'required' within the input tag
+       * define an error message after the input tag
+-->
+<div class="row">
+    <!-- Label -->
+    <div class="elementlabel left">
+        <label for="text_field" data-tooltip="" class="left inline  has-tip tip-bottom   required  " title="Tooltip for text field">Text
+        </label><span class="ua-field-help" data-ua-id="alias_for_ua_event_binding"></span>
+    </div>
+    <!-- Form Fields -->
+    <div class="elementinput left">
+
+        <!-- Input fields -->
+        <input type="text" data-validation="validtext" id="text_field" name="text_feld" placeholder="required" required="" value="">
+
+        <!-- Error Display -->
+        <small class="error errorimage">Please enter a value for this field</small>
+        <span class="inline-help help-style">Inline help text</span>
+    </div>
+</div>
+<div class="row">
+    <!-- Label -->
+    <div class="elementlabel left">
+        <label for="password_pattern" class="left inline   required   notshowrequired ">Password Pattern
+        </label>
+    </div>
+    <!-- Form Fields -->
+    <div class="elementinput left">
+
+        <!-- Input fields -->
+        <input type="password" data-validation="multiple" data-validation_length="Must be 6 characters or more." data-minlength="6" data-maxlength="8" data-validation_hasnumbersymbol="At least one number and one symbol is required." data-validation_hasmixedcasenumber="A combination of mixed case letters and one number is required." data-validation_hasmixedcasesymbol="A combination of mixed case letters and one symbol is required." data-validation_hassymbol="At least one symbol is required." data-validation_hasnumber="At least one number is required." data-validation_hasmixedcase="A combination of mixed case letters is required." data-validation_validtext="A combination of mixed case letters, numbers, and symbols is required." id="password_pattern" name="password_pattern" placeholder="Sp0g-Sp0g" required="">
+
+        <!-- Error Display -->
+        <small class="error errorimage">true</small>
+        <span class="inline-help help-style">Must be 6 characters or more. A combination of mixed case letters, numbers, and symbols is required.</span>
+    </div>
+</div>
+<div class="row">
+    <!-- Label -->
+    <div class="elementlabel left">
+        <label for="confirm_password_pattern" class="left inline   required   notshowrequired ">Confirm Password
+        </label>
+    </div>
+    <!-- Form Fields -->
+    <div class="elementinput left">
+
+        <!-- Input fields -->
+        <input type="password" data-validation="multiple" id="confirm_password_pattern" name="confirm_password_pattern" placeholder="Sp0g-Sp0g" required="" data-equalto="password_pattern">
+
+        <!-- Error Display -->
+        <small class="error errorimage">Passwords must match</small>
+        <span class="inline-help"></span>
+    </div>
+</div>
+<div class="row">
+    <!-- Label -->
+    <div class="elementlabel left">
+        <label for="custom_pattern" class="left inline   ">Custom Pattern
+        </label><span class="ua-field-help" data-ua-id="alias_for_ua_event_binding"></span>
+    </div>
+    <!-- Form Fields -->
+    <div class="elementinput left">
+
+        <!-- Input fields -->
+        <input type="text" id="custom_pattern" name="custom_pattern" placeholder="1234" data-pattern="^([0-9]){3,4}$">
+
+        <!-- Error Display -->
+        <small class="error errorimage">Enter a number with 3 or 4 digits</small>
+        <span class="inline-help"></span>
+    </div>
+</div>
+<div class="row">
+    <!-- Label -->
+    <div class="elementlabel left">
+        <label for="text_area" class="left inline   required  ">Text email
+        </label>
+    </div>
+    <!-- Form Fields -->
+    <div class="elementinput left">
+
+        <!-- Input fields -->
+        <input type="email" data-validation="email" id="text_area" name="text_email" placeholder="" required="" value="mvilitanga@gmail.com">
+
+        <!-- Error Display -->
+        <small class="error errorimage">Please enter a valid email</small>
+        <span class="inline-help"></span>
+    </div>
+</div>
+<div class="row">
+    <!-- Label -->
+    <div class="elementlabel left">
+        <label for="text_url" class="left inline   ">Text url
+        </label>
+    </div>
+    <!-- Form Fields -->
+    <div class="elementinput left">
+
+        <!-- Input fields -->
+        <input type="url" data-validation="url" id="text_url" name="text_url" placeholder="http://www.juniper.net" value="www.gmail.com">
+
+        <!-- Error Display -->
+        <small class="error errorimage">Please enter a valid URL</small>
+        <span class="inline-help"></span>
+    </div>
+</div>
+<div class="row">
+    <!-- Label -->
+    <div class="elementlabel left">
+        <label for="text_string" class="left inline   ">Text string
+        </label>
+    </div>
+    <!-- Form Fields -->
+    <div class="elementinput left">
+
+        <!-- Input fields -->
+        <input type="text" data-validation="alpha" id="text_string" name="text_string" placeholder="" value="Sample Form Widget">
+
+        <!-- Error Display -->
+        <small class="error errorimage">Please enter a valid string that contains only letters (a-zA-Z)</small>
+        <span class="inline-help"></span>
+    </div>
+</div>
+<div class="row">
+    <!-- Label -->
+    <div class="elementlabel left">
+        <label for="text_number" class="left inline   ">Text number
+        </label>
+    </div>
+    <!-- Form Fields -->
+    <div class="elementinput left">
+
+        <!-- Input fields -->
+        <input type="text" data-validation="number" id="text_number" name="text_number" placeholder="">
+
+        <!-- Error Display -->
+        <small class="error errorimage">Please enter a valid string that contains only numbers</small>
+        <span class="inline-help"></span>
+    </div>
+</div>
+<div class="row">
+    <!-- Label -->
+    <div class="elementlabel left">
+        <label for="text_alphanumeric" class="left inline   ">Text alphanumeric
+        </label>
+    </div>
+    <!-- Form Fields -->
+    <div class="elementinput left">
+
+        <!-- Input fields -->
+        <input type="text" data-validation="alphanumeric" id="text_alphanumeric" name="text_alphanumeric" placeholder="">
+
+        <!-- Error Display -->
+        <small class="error errorimage">Please enter a string that contains only letters and numbers</small>
+        <span class="inline-help"></span>
+    </div>
+</div>
+<div class="row">
+    <!-- Label -->
+    <div class="elementlabel left">
+        <label for="text_hexadecimal" class="left inline   ">Text hexadecimal
+        </label>
+    </div>
+    <!-- Form Fields -->
+    <div class="elementinput left">
+
+        <!-- Input fields -->
+        <input type="text" data-validation="hexadecimal" id="text_hexadecimal" name="text_hexadecimal" placeholder="">
+
+        <!-- Error Display -->
+        <small class="error errorimage">Please enter a valid hexadecimal number</small>
+        <span class="inline-help"></span>
+    </div>
+</div>
+<div class="row">
+    <!-- Label -->
+    <div class="elementlabel left">
+        <label for="text_color" class="left inline   ">Text color
+        </label>
+    </div>
+    <!-- Form Fields -->
+    <div class="elementinput left">
+
+        <!-- Input fields -->
+        <input type="text" data-validation="color" id="text_color" name="text_color" placeholder="">
+
+        <!-- Error Display -->
+        <small class="error errorimage">Please enter a valid hexadecimal color</small>
+        <span class="inline-help"></span>
+    </div>
+</div>
+<div class="row">
+    <!-- Label -->
+    <div class="elementlabel left">
+        <label for="text_lowercase" class="left inline   ">Text lowercase
+        </label>
+    </div>
+    <!-- Form Fields -->
+    <div class="elementinput left">
+
+        <!-- Input fields -->
+        <input type="text" data-validation="lowercase" id="text_lowercase" name="text_lowercase" placeholder="">
+
+        <!-- Error Display -->
+        <small class="error errorimage">Please enter a valid string in lowercase</small>
+        <span class="inline-help"></span>
+    </div>
+</div>
+<div class="row">
+    <!-- Label -->
+    <div class="elementlabel left">
+        <label for="text_uppercase" class="left inline   ">Text uppercase
+        </label>
+    </div>
+    <!-- Form Fields -->
+    <div class="elementinput left">
+
+        <!-- Input fields -->
+        <input type="text" data-validation="uppercase" id="text_uppercase" name="text_uppercase" placeholder="">
+
+        <!-- Error Display -->
+        <small class="error errorimage">Please enter a valid string in uppercase</small>
+        <span class="inline-help"></span>
+    </div>
+</div>
+<div class="row">
+    <!-- Label -->
+    <div class="elementlabel left">
+        <label for="text_integer" class="left inline   ">Text integer
+        </label>
+    </div>
+    <!-- Form Fields -->
+    <div class="elementinput left">
+
+        <!-- Input fields -->
+        <input type="text" data-validation="integer" id="text_integer" name="text_integer" placeholder="">
+
+        <!-- Error Display -->
+        <small class="error errorimage">Please enter a valid integer</small>
+        <span class="inline-help"></span>
+    </div>
+</div>
+<div class="row">
+    <!-- Label -->
+    <div class="elementlabel left">
+        <label for="text_float" class="left inline   ">Text float
+        </label>
+    </div>
+    <!-- Form Fields -->
+    <div class="elementinput left">
+
+        <!-- Input fields -->
+        <input type="text" data-validation="float" id="text_float" name="text_float" placeholder="">
+
+        <!-- Error Display -->
+        <small class="error errorimage">Please enter a valid float</small>
+        <span class="inline-help"></span>
+    </div>
+</div>
+<div class="row">
+    <!-- Label -->
+    <div class="elementlabel left">
+        <label for="text_divisible" class="left inline   ">Text divisible
+        </label>
+    </div>
+    <!-- Form Fields -->
+    <div class="elementinput left">
+
+        <!-- Input fields -->
+        <input type="text" data-validation="divisible" data-divisibleby="5" id="text_divisible" name="text_divisible" placeholder="">
+
+        <!-- Error Display -->
+        <small class="error errorimage">Please enter a valid number</small>
+        <span class="inline-help"></span>
+    </div>
+</div>
+<div class="row">
+    <!-- Label -->
+    <div class="elementlabel left">
+        <label for="text_length" class="left inline   ">Text length
+        </label>
+    </div>
+    <!-- Form Fields -->
+    <div class="elementinput left">
+
+        <!-- Input fields -->
+        <input type="text" data-validation="length" data-minlength="2" data-maxlength="5" id="text_length" name="text_length" placeholder="">
+
+        <!-- Error Display -->
+        <small class="error errorimage">Please enter a valid string length</small>
+        <span class="inline-help"></span>
+    </div>
+</div>
+<div class="row">
+    <!-- Label -->
+    <div class="elementlabel left">
+        <label for="text_date" class="left inline   ">Text date
+        </label>
+    </div>
+    <!-- Form Fields -->
+    <div class="elementinput left">
+
+        <!-- Input fields -->
+        <input type="date" data-validation="date" id="text_date" name="text_date" placeholder="">
+
+        <!-- Error Display -->
+        <small class="error errorimage">Please enter a valid date</small>
+        <span class="inline-help"></span>
+    </div>
+</div>
+<div class="row">
+    <!-- Label -->
+    <div class="elementlabel left">
+        <label for="text_afterdate" class="left inline   ">Text afterdate
+        </label>
+    </div>
+    <!-- Form Fields -->
+    <div class="elementinput left">
+
+        <!-- Input fields -->
+        <input type="date" data-validation="afterdate" data-minlength="" id="text_afterdate" name="text_afterdate" placeholder="">
+
+        <!-- Error Display -->
+        <small class="error errorimage">Please enter a valid date</small>
+        <span class="inline-help"></span>
+    </div>
+</div>
+<div class="row">
+    <!-- Label -->
+    <div class="elementlabel left">
+        <label for="text_beforedate" class="left inline   ">Text beforedate
+        </label>
+    </div>
+    <!-- Form Fields -->
+    <div class="elementinput left">
+
+        <!-- Input fields -->
+        <input type="date" data-validation="beforedate" data-minlength="" id="text_beforedate" name="text_beforedate" placeholder="">
+
+        <!-- Error Display -->
+        <small class="error errorimage">Please enter a valid date</small>
+        <span class="inline-help"></span>
+    </div>
+</div>
+<div class="row">
+    <!-- Label -->
+    <div class="elementlabel left">
+        <label for="text_time" class="left inline   ">Text time
+        </label>
+    </div>
+    <!-- Form Fields -->
+    <div class="elementinput left">
+
+        <!-- Input fields -->
+        <input type="time" data-validation="time" id="text_time" name="text_time" placeholder="">
+
+        <!-- Error Display -->
+        <small class="error errorimage">Please enter a valid time</small>
+        <span class="inline-help"></span>
+    </div>
+</div>
+<div class="row">
+    <!-- Label -->
+    <div class="elementlabel left">
+        <label for="text_inarray" class="left inline   ">Text inarray
+        </label>
+    </div>
+    <!-- Form Fields -->
+    <div class="elementinput left">
+
+        <!-- Input fields -->
+        <input type="text" data-validation="inarray" id="text_inarray" name="text_inarray" placeholder="">
+
+        <!-- Error Display -->
+        <small class="error errorimage">Please enter a valid value</small>
+        <span class="inline-help"></span>
+    </div>
+</div>
+<div class="row">
+    <!-- Label -->
+    <div class="elementlabel left">
+        <label for="text_creditcard" class="left inline   ">Text creditcard
+        </label>
+    </div>
+    <!-- Form Fields -->
+    <div class="elementinput left">
+
+        <!-- Input fields -->
+        <input type="text" data-validation="creditcard" id="text_creditcard" name="text_creditcard" placeholder="">
+
+        <!-- Error Display -->
+        <small class="error errorimage">Please enter a valid credit card</small>
+        <span class="inline-help"></span>
+    </div>
+</div>
+<div class="row">
+    <!-- Label -->
+    <div class="elementlabel left">
+        <label for="text_ip" class="left inline   ">Text ip
+        </label>
+    </div>
+    <!-- Form Fields -->
+    <div class="elementinput left">
+
+        <!-- Input fields -->
+        <input type="text" data-validation="ip" data-ipversion="" id="text_ip" name="text_ip" placeholder="">
+
+        <!-- Error Display -->
+        <small class="error errorimage">Please enter a valid IP</small>
+        <span class="inline-help"></span>
+    </div>
+</div>
+<div class="row">
+    <!-- Label -->
+    <div class="elementlabel left">
+        <label for="text_area" class="left inline   ">Textarea
+        </label>
+    </div>
+    <!-- Form Fields -->
+    <div class="elementinput left">
+
+        <!-- Input fields -->
+        <textarea data-validation="validtext" id="text_area" name="text_area" placeholder="">
+        </textarea>
+
+        <!-- Error Display -->
+
+        <span class="inline-help"></span>
+    </div>
+</div>
+<div class="row">
+    <!-- Label -->
+    <div class="elementlabel left">
+        <label for="" class="left inline   ">Description
+        </label>
+    </div>
+    <!-- Form Fields -->
+    <div class="elementinput left">
+
+        <!-- Input fields -->
+                    <span class="optionselection inline">
+                        <label>Description</label>
+                    </span>
+
+        <!-- Error Display -->
+
+        <span class="inline-help"></span>
+    </div>
+</div>
+<div class="row">
+    <!-- Label -->
+    <div class="elementlabel left">
+        <label for="checkbox_field" class="left inline   ">Checkbox
+        </label>
+    </div>
+    <!-- Form Fields -->
+    <div class="elementinput left">
+
+        <!-- Input fields -->
+                    <span>
+                            <div class="optionselection">
+                                <input type="checkbox" data-validation="validtext" id="checkbox_enable" name="enable_disable" value="enable" checked="">
+                                <label for="checkbox_enable">Option 1</label>
+                            </div>
+                            <div class="optionselection">
+                                <input type="checkbox" data-validation="validtext" id="checkbox_disable" name="enable_disable" value="disable">
+                                <label for="checkbox_disable">Option 2</label>
+                            </div>
+                    </span>
+
+        <!-- Error Display -->
+
+        <span class="inline-help"></span>
+    </div>
+</div>
+<div class="row">
+    <!-- Label -->
+    <div class="elementlabel left">
+        <label for="dropdown_field" class="left inline   required  ">Dropdown
+        </label>
+    </div>
+    <!-- Form Fields -->
+    <div class="elementinput left styleselect">
+
+        <!-- Input fields -->
+        <select data-validation="validtext" id="dropdown_field" name="dropdown_field" required="">
+            <option value="">
+                Select an option
+            </option>
+            <option value="option1">
+                Option 1
+            </option>
+            <option value="option2">
+                Option 2
+            </option>
+            <option value="option3">
+                Option 3
+            </option>
+        </select>
+
+        <!-- Error Display -->
+        <small class="error errorimage">Please make a selection</small>
+        <span class="inline-help help-style">Dropdown help text</span>
+    </div>
+</div>
+<div class="row">
+    <!-- Label -->
+    <div class="elementlabel left">
+        <label for="radio_field" class="left inline   required  ">Radio Buttons
+        </label>
+    </div>
+    <!-- Form Fields -->
+    <div class="elementinput left">
+
+        <!-- Input fields -->
+        <div class="optionselection">
+            <input type="radio" data-validation="validtext" id="radio1" name="radio_button" value="option1" required="">
+            <label for="radio1">Option 1</label>
+        </div>
+        <div class="optionselection">
+            <input type="radio" data-validation="validtext" id="radio2" name="radio_button" value="option2" required="">
+            <label for="radio2">Option 2</label>
+        </div>
+
+        <!-- Error Display -->
+        <small class="error errorimage">Please make a selection</small>
+        <span class="inline-help help-style">Radio Buttons help text</span>
+    </div>
+</div>
+
+</div>
+
+<!-- Buttons -->
+<div class="row">
+    <div class="elementlabel left">&nbsp;</div>
+    <div class="elementinput left">
+        <input type="submit" class="button" id="update" name="update" value="Update">
+    </div>
+</div>
+
+<div class="row">
+</div>
+
+</div>
+</form>

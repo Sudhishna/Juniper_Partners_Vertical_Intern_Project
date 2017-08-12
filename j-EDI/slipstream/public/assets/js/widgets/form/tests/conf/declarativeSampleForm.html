@@ -1,0 +1,113 @@
+<form id="declarative_sample_form" name="sample_form" class="form-pattern validate" novalidate="" data-err-timeout="1000" data-valid-timeout="5000" form-pattern-validator="">
+
+    <div class="slipstream-content-title">
+        <div>
+            Sample Form Widget
+            <span class="ua-field-help form-title-help tooltip" data-ua-id="alias_for_title_ua_event_binding" title="tittle with tooltip"></span>
+        </div>
+    </div>
+    <h5>Subtitle</h5>
+    <h6>Subtitle text</h6>
+
+    <div>
+        <div class = "left twoColumns">
+            <div class="row">
+                <!-- Label -->
+                <div class="elementlabel left">
+                    <label for="text_string" class="left inline labelwithfieldhelp">Text string</label>
+                    <span class="ua-field-help form-element tooltip" data-ua-id="alias_for_ua_event_binding2" title="input field with tooltip"></span>
+                </div>
+                <!-- Form Fields -->
+                <div class="elementinput left">
+                    <!-- Input fields -->
+                    <input type="text" data-validation="validtext" id="text_field" name="text_feld" placeholder="required" required="" value="">
+                    <!-- Error Display -->
+                    <small class="error errorimage">Please enter a value for this field</small>
+                    <span class="inline-help help-style">Inline help text</span>
+                </div>
+            </div>
+            <div class="row">
+                <!-- Label -->
+                <div class="elementlabel left">
+                    <label for="text_area" class="left inline required">Text email</label>
+                </div>
+                <!-- Form Fields -->
+                <div class="elementinput left">
+                    <!-- Input fields -->
+                    <input type="email" data-validation="email" id="text_area" name="text_email" placeholder="" required="" value="mvilitanga@gmail.com">
+                    <!-- Error Display -->
+                    <small class="error errorimage">Please enter a valid email</small>
+                </div>
+            </div>
+            <div class="row">
+                <!-- Label -->
+                <div class="elementlabel left">
+                    <label for="text_url" class="left inline">Text url</label>
+                </div>
+                <!-- Form Fields -->
+                <div class="elementinput left">
+                    <!-- Input fields -->
+                    <input type="url" data-validation="url" id="text_url" name="text_url" placeholder="http://www.juniper.net" value="www.gmail.com">
+                    <!-- Error Display -->
+                    <small class="error errorimage">Please enter a valid URL</small>
+                    <span class="inline-help"></span>
+                </div>
+            </div>
+        </div>
+        <div class="left">
+            <div class="row  show">
+                <!-- Label -->
+                <div class="elementlabel left">
+                    <label for="checkbox_field" class="left inline  required">
+                        Checkbox
+                    </label>
+                </div>
+                <!-- Form field -->
+                <div class="elementinput left">
+                    <!-- Input field -->
+                    <div class="optionselection">
+                        <input type="checkbox" data-validation="validtext" id="checkbox_enable" name="enable_disable" value="enable" checked="" required="">
+                        <label for="checkbox_enable">Option 1</label>
+                    </div>
+                    <div class="optionselection">
+                        <input type="checkbox" data-validation="validtext" id="checkbox_disable" name="enable_disable" value="disable" disabled="" required="">
+                        <label for="checkbox_disable" class="disabled">Option 2</label>
+                    </div>
+                    <!-- Error-UA display -->
+                    <small class="error errorimage">Please make a selection</small>
+                    <span class="inline-help"></span>
+                </div>
+            </div>
+            <div class="row">
+                <!-- Label -->
+                <div class="elementlabel left">
+                    <label for="radio_field" class="left inline">Radio Button</label>
+                </div>
+                <!-- Form Fields -->
+                <div class="elementinput left">
+                    <!-- Input fields -->
+                    <div class="optionselection">
+                        <input type="radio" data-validation="validtext" id="radio1" name="radio_button" value="option1">
+                        <label for="radio1">Option 1</label>
+                    </div>
+                    <div class="optionselection">
+                        <input type="radio" data-validation="validtext" id="radio2" name="radio_button" value="option2">
+                        <label for="radio2">Option 2</label>
+                    </div>
+                    <!-- Error Display -->
+                    <small class="error errorimage">Please make a selection</small>
+                    <span class="inline-help help-style">Radio Buttons help text</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Buttons -->
+    <div class="buttons row buttons_row clear">
+        <div class="elementinput left ">
+            <input type="submit" class="slipstream-primary-button slipstream-secondary-button" id="add_section" name="add_section" value="Add Section">
+            <input type="submit" class="slipstream-primary-button " id="get_values" name="get_values" value="Get Values">
+        </div>
+    </div>
+
+</form>

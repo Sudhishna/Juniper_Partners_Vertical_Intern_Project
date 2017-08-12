@@ -1,0 +1,46 @@
+<div class='row commitStatusMessage'>
+    {{^committing}}
+        {{#success}}
+            <span class= "icon_success"></span>
+            <span class= "commit_heading">{{successHeading}}</span>
+        {{/success}}
+    
+        {{^success}}
+            <span class= "icon_error"></span>
+            <span class= "commit_heading">{{errorHeading}}</span>
+            <span>{{response}}</span>
+        {{/success}}
+    {{/committing}}
+    <div>
+	{{{message}}}
+    </div>
+</div>
+
+{{#committing}}
+<div class='row progressContainer'>
+	<img src='/assets/images/shortWizard/icon_progress_indicator.png' class='progressIndicator'/>
+</div>
+{{/committing}}
+
+<div class='row'>
+	<ul class='commitStatusErrors'></ul>
+</div>
+
+{{^committing}}
+{{^success}}
+<div class="start-over">{{startOverMessage}}</div>
+{{/success}}
+{{/committing}}
+
+{{#footer}}
+<div class='row commitFooter'>
+    <div class='commitFooterMessage'>
+        {{commitFooterMessage}}
+    </div>
+	<ul>
+	{{#footer.link}}
+		<li><a class='relatedLinks' href='#' data={{data}} data-type={{dataType}} >{{label}}</a></li>
+	{{/footer.link}}
+	</ul>
+</div>
+{{/footer}}

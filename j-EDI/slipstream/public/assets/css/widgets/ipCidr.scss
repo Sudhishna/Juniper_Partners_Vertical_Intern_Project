@@ -1,0 +1,42 @@
+.ip-cidr-widget{
+  .row_ip{
+    float:left;
+  }
+  .row_cidr{
+    float:left;
+    .elementlabel{
+      width: 10px;
+      margin-left: 5px;
+    }
+    .elementinput{
+      width:45px;
+      input{
+        width: 45px;
+      }
+    }
+  }
+  .row_subnet{
+    float:left;
+    width:100%;
+    .elementlabel{
+     > label{
+      &.inline{
+        margin-bottom: 0px;
+        padding-bottom: 0px;
+      }
+    }
+   }
+  }
+}
+#ip_cidr_test_form{
+  .copy_row .ip_cidr{
+    float: left;
+    padding: 5px;
+  }
+  .copy_row .row_subnet{
+    width: auto;
+  }
+  .copy_row_buttons .elementinput{
+    width: auto;
+  }
+}

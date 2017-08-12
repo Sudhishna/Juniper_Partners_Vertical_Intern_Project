@@ -1,0 +1,42 @@
+<!doctype html>
+<html class="no-js" lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Test Tooltip Menu Widget</title>
+    <link rel="stylesheet" href="/assets/css/app.css" />
+</head>
+<body>
+
+<div id="main_content" class="tooltip-widget-test slipstream-widget-test-page">
+    <div class="slipstream-content-title">Tooltip Widget</div>
+    <h4>Tooltip Examples</h4>
+    <ol>
+        <li>
+            Tooltip with simple text on the link: <a href="http://google.com" class="tooltip" title="This is my link's tooltip message! This is my link's tooltip message! This is my link's tooltip message! This is my link's tooltip message! This is my link's tooltip message!">Test of a link</a>
+        </li>
+        <li>
+            Tooltip with simple text on the image: <span class="ua-field-help tooltip" title="Test Help Tooltip"></span>
+        </li>
+        <li class="tooltip viewLine" title="&lt;img src=&quot;/assets/images/icon_search_14X15.png&quot; /&gt; &lt;strong&gt; This text is in bold case !&lt;/strong&gt;">
+            Tooltip with image on hover over the text
+        </li>
+        <li id="stringTooltip" class="viewLine">
+            Tooltip with string on the view
+        </li>
+        <li id="linkTooltip" class="viewLine">
+            Tooltip with link on hover over the text
+        </li>
+        <li id="formTooltip" class="viewLine">
+            Tooltip with form on hover over the text
+        </li>
+    </ol>
+
+    <h4>Destroy Tooltip</h4>
+    <span class="destroy slipstream-primary-button">Example #1,#2,#3</span>
+    <span class="destroyTooltipStringView slipstream-primary-button">Example #4</span>
+</div>
+
+<script data-main="main" src="/assets/js/vendor/require/require.js"></script>
+</body>
+</html>

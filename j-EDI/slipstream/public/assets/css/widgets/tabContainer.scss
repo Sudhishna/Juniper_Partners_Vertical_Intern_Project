@@ -1,0 +1,261 @@
+.tabContainer-widget{
+   @import "../../js/vendor/jquery/tabs/jquery-ui";
+   @import "../../js/vendor/jquery/tabs/vertical-tabs";
+
+  clear: both;
+  .ui-widget,  .ui-widget select, .ui-widget input{
+    font-family: $body-font-family;
+    font-size:12px;
+  }
+  /*Overrides the default background property of ui-state-default, ui-widget-content, 
+   *ui-corner-top and ui-corner-all for any widgets being rendered inside Tabs
+   */
+  .ui-state-default{
+    border:0px;
+    background:none !important;
+  }
+  .ui-corner-top{
+    border-top-left-radius:0px !important;
+    border-top-right-radius:0px !important;
+  }
+
+  .ui-corner-all{
+    border-bottom-right-radius:0px !important;
+    border-bottom-left-radius:0px !important;
+    border-top-right-radius: 0px !important;
+    border-top-left-radius: 0px !important;
+  }
+  .ui-widget-content{
+    overflow: auto;
+    border:0px;
+    .ui-state-active{
+      border: 0;
+      color: $body-bg;
+    }
+  }
+  .slipstream-content-title{
+    position: relative !important;
+  }
+  .removesBlueBorderChrome { //removes blue line around container on Chrome
+    &:hover, &:focus{
+      outline: 0;
+    }
+  }
+  .tabContainer-withBorder{
+    border: 1px solid $border-color !important;
+    border-radius: 0px !important;
+  }
+  .reset-tabContainer{
+    border:none;
+    background:none;
+  }
+  .ui-tabs{ //.tabContainer-widget_allTabs container
+    @extend .reset-tabContainer;
+    padding-top: 20px !important;
+    .ui-tabs-nav{ //.tabContainer-widget_tabLink container
+      @extend .reset-tabContainer;
+      padding: 0px;
+      li{
+        border-bottom: 1px solid $border-color !important;
+        height: 38px;
+        overflow: hidden;
+        &.ui-state-default{
+          margin: 0px  !important;
+          padding: 0px;
+          border-radius: 0px !important;
+          background: $tab-background-color !important;
+          margin-bottom: -1px !important;
+          a{
+            font-size: 15px;
+            color:$form-label-color !important;
+            padding-left: 50px;
+            padding-right: 50px;
+            @extend .removesBlueBorderChrome;
+          }
+          @extend .removesBlueBorderChrome;
+        }
+        &.ui-state-active{
+          background: $tabContainer-background-color !important;
+          border-top: 5px solid $active-border-top-color !important;
+          border-bottom: 1px solid $tabContainer-background-color !important;
+          position: relative;
+          z-index: 3;
+          a{
+            font-weight: bold;
+            color:$table-row-font-color !important;
+          }
+        }
+        &:first-child{
+          border-left: 1px solid $border-color !important;
+        }
+        @extend .removesBlueBorderChrome;
+      }
+    }
+    .tabContainer-widget_content{
+      height: 100% !important;
+      padding-top: 25px;
+      padding-left: 30px;
+      border: 1px solid $border-color !important;
+      background: $tabContainer-background-color !important;
+    }
+  }
+  .errorIcon{
+    @extend .icon_error, .icon_error-dims;
+    display: inline-block;
+    position: absolute;
+    right: 14px;
+    top: 8px;
+    }
+  .tabContainer-widget_allButtons {
+    padding-top: 5px;
+  }
+
+  /*tab specific layouts*/
+  .ui-tabs-vertical{
+    @extend .tabContainer-withBorder;
+    padding-top: 0px !important;
+    .tabContainer-widget_content{
+        border: none !important;
+        padding-top: 25px !important;
+    }
+    .ui-tabs-nav{
+      padding: 0px;
+      width: 160px;
+      background: none;
+      margin-right: -1px;
+      margin-left: -2px;
+      li{
+        &.ui-state-default{
+        border-top: 0px solid !important;
+        border-left: 0px solid !important;
+        border-bottom: 2px solid $border-color !important;
+        border-right: 1px solid $border-color !important;
+        border-radius:0px;
+        a{
+          padding-left: 20px !important;
+         }
+        } 
+        &.ui-state-active{
+          background: $tabContainer-background-color !important;
+          border-top: 5px solid $active-border-top-color !important;
+          border-right: 1px solid $tabContainer-background-color !important;
+          border-bottom: 1px solid $border-color !important;
+          position: relative;
+          z-index: 3;
+          a{
+            font-weight: $tab-font-style;
+            color:#444 !important;
+          }
+        }
+      }
+    }
+    .ui-tabs-panel {
+      width: calc(100% - 188px);
+      padding-top: 0px;
+      padding-left: 35px;
+    }
+  }
+  &.tabContainer-toggle{
+    & > .ui-tabs{
+      & > .ui-tabs-nav li{
+        height: auto !important;
+        a{
+          font-size: 12px !important;
+          font-family: $body-font-family;
+          color: $button-active-font-color !important;
+          min-width: 70px;
+          height: 30px;
+          padding: 8px 25px !important;
+        }
+        &.ui-state-active{
+          border: 1px solid $button-active-border !important;
+          background-color: $button-active-background !important;
+          a{
+            color: $button-font-color !important;
+          }
+        }
+      }
+      & > .tabContainer-widget_content{
+        padding-left: 0px;
+        border: 0px !important;
+        .form_section{
+          margin-left: 4px !important;
+        }
+      }
+    }
+  }
+  &.ui-tabs-float-right{
+    .ui-tabs-nav li{
+    float: right;   
+    }
+  }
+  &.tabContainer-navigation{
+    & > .ui-tabs{
+      padding-top: 0px !important;
+      & > .ui-tabs-nav {
+        li{
+          height: 38px !important;
+          border: 0px !important;
+          background-color: $tabContainer-background-color !important;
+          a{
+            font-size: 14px !important;
+            font-family: $body-font-family;
+            color: $tab-navigation-font-inactive !important;
+            min-width: 70px;
+            height: 24px;
+            padding-top:3px;
+            background-color: $body-bg !important;
+            border-bottom: 1px solid $border-color !important;
+            .errorIcon{
+              top: 2px;
+            }
+          }
+          &.ui-state-active{
+            display: flex;
+            flex-direction: column; //vertical alignment
+            a{
+              color: $tab-navigation-font-active !important;
+              line-height: 24px;
+              padding-top: 0px;
+            }
+            .navigation-icon-wrapper{
+              margin: auto;
+              margin-top: -1px;
+              .navigation-icon{
+                @extend .icon_carrot_navigation, .icon_carrot_navigation-dims;
+                display: inline-block;
+                margin: 0 auto;
+              }
+            }
+          }
+        }
+        .navigationEnd {
+          width: 100%;
+          .navigationEndTop {
+            height: 24px;
+            display: block;
+            background-color: $body-bg;
+            border-bottom: 1px solid $border-color;
+          }
+        }
+      }
+      & > .tabContainer-widget_content{
+        border: 0px !important;
+      }
+    }
+  }
+}
+
+.tabContainer-widget-test{
+  .tabOnOverlay, .tabOnOverlayWithToggle, .tabsAlignedRight, .removeTab, .addTab{
+    color: $link-active-color;
+    font-size: 12px;
+    padding-left:20px;
+  }
+  .internal-title{
+    background-color: $body-bg;
+    border-bottom: 0px;
+    margin-bottom: 0px;
+    padding: 10px 0px 30px;
+  }
+}

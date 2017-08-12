@@ -1,0 +1,78 @@
+@import "../../js/vendor/jquery/jqContextMenu/jquery.contextMenu.scss";
+.context-menu-list{
+  box-shadow: none;
+  padding:8px 0px;
+  background-color: $body-bg;
+  .context-menu-item{
+    background-color: $body-bg;
+    font:12px $body-font-family;
+    padding:4px 15px 4px 18px;
+    color: $body-font-color;
+    &:hover{
+      background-color:$input-active-border;
+      color: $body-bg;
+    }
+    &.disabled{
+      color: $input-disabled-bg !important;
+    }
+    &.icon{
+      padding:4px 15px 4px 38px;
+    }
+    &.context-menu-separator{
+      padding-top:0px !important;
+      padding-bottom:0px !important;
+      margin: 2px 0px !important;
+    }
+    &.context-menu-input{
+      padding: 6px 30px 6px 32px;
+      line-height: 12px;
+      & > label{
+        font-weight: normal;
+        margin-bottom: 0px;
+        & > input{
+          margin-bottom: 0px;
+        }
+        &:hover{
+          background-color:$input-active-border;
+          color: $body-bg;
+        }
+      }
+    }
+    &.contextMenuTitle{
+      padding-left: 12px;
+      padding-top: 10px;
+      label{
+        cursor: default
+      }
+      input{
+        display: none;
+      }
+      &:hover, label:hover{
+        background-color: transparent;
+        color: inherit;
+      }
+    }
+    &.context-menu-submenu:after{
+      padding-top: 4px;
+      right: 5px;
+    }
+    &.context-menu-submenu.disabled:after{
+      color: $input-disabled-bg;
+    }
+  }
+}
+
+.context-menu-widget-test{
+  h3{
+    font-family: $header-font-family;
+    border-bottom: 1px solid $border-color;
+    margin-bottom: 24px;
+  }
+  .box {
+    width: 100px;
+    padding: 5px;
+    color: $body-bg;
+    margin-bottom: 30px;
+    background-color: $input-active-border;
+  }
+}

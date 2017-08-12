@@ -1,0 +1,15 @@
+<div class='title slipstream-content-title'>{{title}}</div>
+<div class='question'>{{{question}}}</div>
+{{#doNotShowAgainMessage}}
+    <div class="doNotShowAgain">
+        <input type='checkbox' class='doNotShowAgainCheckbox'><span class='doNotShowAgainMessageText'>{{doNotShowAgainMessage}}</span>
+    </div>
+{{/doNotShowAgainMessage}}
+<div class='confirmationDialogButtons'>
+    {{#cancelLinkLabel}}<span class='cancelLink'>{{cancelLinkLabel}}</span>{{/cancelLinkLabel}}
+	<div class='confirmationButtons'>
+        {{#noButtonLabel}}<button class='noButton slipstream-secondary-button' type='button'>{{noButtonLabel}}</button>{{/noButtonLabel}}
+		<button class='yesButton slipstream-primary-button' type='button'>{{yesButtonLabel}}</button>
+	</div>
+	<div class='clearfix'></div>
+</div>

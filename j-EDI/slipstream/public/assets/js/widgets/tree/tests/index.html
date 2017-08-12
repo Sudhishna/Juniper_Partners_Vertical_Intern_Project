@@ -1,0 +1,32 @@
+<!doctype html>
+<html class="no-js" lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tree Widget</title>
+    <link rel="stylesheet" href="/assets/css/app.css" />
+</head>
+<body>
+    <div id="main_content" class="slipstream-widget-test-page">
+
+    <div class="slipstream-content-title">Tree Widget</div>
+
+    <div>
+        <h4>Local Data</h4>
+        <button type="button" class="slipstream-secondary-button tree-local-search">Filter on "orpheus"</button>
+        <button type="button" class="slipstream-secondary-button tree-local-reset">Reset Filter</button>
+        <div id="tree-local"></div>
+    </div>
+    <hr>
+    <div>
+        <h4>Remote Data with lazy load</h4>
+        <button type="button" class="slipstream-secondary-button tree-remote-search">Filter on "orpheus"</button>
+        <button type="button" class="slipstream-secondary-button tree-remote-reset">Reset Filter</button>
+        <div id="tree-remote"></div>
+    </div>
+
+    </div>
+    <div id="overlay_content"></div>
+    <script data-main="main" src="/assets/js/vendor/require/require.js"></script>
+</body>
+</html>

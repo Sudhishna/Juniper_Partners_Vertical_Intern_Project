@@ -1,0 +1,17 @@
+.barChart {
+
+	height: inherit;
+	width: inherit;
+
+	.barLabelEllipsis {
+        overflow: hidden;
+    }
+}
+
+.highcharts-tooltip span {
+	background-color:#fefefe;
+	opacity:1;
+	z-index:9999!important;
+	padding:8px;
+	border:1px solid #aaaaaa;
+}

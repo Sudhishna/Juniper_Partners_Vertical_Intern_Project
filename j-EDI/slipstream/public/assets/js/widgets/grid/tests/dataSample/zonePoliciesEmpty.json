@@ -1,0 +1,19 @@
+{
+    "from-zone-name": "untrust-inet",
+    "to-zone-name": "trust-inet",
+    "junos:comment": [
+        "/* PSP to Cogent - BP&amp;Internet - 11-30-2009 PSP to Cogent, Sante 12-23-2010 added Ohio, California */",
+        "/* PSP IPSec drop rule - PSP VPN to Rissnet 08-22-08 Sante */",
+        "/* PSP sFTP accessfrom internet - CSD 578275 / CRQ 4925    04-17-2012, Waiver approved - sante */",
+        "/* INS to Sircon - INS vpn with Sircon 07/07/2008 sante */",
+        "/* INS to Sircon drop em */",
+        "/* LOT - VPN Tunnell - Lottery VPN Tunnel - 8/2/2007 - KTS */",
+        "/* Treasury to T3 Technologies - Treasury Waiver request for VPN tunnel 11-01-2010 Sante */",
+        "/* SEC - NEMO Project  - Waiver &amp;#35; 1156 - Pa. SEC VPN connection with NEMO 6/21/2011 Sante */",
+        "/* VPN Cleanup rule &amp;&#35;40;IPSec&#41; */",
+        "/* Blue Coat drop rule - CRQ 4620 04-11-2012 Sante */"
+    ],
+    "junos:total": 0,
+    "policy": [],
+    "context": "untrust-inet,trust-inet"
+}

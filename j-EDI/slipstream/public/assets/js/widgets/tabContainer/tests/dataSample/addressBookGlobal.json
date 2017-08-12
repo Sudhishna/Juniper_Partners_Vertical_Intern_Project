@@ -1,0 +1,129 @@
+{
+    "name": "global",
+    "address": [
+        {
+            "name": "IP_PSP_164.156.136.160",
+            "ip-prefix": "164.156.136.160"
+        },
+        {
+            "name": "IP_PSP_164.156.136.2",
+            "ip-prefix": "164.156.136.2"
+        },
+        {
+            "name": "IP_INS_164.156.141.4",
+            "ip-prefix": "164.156.141.4"
+        },
+        {
+            "name": "IP_PSP_172.21.109.42",
+            "ip-prefix": "172.21.109.42"
+        },
+        {
+            "name": "DLI_Address_164.156.7.236",
+            "ip-prefix": "164.156.7.236/32"
+        },
+        {
+            "name": "IP_DPW_204.186.62.2",
+            "ip-prefix": "204.186.62.2"
+        },
+        {
+            "name": "IP_PHEAA_216.37.216.250",
+            "ip-prefix": "216.37.216.250"
+        },
+        {
+            "name": "IP_PSP_149.101.21.124",
+            "ip-prefix": "149.101.21.124"
+        },
+        {
+            "name": "IP_Rissnet_65.5.59.34",
+            "ip-prefix": "65.5.59.34"
+        },
+        {
+            "name": "IP_PSP_199.224.123.82",
+            "ip-prefix": "199.224.123.82"
+        },
+        {
+            "name": "IP_PSP_209.243.54.181",
+            "ip-prefix": "209.243.54.181"
+        },
+        {
+            "name": "IP_PSP_209.243.54.180",
+            "ip-prefix": "209.243.54.180"
+        },
+        {
+            "name": "web1",
+            "ip-prefix": "164.156.7.234/32"
+        },
+        {
+            "name": "web2",
+            "ip-prefix": "164.156.7.235/32"
+        },
+        {
+            "name": "web3",
+            "ip-prefix": "164.156.7.236/32"
+        },
+        {
+            "name": "ftp1",
+            "ip-prefix": "164.156.7.237/32"
+        },
+        {
+            "name": "ftp2",
+            "ip-prefix": "164.156.7.238/32"
+        },
+        {
+            "name": "ftp3",
+            "ip-prefix": "164.156.7.239/32"
+        },
+        {
+            "name": "IP_PSP_12.197.68.4",
+            "ip-prefix": "12.197.68.4"
+        },
+        {
+            "name": "IP_PSP_64.173.86.142",
+            "ip-prefix": "64.173.86.142"
+        }
+    ],
+    "address-set": [
+        {
+            "name": "DLI_Group",
+            "address": [
+                {
+                    "name": "DLI_Address_164.156.7.234"
+                },
+                {
+                    "name": "DLI_Address_164.156.7.235"
+                },
+                {
+                    "name": "DLI_Address_164.156.7.236"
+                }
+            ]
+        },
+        {
+            "name": "web-servers",
+            "address": [
+                {
+                    "name": "web1"
+                },
+                {
+                    "name": "web2"
+                },
+                {
+                    "name": "web3"
+                }
+            ]
+        },
+        {
+            "name": "ftp-servers",
+            "address": [
+                {
+                    "name": "ftp1"
+                },
+                {
+                    "name": "ftp2"
+                },
+                {
+                    "name": "ftp3"
+                }
+            ]
+        }
+    ]
+}

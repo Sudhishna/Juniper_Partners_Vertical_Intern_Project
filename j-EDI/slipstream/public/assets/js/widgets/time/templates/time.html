@@ -1,0 +1,20 @@
+{{#elements}}
+    <!-- Form element -->
+    {{>partialElementStart}}
+
+    {{#element_time}}
+        <input type="text" data-validation="time" class="time_text" {{>partialInput}}>
+    {{/element_time}}
+    {{#element_period}}
+        <select data-validation="validtext" class="time_period" {{>partialInput}} >
+        {{#values}}
+            <option value="{{value}}" {{#selected}}selected{{/selected}}>
+             {{label}}
+            </option>
+        {{/values}}
+        </select>
+    {{/element_period}}
+
+    {{>partialElementEnd}}
+
+{{/elements}}

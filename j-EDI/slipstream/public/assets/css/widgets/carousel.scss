@@ -1,0 +1,108 @@
+//classes can't be imported in carousel-widget namespace because of charset usage, not an issue since though since all classes start with the "slick" string
+@import "../../js/vendor/jquery/slick/slick";
+@import "../../js/vendor/jquery/slick/slick-theme";
+
+.carousel-widget{
+  $carousel-item-border: #C0C9CC;
+  &.max-width-items .slick-slide { //default item max width
+    max-width: 450px;
+  }
+  .slick-list{
+    margin-left: 11px;
+    margin-right: 15px;
+    .slick-slide {
+      margin: 5px 8px 5px 0px;
+      border: 1px solid $border-color;
+      background-color: $body-bg;
+      padding: 10px;
+      overflow: hidden;
+      border-top: 4px solid $carousel-item-border;
+      box-shadow: 0px 1px 3px 0px $carousel-item-border;
+    }
+  }
+  .slick-prev{
+    @extend .icon_left_hover, .icon_left_hover-dims;
+    margin-left: 15px;
+    &::before{
+      content: "";
+    }
+    &:hover{
+      @extend .icon_left_hover, .icon_left_hover-dims;
+    }
+    &.slick-disabled{
+      @extend .icon_left, .icon_left-dims;
+      cursor: none;
+      &:hover{
+        @extend .icon_left, .icon_left-dims;
+      }
+    }
+  }
+  .slick-next{
+    @extend .icon_right_hover, .icon_right_hover-dims;
+    margin-right: 20px;
+    &::before{
+      content: "";
+    }
+    &:hover{
+      @extend .icon_right_hover, .icon_right_hover-dims;
+    }
+    &.slick-disabled{
+      @extend .icon_right, .icon_right-dims;
+      cursor: none;
+      &:hover{
+        @extend .icon_right, .icon_right-dims;
+      }
+    }
+  }
+
+}
+
+.carousel-widget-test{
+  .cards{
+    height:60px;
+    .title-help{
+      height: 16px;
+      width: 100%;
+      .title{
+        font-size: 14px;
+        color: $form-value-color;
+      }
+      .ua-field-help{
+        margin: 0px;
+        display: none;
+      }
+      &:hover .ua-field-help{
+        display: block;
+      }
+    }
+    .total{
+      width: 65px;
+      height: 70px;
+      font-family: $font-family-helvetica;
+      font-size: 58px;
+      font-weight: 100;
+      color: $table-head-grid-bg;
+    }
+    .description{
+      margin: 8px 0px 0px 12px;
+      font-family: $font-family-helvetica;
+      font-size: 11px;
+      line-height: 15px;
+      .subtitle{
+        color: $link-active-color;
+      }
+      .details{
+        color: $table-head-grid-bg;
+      }
+    }
+    .bars {
+      margin-left:0px;
+      .subtitle{
+        width: 50px;
+      }
+    }
+  }
+  .carousel-test{
+    margin-bottom: 20px;
+  }
+}

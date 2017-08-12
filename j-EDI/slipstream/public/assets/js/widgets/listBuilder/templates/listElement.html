@@ -1,0 +1,11 @@
+<div class="tooltip list-group-item" {{#tooltip}}title="{{tooltip}}" data-tooltip="{{tooltip}}"{{/tooltip}} {{#extraData}}data-extra="{{extraData}}"{{/extraData}}>
+    <input type="checkbox"
+    {{#value}}class="{{value}}"{{/value}}
+    {{#name}}name="{{name}}"{{/name}}
+    {{#value}}value="{{value}}"{{/value}}
+    >
+    <label for="{{value}}">{{label}}</label>
+    <a class="more-info">{{moreInfo}}</a>
+    {{#valueDetails}}<span class="data right">{{valueDetails}}</span>{{/valueDetails}}
+    {{#img_src}}<img class="right" src="{{img_src}}"/>{{/img_src}}
+</div>

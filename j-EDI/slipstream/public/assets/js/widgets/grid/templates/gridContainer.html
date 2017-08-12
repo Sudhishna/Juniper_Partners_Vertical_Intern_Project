@@ -1,0 +1,33 @@
+<div class="grid-widget" data-slipstream-grid-key={{key}}>
+    {{#title}}
+        <div class="slipstream-content-title">
+            {{title}}
+            {{#title-help}}
+                <span class="ua-field-help {{#title-help.content}}grid-title-help{{/title-help.content}}" {{#title-help.content}} title="{{title-help.content}}" {{/title-help.content}} {{#title-help.ua-help-identifier}}data-ua-id="{{title-help.ua-help-identifier}}"{{/title-help.ua-help-identifier}}></span>
+            {{/title-help}}
+        </div>
+    {{/title}}
+    <div class="action-filter-container {{action_id}}">
+        <div class="action-filter-wrapper">
+            {{#filter}}
+                {{>filterContainer}}
+            {{/filter}}
+            {{#management}}
+                {{>actionContainer}}
+            {{/management}}
+        </div>
+    </div>
+    {{#filter}}
+        <div class="search-save-container clear">
+            <div class="search-container"></div>
+            <div class="save-container actionMenu hide">Save<span></span></div>
+        </div>
+    {{/filter}}
+    <div class="clear"></div>
+
+    <table class="gridTable {{#edit_inline}}slipstream-edit-grid-inline{{/edit_inline}}" id={{table_id}}></table>
+    {{#footer}}
+        {{>footerContainer}}
+    {{/footer}}
+    <div class="grid-widget-end"></div>
+</div>

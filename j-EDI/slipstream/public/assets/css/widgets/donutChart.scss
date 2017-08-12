@@ -1,0 +1,12 @@
+.donutChart {
+	height: inherit;
+	width: inherit;
+
+	/*.highcharts-legend-item {
+		cursor: pointer;
+	}*/
+
+	.donutLegendLabelEllipsis {
+        overflow: hidden;
+    }
+}

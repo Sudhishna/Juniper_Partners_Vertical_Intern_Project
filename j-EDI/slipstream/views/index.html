@@ -1,0 +1,68 @@
+<!doctype html>
+<html class="no-js" lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="prefetch" href="/assets/images/icon-sprite.svg"/>
+        <link rel="stylesheet" href="/assets/css/app.css"/>
+        <script>
+            (function() {
+                if (navigator.userAgent.indexOf("Windows") == -1) {
+                    var css = document.createElement("link");
+                    css.type = "text/css";
+                    css.rel = "stylesheet";
+                    css.href = "/assets/css/osx_scrollbar.css";
+                    document.getElementsByTagName("head")[0].appendChild(css);
+                }
+            })();
+        </script>
+    </head>
+    <body class="slipstream">
+        <div id="slipstream_ui">
+        </div>
+        <script src="/assets/js/vendor/require/require.js"></script>
+        <script>
+            (function() {
+                // Set up cache busting
+                //require.config({
+                //    urlArgs: "{{build_hash}}" ? "v={{build_hash}}" : ""
+                //});
+
+                var main = "/assets/js/main";
+                var debug_main = main + ".debug";
+                var log_level = "none";
+
+                var getQueryString = function(q) {
+                    return (function(a) {
+                        if (a == "") return {};
+                        var b = {};
+                        for (var i = 0; i < a.length; ++i) {
+                           var p = a[i].split('=');
+                           if (p.length != 2) continue;
+                           b[p[0]] = decodeURIComponent(p[1].replace(/\+/g, " "));
+                        }
+                        return b;
+                    })(q.split("&"));
+                };
+
+                var parms = getQueryString(window.location.search.substring(1));
+                var main_script = main;
+
+                if (parms["debug"] == 'true') {
+                    log_level = "debug";
+                    main_script = debug_main;
+                }
+
+                if (parms["log"]) { // override default and implied log level
+                    log_level = parms["log"];
+                }
+
+                if (log_level == "none") {
+                    console.log = function() {}
+                }
+
+                require([main_script + ".js"]);
+            })();
+        </script>
+    </body>
+</html>

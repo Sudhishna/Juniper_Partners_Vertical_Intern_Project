@@ -1,0 +1,15 @@
+<div class="content-wrapper">
+    <div class="title">{{title}}</div>
+    <div>{{message}}</div>
+    <div>
+        {{#buttons}}
+        <input type="submit" class="button right"
+        {{#id}}id="{{id}}"{{/id}}
+        {{#name}}name="{{name}}"{{/name}}
+        {{#value}}value="{{value}}"{{/value}}
+        >
+        <span class="right">&nbsp;&nbsp;</span>
+        {{/buttons}}
+    </div>
+    <div style="clear:both">&nbsp;</div>
+</div>

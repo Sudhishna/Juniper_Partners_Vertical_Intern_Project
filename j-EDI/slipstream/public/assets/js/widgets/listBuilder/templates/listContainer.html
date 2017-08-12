@@ -1,0 +1,24 @@
+<div class="list-builder-widget">
+    <div class="box1">
+        {{>title}}
+        <div class="list-group">
+            {{#available}}
+                {{>element}}
+            {{/available}}
+        </div>
+    </div>
+    <div class="btn-group">
+        <span class="moveall"></span>
+        <span class="move"></span>
+        <span class="remove"></span>
+        <span class="removeall"></span>
+    </div>
+    <div class="box2">
+        {{>title}}
+        <div class="list-group">
+            {{#selected}}
+                {{>element}}
+            {{/selected}}
+        </div>
+    </div>
+</div>

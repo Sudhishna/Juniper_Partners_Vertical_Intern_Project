@@ -1,0 +1,276 @@
+{
+  "from-zone-name": "untrust-inet",
+  "to-zone-name": "trust-inet",
+  "junos:comment": [
+    "/* PSP to Cogent - BP&amp;Internet - 11-30-2009 PSP to Cogent, Sante 12-23-2010 added Ohio, California */",
+    "/* PSP IPSec drop rule - PSP VPN to Rissnet 08-22-08 Sante */",
+    "/* PSP sFTP accessfrom internet - CSD 578275 / CRQ 4925    04-17-2012, Waiver approved - sante */",
+    "/* INS to Sircon - INS vpn with Sircon 07/07/2008 sante */",
+    "/* INS to Sircon drop em */",
+    "/* LOT - VPN Tunnell - Lottery VPN Tunnel - 8/2/2007 - KTS */",
+    "/* Treasury to T3 Technologies - Treasury Waiver request for VPN tunnel 11-01-2010 Sante */",
+    "/* SEC - NEMO Project  - Waiver &amp;#35; 1156 - Pa. SEC VPN connection with NEMO 6/21/2011 Sante */",
+    "/* VPN Cleanup rule &amp;&#35;40;IPSec&#41; */",
+    "/* Blue Coat drop rule - CRQ 4620 04-11-2012 Sante */"
+  ],
+  "policy": [
+    {
+      "junos:position": 7,
+      "junos:total": 126,
+      "name": "194002-Treasury_to_T3_Technologies_-_Treasury_Waiver_request_fo",
+      "source-address": [
+        "IP_TRE_96.254.162.106"
+      ],
+      "destination-address": [
+        "IP_TRE_164.156.25.50",
+        "IP_TRE_164.156.25.57",
+        "IP_TRE_164.156.25.55",
+        "IP_TRE_164.156.25.54",
+        "IP_TRE_164.156.25.52",
+        "IP_TRE_164.156.25.51",
+        "Range_Tre_164.156.25.91_103"
+      ],
+      "application": [
+        "PPTP"
+      ],
+      "date": "2007-10-06",
+      "action": "permit"
+    },
+    {
+      "junos:position": 1,
+      "junos:total": 126,
+      "name": "183002-PSP_to_Cogent_-_BP___Internet_-_11-30-2009_PSP_to_Cogent",
+      "source-address": [
+        "IP_PSP_12.197.68.4",
+        "IP_PSP_64.173.86.142"
+      ],
+      "destination-address": [
+        "IP_PSP_164.156.136.160",
+        "IP_PSP_172.21.109.42"
+      ],
+      "application": [
+        "ESP",
+        "IKE",
+        "ftp",
+        "IKE_NAT_TRAVERSAL",
+        "TCP_3845"
+      ],
+      "application-services": {
+        "idp": true,
+        "utm-policy": "junos-vf-profile",
+        "application-firewall": "rules-set",
+        "application-traffic-control": "rule-set1"
+      },
+      "date": "2007-10-06",
+      "action": "permit"
+    },
+    {
+      "junos:position": 3,
+      "junos:total": 126,
+      "inactive": true,
+      "name": "185003-PSP_sFTP_accessfrom_internet_-_CSD_578275___CRQ_4925____",
+      "source-address": [
+        "any"
+      ],
+      "destination-address": [
+        "IP_PSP_164.156.136.2"
+      ],
+      "application": [
+        "ssh_state_synch"
+      ],
+      "application-services": {
+        "idp": true,
+        "utm-policy": "junos-vf-profile"
+      },
+      "date": "2007-10-06",
+      "action": "permit"
+    },
+    {
+      "junos:position": 4,
+      "junos:total": 126,
+      "name": "189002-INS_to_Sircon_-_INS_vpn_with_Sircon_07_07_2008_sante",
+      "inactive": true,
+      "source-address": [
+        "Sircon_Group"
+      ],
+      "destination-address": [
+        "IP_INS_164.156.141.4"
+      ],
+      "application": [
+        "ESP",
+        "IKE"
+      ],
+      "date": "2007-10-06",
+      "action": "permit"
+    },
+    {
+      "junos:position": 5,
+      "junos:total": 126,
+      "name": "190002-INS_to_Sircon_drop_em",
+      "source-address": [
+        "Sircon_Group"
+      ],
+      "destination-address": [
+        "IP_INS_164.156.141.4"
+      ],
+      "application": [
+        "any"
+      ],
+      "application-services": {
+        "utm-policy": "junos-vf-profile",
+        "application-firewall": "rules-set",
+        "application-traffic-control": "rule-set1"
+      },
+      "date": "2007-10-06",
+      "action": "deny"
+    },
+    {
+      "junos:position": 6,
+      "junos:total": 126,
+      "name": "191002-LOT_-_VPN_Tunnell_-_Lottery_VPN_Tunnel_-_8_2_2007_-_KTS",
+      "source-address": [
+        "IP_CONV_204.17.79.60"
+      ],
+      "destination-address": [
+        "IP_LOT_164.156.36.6",
+        "IP_LOT_164.156.36.7"
+      ],
+      "application": [
+        "GRE",
+        "UDP_1723"
+      ],
+      "date": "2007-10-06",
+      "action": "permit"
+    },
+    {
+      "junos:position": 2,
+      "junos:total": 126,
+      "inactive": false,
+      "name": "184002-PSP_IPSec_drop_rule_-_PSP_VPN_to_Rissnet_08-22-08_Sante",
+      "source-address": [
+        "IP_DPW_204.186.62.2",
+        "IP_PHEAA_216.37.216.250",
+        "IP_PSP_149.101.21.124",
+        "IP_Rissnet_65.5.59.34",
+        "IP_PSP_199.224.123.82",
+        "IP_PSP_209.243.54.181",
+        "IP_PSP_209.243.54.180"
+      ],
+      "destination-address": [
+        "IP_PSP_164.156.136.113",
+        "IP_PSP_164.156.135.3",
+        "IP_PSP_164.156.136.160"
+      ],
+      "application": [
+        "any"
+      ],
+      "application-services": {
+        "idp": true,
+        "utm-policy": "junos-vf-profile",
+        "application-firewall": "rules-set",
+        "application-traffic-control": "rule-set1"
+      },
+      "date": "2007-10-06",
+      "action": "deny"
+    },
+    {
+      "junos:position": 8,
+      "junos:total": 126,
+      "name": "195002-SEC_-_NEMO_Project__-_Waiver___1156_-_Pa__SEC_VPN_connec",
+      "source-address": [
+        "IP_SEC_206.41.253.26"
+      ],
+      "destination-address": [
+        "Net_SEC_164.156.45.0",
+        "Net_SEC_164.156.46.0",
+        "Net_SEC_164.156.47.0"
+      ],
+      "application": [
+        "AH",
+        "ESP",
+        "IKE"
+      ],
+      "date": "2007-10-06",
+      "action": "permit"
+    },
+    {
+      "junos:position": 9,
+      "junos:total": 126,
+      "name": "196001-VPN_Cleanup_rule__IPSec_",
+      "source-address": [
+        "IP_CONV_204.17.79.60",
+        "IP_REV_63.80.22.190",
+        "IP_REV_64.172.19.140",
+        "IP_SEC_206.41.253.26",
+        "IP_TRE_96.254.162.106"
+      ],
+      "destination-address": [
+        "any"
+      ],
+      "application": [
+        "any"
+      ],
+      "date": "2007-10-06",
+      "action": "deny"
+    },
+    {
+      "junos:position": 10,
+      "junos:total": 126,
+      "name": "201003-Blue_Coat_drop_rule_-_CRQ_4620_04-11-2012_Sante",
+      "source-address": [
+        "any"
+      ],
+      "destination-address": [
+        "IP_Verizon_4.59.140.232",
+        "IP_Verizon_63.66.64.232",
+        "Net_Verizon_63.66.64.240",
+        "Net_Verizon_4.59.140.240"
+      ],
+      "application": [
+        "any"
+      ],
+      "date": "2007-10-06",
+      "action": "deny"
+    },
+    {
+      "junos:position": 11,
+      "junos:total": 126,
+      "name": "196001-VPN_Cleanup_rule__IPSec_",
+      "source-address": [
+        "IP_CONV_204.17.79.60",
+        "IP_REV_63.80.22.190",
+        "IP_REV_64.172.19.140",
+        "IP_SEC_206.41.253.26",
+        "IP_TRE_96.254.162.106"
+      ],
+      "destination-address": [
+        "any"
+      ],
+      "application": [
+        "any"
+      ],
+      "date": "2007-10-06",
+      "action": "deny"
+    },
+    {
+      "junos:position": 12,
+      "junos:total": 126,
+      "name": "201003-Blue_Coat_drop_rule_-_CRQ_4620_04-11-2012_Sante",
+      "source-address": [
+        "any"
+      ],
+      "destination-address": [
+        "IP_Verizon_4.59.140.232",
+        "IP_Verizon_63.66.64.232",
+        "Net_Verizon_63.66.64.240",
+        "Net_Verizon_4.59.140.240"
+      ],
+      "application": [
+        "any"
+      ],
+      "date": "2007-10-06",
+      "action": "deny"
+    }
+  ],
+  "context": "untrust-inet,trust-inet"
+}

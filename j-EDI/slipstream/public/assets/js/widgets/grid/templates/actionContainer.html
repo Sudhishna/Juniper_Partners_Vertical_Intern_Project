@@ -1,0 +1,68 @@
+<dl class="sub-nav actions right">
+    {{^actionButtons}}
+        <dd class="create tooltip" title="Create"><span></span></dd>
+        <dd class="edit disabled tooltip" title="Edit"><span></span></dd>
+        <dd class="delete disabled tooltip" title="Delete"><span></span></dd>
+        <dd class="actionSeparator"><span></span></dd>
+        <dd id='moreMenu' class="actionMenu more">More<span></span></dd>
+    {{/actionButtons}}
+    {{#actionButtons}}
+            {{^defaultButtons}}
+                <dd class="create tooltip" title="Create"><span></span></dd>
+                <dd class="edit disabled tooltip" title="Edit"><span></span></dd>
+                <dd class="delete disabled tooltip" title="Delete"><span></span></dd>
+                <dd class="actionSeparator"><span></span></dd>
+            {{/defaultButtons}}
+            {{#defaultButtons}}
+                {{^create}}
+                <dd class="create tooltip" title="Create"><span></span></dd>
+                {{/create}}
+                {{#create}}
+                <dd id="{{key}}" class="createMenu actionMenu {{#disabledStatus}}disabled{{/disabledStatus}}">{{label}}<span></span></dd>
+                {{/create}}
+                {{^edit}}
+                <dd class="edit disabled tooltip" title="Edit"><span></span></dd>
+                {{/edit}}
+                {{#edit}}
+                <dd id="{{key}}" class="editMenu actionMenu {{#disabledStatus}}disabled{{/disabledStatus}}">{{label}}<span></span></dd>
+                {{/edit}}
+                {{^delete}}
+                <dd class="delete disabled tooltip" title="Delete"><span></span></dd>
+                {{/delete}}
+                {{#delete}}
+                <dd id="{{key}}" class="deleteMenu actionMenu {{#disabledStatus}}disabled{{/disabledStatus}}">{{label}}<span></span></dd>
+                {{/delete}}
+                <dd class="actionSeparator"><span></span></dd>
+            {{/defaultButtons}}
+        {{#customButtons}}
+        {{#icon_type}}
+            <dd id="{{key}}" class="actionIcon">
+                {{^disabledStatus}}
+                    <span class="iconImg tooltip {{#icon}}{{default}}{{/icon}}" title="{{label}}"></span>
+                {{/disabledStatus}}
+                {{#disabledStatus}}
+                    <span class="iconImg tooltip {{#icon}}{{default}}{{/icon}} {{#icon}}{{disabled}}{{/icon}}" title="{{label}}"></span>
+                {{/disabledStatus}}
+            </dd>
+        {{/icon_type}}
+        {{#button_type}}
+        <dd id="{{key}}">
+            <input type="button" class="slipstream-small-primary-button {{#secondary}}slipstream-small-secondary-button{{/secondary}} {{#disabledStatus}}disabled{{/disabledStatus}}" id="{{key}}_button" name="{{key}}_button" value="{{label}}"></dd>
+        </dd>
+        {{/button_type}}
+        {{#menu_type}}
+        <dd id="{{key}}" class="{{#menu_type}}actionMenu{{/menu_type}} {{#disabledStatus}}disabled{{/disabledStatus}}">
+            {{label}}<span></span>
+        </dd>
+        {{/menu_type}}
+
+    {{/customButtons}}
+
+    <dd id='moreMenu' class="actionMenu more">More<span></span></dd>
+    <dd class="actionSeparator"><span></span></dd>
+
+    {{/actionButtons}}
+    <!--<dd class="expand"><span></span>Expand All</dd>-->
+    <!--<dd class="collapse"><span></span>Collapse All</dd>-->
+
+</dl>

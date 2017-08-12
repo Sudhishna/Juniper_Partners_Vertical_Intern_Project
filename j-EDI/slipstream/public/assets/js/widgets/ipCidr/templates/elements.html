@@ -1,0 +1,20 @@
+{{#elements}}
+    <!-- Form element -->
+    {{>partialElementStart}}
+
+    {{#element_ip}}
+        <input type="text" data-validation="ipv4v6" class="input_ip" data-ipVersion="{{ip_version}}" {{>partialInput}}>
+    {{/element_ip}}
+    {{#element_cidr}}
+        <input type="text" data-validation="cidrv4" class="input_cidr" {{>partialInput}}>
+    {{/element_cidr}}
+    {{#element_subnet}}
+        <input type="text" data-validation="inarray" class="input_subnet" {{>partialInput}} data-array="{{#values}}{{value}},{{/values}}">
+    {{/element_subnet}}
+
+    {{>partialElementEnd}}
+
+    {{#element_cidr}}
+        <span class="row ip_cidr"></span>
+    {{/element_cidr}}
+{{/elements}}

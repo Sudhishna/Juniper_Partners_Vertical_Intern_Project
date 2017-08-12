@@ -1,0 +1,16 @@
+{
+    "name": "alertsAlarms",
+    "description": "Alerts and Alarms plugin for Slipstream",
+    "publisher": "Juniper Networks, Inc.",
+    "version": "0.0.1",
+    "release_date": "02.24.2015",
+    "min_platform_version": "0.0.1",
+    "utility_toolbar": [
+       {
+         "icon": "icon_alert.svg",
+         "hover": {
+             "view": "views/alertsAlarmsView"
+         }
+       }
+    ]
+}

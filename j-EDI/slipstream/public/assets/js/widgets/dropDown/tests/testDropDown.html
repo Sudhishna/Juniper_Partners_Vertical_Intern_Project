@@ -1,0 +1,105 @@
+<!doctype html>
+<html class="no-js" lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Test Drop Down Widget</title>
+    <link rel="stylesheet" href="/assets/css/app.css" />
+</head>
+<body>
+
+<div id="main_content" class="dropdown-widget-test slipstream-widget-test-page">
+    <div class="slipstream-content-title">Drop Down Widget</div>
+    <ol>
+        <li>
+            <h4>Simple Selection</h4>
+            <div>
+                <select class="basic-selection-nodata">
+                    <option value="one">First</option>
+                    <option value="two" disabled="disabled">Second (disabled)</option>
+                    <option value="three" selected="selected">Third</option>
+                </select>
+            </div>
+            <br/>
+        </li>
+        <li>
+            <h4>Simple Selection with JSON data</h4>
+            <div>
+                <select class="basic-selection-data"></select>
+            </div>
+            <br/>
+        </li>
+        <li>
+            <h4>Simple Selection with JSON data with Set Value</h4>
+            <div>
+                <select class="basic-selection-data-setValue"></select>
+            <span class="dropdown_span">
+                <input type="button" class='slipstream-primary-button' id="btn-setValLocal" value="Set Value"/>                
+            </span>
+
+            </div>
+            <br/>
+        </li>        
+        <li>
+            <h4>Simple Selection with Template</h4>
+            <div>
+                <select class="basic-template"></select>
+            </div>
+            <br/>
+        </li>
+        <li>
+            <h4>Multiple Selection with Placeholder</h4>
+            <div>
+                <select class="multiple-selection-empty"></select>
+            </div>
+            <span class="dropdown_span">
+                <input type="button" class='slipstream-secondary-button' id="resetData" value="Reset Data"/>
+                <input type="button" class='slipstream-primary-button' id="appendData" value="Append Data"/>
+            </span>
+            <br/>
+        </li>
+        <li>
+            <h4>Multiple Selection with Default Selection</h4>
+            <div>
+                <select class="multiple-selection-default"></select>
+                <span class="dropdown_span">
+                    <input type="button" class='slipstream-primary-button' id="btn-setValLocalMultiArr" value="Set Value"/>                     
+                </span>
+
+            </div>
+            <br/>
+        </li>
+        <li>
+            <h4>Multiple Selection with Default Selection and Create Tokens</h4>
+            <div>
+                <select class="multiple-selection-default-tokens"></select>
+                <span class="dropdown_span">
+                    <input type="button" class='slipstream-primary-button' id="btn-setValLocalMultiObj" value="Set Value"/>
+                </span>
+            </div>
+            <br/>
+        </li>
+        <li>
+            <h4>Simple Selection with Infinite Scrolling</h4>
+            <div>
+                <select class="simple-selection-infinite-scroll"></select>
+            </div>
+            <br/>
+        </li>
+        <li>
+            <h4>Simple Selection from remote Data - With setValue</h4>
+            <div>
+                <select class="simple-selection-infinite-scroll-setVal"></select>
+                <span class="dropdown_span">
+                    <input type="button" class='slipstream-primary-button' id="btn-setValRemote" value="Add Value"/>
+                </span>                    
+            </div>
+            <br/>
+        </li>
+
+    </ol>
+</div>
+<div id="overlay_content"></div>
+<script data-main="main" src="/assets/js/vendor/require/require.js"></script>
+</body>
+</html>

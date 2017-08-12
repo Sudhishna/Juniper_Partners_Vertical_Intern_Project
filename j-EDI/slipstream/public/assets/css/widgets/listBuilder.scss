@@ -1,0 +1,126 @@
+.list-builder-widget{
+  font-family: $body-font-family;
+  font-size: 12px;
+  .box1, .box2{
+    width: 215px;
+    border: $secondary-border-color 1px solid;
+    padding: 10px;
+    float: left;
+  }
+  .select-all{
+    float:left;
+    margin-right:5px;
+  }
+  .btn-group{
+    float:left;
+    width: 25px;
+    margin: 70px 20px 0px;
+    span{
+      width: 25px;
+      height: 25px;
+      display: inline-block;
+      cursor: pointer;
+      margin-bottom: 5px;
+      &.move{
+        @extend .icon_arrow_right_25X25, .icon_arrow_right_25X25-dims;
+        background-repeat: no-repeat;
+        background-origin: right;
+      }
+      &.remove{
+       @extend .icon_arrow_left_25X25, .icon_arrow_left_25X25-dims;
+       background-repeat: no-repeat;
+       background-origin: right;
+
+      }
+      &.moveall{ /*holder for "move all" option*/
+        display:none;
+         @extend .icon_arrow_right_25X25, .icon_arrow_right_25X25-dims;
+         background-repeat: no-repeat;
+         background-origin: right;
+      }
+      &.removeall{ /*holder for "remove all" option*/
+        display:none;
+        @extend .icon_arrow_left_25X25, .icon_arrow_left_25X25-dims;
+        background-repeat: no-repeat;
+        background-origin: right;
+      }
+    }
+  }
+  .list-group{
+    overflow-x: hidden;
+    overflow-y: auto;
+    .list-group-item{
+      display: block;
+      line-height: 19px;
+      label{
+        margin: 0 5px;
+        font-weight: normal;
+        text-overflow: ellipsis;
+      }
+      input{
+        height: 13px;
+      }
+      .data{
+        width: 40px;
+        margin-left: 10px;
+        min-height: 1px;
+      }
+    }
+  }
+  .info-container{
+    border-bottom: $border-color 1px solid;
+    font-weight: bold;
+    color:$form-value-color;
+    height: 20px;
+    .list-title{
+      float: left;
+    }
+    .items-info{
+      float: right;
+    }
+    .label-warning{ /* holder for showing a warning when filtering*/
+      display: none;
+    }
+  }
+  .filter-container{
+    margin: 5px 0px 10px;
+    .filter{
+      color:$form-value-color;
+      height: 25px;
+      margin: 0px;
+      width: 90%;
+    }
+    .filter-icon{
+      width: 15px;
+      height: 15px;
+      display: inline-block;
+      float: right;
+      cursor: pointer;
+      margin-right: 5px;
+      margin-top: -20px;
+      &.search-icon{
+       @extend .icon_search_14X15, .icon_search_14X15-dims;
+       background-repeat: no-repeat;
+       background-origin: right;
+      }
+      &.show-all-icon{
+        @extend .icon_close_12X12, .icon_close_12X12-dims;
+        background-repeat: no-repeat;
+        background-origin: right;
+      }
+    }
+  }
+}
+#test_list_builder{
+  .form_section{
+    margin-bottom: 30px;
+  }
+  .selected_items_buttons {
+    .elementinput {
+      width: auto;
+    }
+    .elementbuttons {
+      margin: 0 15px 0 0;
+    }
+  }
+}

@@ -1,0 +1,47 @@
+[
+    {
+        "id": "ftp",
+        "text": "junos-ftp"
+    },
+    {
+        "id": "tftp",
+        "text": "junos-tftp",
+        "disabled": true
+    },
+    {
+        "id": "rtsp",
+        "text": "junos-rtsp"
+    },
+    {
+        "id": "esp",
+        "text": "esp"
+    },
+    {
+        "id": "ike",
+        "text": "ike"
+    },
+    {
+        "id": "ike_nat",
+        "text": "ike_nat_traversal"
+    },
+    {
+        "id": "tcp",
+        "text": "tcp"
+    },
+    {
+        "id": "ssh",
+        "text": "ssh_state_synch"
+    },
+    {
+        "id": "gre",
+        "text": "gre"
+    },
+    {
+        "id": "udp",
+        "text": "udp"
+    },
+    {
+        "id": "pptp",
+        "text": "pptp"
+    }
+]

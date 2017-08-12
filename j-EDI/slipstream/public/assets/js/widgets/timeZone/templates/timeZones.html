@@ -1,0 +1,12 @@
+<div class="timezone-widget">
+  <input id="timezone-value" readonly value="{{timezone_value}}"></input>
+  <div class="timezone-div">
+    <table class="timezone-table">
+      <tbody>
+        {{#timezones}}
+        <tr><td>{{offset}}</td><td>{{long}}</td><td>{{short}}</td></tr>
+        {{/timezones}}
+      </tbody>
+    </table>
+  </div>
+</div>

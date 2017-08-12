@@ -1,0 +1,79 @@
+.confirmationDialog {
+  $noButtonBackground: #fafafc;
+  $questionTextColor: #666666;
+  $warningColor: #eb2125;
+  $warning-button-active-background: #eb2125;
+  $warning-button-hover-background: #ee0125;
+  $warning-button-active-border: #e61725;
+  $warning-button-hover-border: #f2000b;
+
+  .confirmationButtons{
+    overflow: hidden;
+    float: right;
+  }
+  .slipstream-content-title{
+    padding-top: 15px;
+    padding-left: 15px;
+  }
+  .question {
+      padding-left: 15px;
+      padding-right: 10px;
+      max-height: 120px;
+      font-size: 12px;
+      font-family: $body-font-family;
+      color: $questionTextColor;
+      overflow-y: auto;
+      overflow-x: hidden;
+      line-height: 18px;
+      margin-bottom: 10px;
+  }
+
+  .doNotShowAgain{
+    margin-left:15px;
+    .doNotShowAgainMessageText {
+      padding: 10px 0px 0px 4px;
+      font-size: 12px;
+      font-family: $body-font-family;
+      color: $questionTextColor;
+      vertical-align: top;
+      display: inline-block;
+    }
+  }
+  .confirmationDialogButtons {
+    .yesButton, .noButton{
+      margin-bottom: 0px;
+    }
+    .cancelLink {
+      font-size: 12px;
+      color: $link-active-color;
+      margin: 5px 8px 0px 15px;
+      display: inline-block;
+      &:hover {
+          text-decoration: underline;
+      }
+    }
+  }
+
+  &.warning {
+    .overlay-wrapper {
+        border: 2px solid $warningColor !important;
+    }
+    .confirmationDialogButtons {
+      .yesButton {
+        background-color: $warning-button-active-background;
+        border: 1px solid $warning-button-active-border;
+        color: $button-font-color;
+
+        &:hover {
+            border: 1px solid $warning-button-hover-border;
+            background: $warning-button-hover-background;
+        }
+
+        &:active {
+            @include prefixed(background, radial-gradient($button-hover-gradient-background-start, $button-hover-background));
+        }
+      }
+    }
+  }
+
+}

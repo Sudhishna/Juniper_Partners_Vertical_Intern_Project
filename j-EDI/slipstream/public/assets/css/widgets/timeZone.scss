@@ -1,0 +1,52 @@
+$color-white: #FFFFFF;
+$element-border: 1px solid #cccccc;
+
+@mixin highlight-row {
+  background: $button-active-background;
+  color: $color-white;
+}
+
+.timezone-widget {
+  background: url('/assets/images/arrow_down.png') no-repeat top right;
+  input {
+    width: 100%;
+    padding: 6px 32px 6px 6px;
+    font: $form-font;
+    border: $element-border;
+    background: transparent;
+    cursor: default;
+  }
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 0px;
+    border: none;
+
+    tr {
+      background: none;
+      td {
+        padding: 6px;
+        font: $form-font;
+      }
+    }
+
+    tr:hover td {
+      @include highlight-row();
+    }
+
+    .selected-row td {
+      @include highlight-row();
+    }
+  }
+}
+
+.timezone-div {
+  position: relative;
+  top: -3px;
+  display: none;
+  height: 160px;
+  overflow-x: hidden;
+  overflow-y: visible;
+  border: $element-border;
+}

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<CatapultToc Version="1" conditions="" DescendantCount="10">
+  <TocEntry Title="Welcome (In Japanese)" Link="/Content/helpSystem/ua_product_welcome.htm" ComputedResetPageLayout="true" ComputedFirstTopic="true" DescendantCount="0"/>
+  <TocEntry Title="What&apos;s New in Release 1.0 (In Japanese)" Link="/Content/helpSystem/ua_product_whatsNew.htm" ComputedFirstTopic="false" DescendantCount="0"/>
+  <TocEntry Title="Web User Interface Feature Overview (In Japanese)" Link="/Content/helpSystem/ua_gui_overview.htm" ComputedFirstTopic="false" DescendantCount="0"/>
+  <TocEntry Title="User Assistance Overview (In Japanese)" Link="/Content/helpSystem/ua_gui_user_assistance_overview.htm" ComputedFirstTopic="false" DescendantCount="0"/>
+  <TocEntry Title="References" ComputedFirstTopic="false" DescendantCount="1">
+    <TocEntry Title="Web User Interface Supported Client Environments Reference" Link="/Content/helpSystem/ua_reference.htm" ComputedFirstTopic="false" DescendantCount="0"/>
+  </TocEntry>
+</CatapultToc>

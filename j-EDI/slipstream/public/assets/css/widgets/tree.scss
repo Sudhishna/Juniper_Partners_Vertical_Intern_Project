@@ -1,0 +1,137 @@
+.tree-widget {
+    @import "../../js/vendor/jquery/jstree/themes/default/style";
+
+    $sprite: "../images/icon-sprite.svg";
+    $checkbox: "../images/icon_checkbox.svg";
+    $checkbox-checked: "../images/icon_checkbox_checked.svg";
+
+    @mixin sprite-background() {
+      background-image: url($sprite);
+    }
+
+    .jstree-default .jstree-icon {
+      @include sprite-background();
+    }
+
+    #jstree-dnd.jstree-default .jstree-ok,
+    #jstree-dnd.jstree-default .jstree-er {
+      @include sprite-background();
+      background-repeat: no-repeat;
+      background-color: transparent;
+    }
+
+    .jstree-default-small .jstree-node,
+    .jstree-default-small .jstree-icon {
+      @include sprite-background();
+    }
+
+    #jstree-dnd.jstree-default-small .jstree-ok,
+    #jstree-dnd.jstree-default-small .jstree-er {
+      @include sprite-background();
+      background-repeat: no-repeat;
+      background-color: transparent;
+    }
+
+    .jstree-default-large .jstree-node,
+    .jstree-default-large .jstree-icon {
+      @include sprite-background();
+    }
+
+    #jstree-dnd.jstree-default-large .jstree-ok,
+    #jstree-dnd.jstree-default-large .jstree-er {
+      @include sprite-background();
+      background-repeat: no-repeat;
+      background-color: transparent;
+    }
+
+    .jstree-default .jstree-node,
+    .jstree-default .jstree-icon {
+      @include sprite-background();
+    }
+
+    .jstree-default > .jstree-no-dots .jstree-open > .jstree-ocl {
+      background-position: 0px 0px;
+      background: url('../images/icon_nav_big_arrow_down.svg') no-repeat;
+      width: 12px;
+      height: 6px;
+      margin-top: 10px;
+      margin-right: 4px;
+    }
+    .jstree-default > .jstree-no-dots .jstree-closed > .jstree-ocl {
+      background-position: 0px 0px;
+      background: url('../images/icon_nav_big_arrow_right.svg') no-repeat;
+      width: 6px;
+      height: 12px;
+      margin-top: 6px;
+      margin-right: 10px;
+    }
+
+    .jstree-default .jstree-icon:empty {
+        height: 16px;
+        width: 16px;
+        line-height: 16px;
+    }
+
+    .jstree-default .jstree-anchor {
+      font-family: $body-font-family;
+      font-size: 12px;
+    }
+
+    .jstree-default .jstree-checkbox {
+      background-image: url($checkbox);
+      background-position: 0px;
+      margin-left: 6px;
+      margin-right: 6px;
+      margin-top: 4px;
+      @extend .icon_checkbox-dims;
+    }
+
+    .jstree-default .jstree-checkbox:hover {
+      background-image: url($checkbox);
+      background-position: 0px;
+      @extend .icon_checkbox-dims;
+    }
+    
+    .jstree-default.jstree-checkbox-selection .jstree-clicked > .jstree-checkbox,
+    .jstree-default .jstree-checked > .jstree-checkbox {
+      background-image: url($checkbox-checked);
+      background-position: 0px;
+      @extend .icon_checkbox_checked-dims;
+    }
+    
+    .jstree-default.jstree-checkbox-selection .jstree-clicked > .jstree-checkbox:hover,
+    .jstree-default .jstree-checked > .jstree-checkbox:hover {
+      background-image: url($checkbox-checked);
+      background-position: 0px;
+      @extend .icon_checkbox_checked-dims;
+    }
+
+  .jstree-default .jstree-hovered {
+    background: inherit;
+    border-radius: 0;
+    box-shadow: none;
+  }
+
+  .jstree-default .jstree-clicked {
+    background: inherit;
+    border-radius: 0;
+    box-shadow: none;
+  }
+
+  .jstree-default.jstree-checkbox-no-clicked .jstree-clicked.jstree-hovered {
+    background: inherit;
+  }
+
+  .jstree-default .jstree-anchor > .jstree-undetermined {
+    background-position: 0px;
+  }
+  .jstree-default .jstree-anchor > .jstree-undetermined:hover {
+    background-position: 0px;
+  }
+
+  .jstree-default .jstree-search {
+    font-style: inherit;
+    color: inherit;
+    font-weight: inherit;
+  }
+}

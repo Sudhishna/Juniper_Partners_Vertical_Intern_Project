@@ -1,0 +1,21 @@
+.timeSeriesChart {
+
+  	height: inherit;
+  	width: inherit;
+
+  	.timeSeriesLegendLabelEllipsis {
+    	overflow: hidden;
+  	}
+
+  	.highcharts-navigator-handle-right, .highcharts-navigator-handle-left {
+	    rect {
+	      width: 4px;
+	      height: 16px;
+	      x: -2.5px;
+	    }
+	    path {
+	      stroke: transparent;
+	    }
+	}
+
+}

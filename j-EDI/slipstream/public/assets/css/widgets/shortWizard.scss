@@ -1,0 +1,337 @@
+.shortWizard{
+  margin: 30px 0px 0px 0px;
+  position: absolute;
+  left: 25px;
+  right: 25px;
+  bottom: 0px;
+  top: 0px;
+
+  .shortWizardCancelLink {
+    @extend .cancelLink;
+    margin-left: 25px;
+  }
+
+  .primary.medium.button{
+    background-color: $button-active-background;
+    border: $button-active-border;
+    color:$button-font-color;
+    font-size: 12px;
+    padding: 4px 6px;
+    width: 70px;
+    height: 30px;
+    font-family: $body-font-family;
+  }
+
+  .primary.medium.button:hover{
+    font: $button-font-color;
+    border: $button-hover-border;
+    background: $button-hover-background;
+  }
+
+  .primary.medium.button:active{
+    background: -webkit-radial-gradient($button-hover-gradient-background-start, $button-hover-background); /* Safari 5.1 to 6.0 */
+    background: -o-radial-gradient($button-hover-gradient-background-start, $button-hover-background); /* For Opera 11.6 to 12.0 */
+    background: -moz-radial-gradient($button-hover-gradient-background-start, $button-hover-background); /* For Firefox 3.6 to 15 */
+    background: radial-gradient($button-hover-gradient-background-start, $button-hover-background); /* Standard syntax */
+  }
+
+   .persistence.medium.button{
+      font-size:12px;
+      padding: 4px 6px;
+      color: $form-value-color;
+      border: 1px solid $button-persistence-border;
+      background: #fafafc;
+      width: 70px;
+      height: 30px;
+      font-family: $body-font-family;
+  }
+
+  .persistence.medium.button:hover{
+      color: $form-value-color;
+      border: 1px solid $button-persistence-border;
+      background: $button-persistence-background;
+  }
+
+  .persistence.medium.button:active{
+      color: $button-font-color;
+      background: -webkit-radial-gradient($button-persistence-hover-gradient-background-start, $button-persistence-background); /* Safari 5.1 to 6.0 */
+      background: -o-radial-gradient($button-persistence-hover-gradient-background-start, $button-persistence-background); /* For Opera 11.6 to 12.0 */
+      background: -moz-radial-gradient($button-persistence-hover-gradient-background-start, $button-persistence-background); /* For Firefox 3.6 to 15 */
+      background: radial-gradient($button-persistence-hover-gradient-background-start, $button-persistence-background); /* Standard syntax */
+      border: 1px solid $button-persistence-border;
+    }
+  .form-pattern .content{
+      padding-top: 24px;
+  }
+}
+
+.shortWizardTitle{
+  font-size: 24px;
+  font-family: $header-font-family;
+  color: $title-font-color;
+  font-weight: 300;
+}
+
+.shortWizardContentArea{
+  overflow: visible;
+  margin-left: 30px;
+}
+
+.shortWizardTrain {
+  display: inline-block;
+  padding: 0;
+  text-align: left;
+  //max-width: 550px;
+  height: 90px;
+  background: url('/assets/images/shortWizard/grey_line.png') repeat-x center 15px;
+}
+
+.shortWizardNoTrain {
+  top: 60px !important;
+}
+
+.shortWizardContainer {
+  clear: both;
+  line-height: 16px;
+  overflow: auto;
+  position: absolute;
+  top: 180px;
+  bottom: 62px;
+  right: 0px;
+  left: 30px;
+}
+
+.trainCircle {
+  @extend .icon_grey_circle, .icon_grey_circle-dims;
+  float:left;
+  color: $button-font-color;
+  font-weight: normal;
+  margin-right: 100px;
+
+  &:last-child {
+      margin-right: 0;
+  }
+}
+
+.trainCircle.current{
+  @extend .icon_blue_circle, .icon_blue_circle-dims;
+  font-weight: bold;
+}
+.trainCircle.visited{
+  @extend .icon_hover_circle, .icon_hover_circle-dims;
+  color: $input-active-border;
+  background-color: white;
+}
+
+.trainCircle:hover{
+  @extend .icon_hover_circle, .icon_hover_circle-dims;
+  cursor: pointer;
+  color:  $input-active-border;
+  background-color: white;
+}
+
+.shortWizardTrainText{
+  padding-top:20px;
+  font-size: 11px;
+  font-family: $body-font-family;
+  color: $form-value-color;
+  font-weight: regular;
+  font-weight: inherit;
+  width: 92px;
+  margin-left: -30px;
+  text-align: center;
+  word-wrap: break-word;
+}
+
+.shortWizardTrainStepText{
+  margin-left: 13px;
+  margin-top: 12px;
+  font-size: 11px;
+  font-family: $body-font-family;
+  color: inherit;
+  font-weight: bold;
+}
+
+.trainCircle:focus {
+  outline:none;
+}
+
+@mixin pageRules($fontSize, $fontColor, $fontWeight, $marginTop, $marginBottom){
+  font-size: $fontSize;
+  font-family: $body-font-family;
+  color: $fontColor;
+  font-weight: $fontWeight;
+  margin-top: $marginTop;
+  margin-bottom: $marginBottom;
+}
+
+.shortWizardPageSummaryTitle{
+    @include pageRules(14px, $input-active-border, bold, 10px, 15px);
+}
+
+.shortWizardPageSummaryDescription{
+    @include pageRules(12px, $form-value-color, normal, 15px, 25px);
+}
+
+.shortWizardPageTitle{
+    @include pageRules(14px, $form-label-color, bold, 0px, 0px);
+}
+
+.shortWizardPageContent{
+    @include pageRules(12px, $form-value-color, normal, 0px, 20px);
+}
+
+.shortWizardSmallOverlay{
+  margin-left: 20px;
+  /*
+  max-width: 460px;
+  */
+}
+
+.shortWizardCancelConfirmArea{
+  margin-bottom: 30px;
+}
+
+#summary_list_form{
+  span.edit_link{
+    padding-top: 2px;
+    display: inline-block;
+  }
+  .wizard_edit_link{
+    color:$link-active-color;
+    font-size:12px;
+  }
+  .elementinput{
+    margin-bottom: 0px;
+    padding-top:2px;
+    width: 400px;
+    input, .inline-help{
+        max-width: 295px;
+    }
+  }
+  .elementlabel{
+    width:300px;
+    height:20px;
+    padding-top:2px;
+    label{
+      padding: 0px;
+    }
+  }
+  .optionselection label{
+    padding: 0px;
+  }
+  .summary_section{
+    margin-top: 10px !important;
+  }
+  .multivalue_label{
+    display: inline-block;
+    width: 80px;
+    margin-bottom: 10px;
+  }
+  .multivalue_value{
+    display: inline-block;
+  }
+}
+
+@-webkit-keyframes rotation {
+  from {-webkit-transform: rotate(0deg);}
+  to   {-webkit-transform: rotate(359deg);}
+}
+
+@-moz-keyframes rotation {
+  from {-moz-transform: rotate(0deg);}
+  to   {-moz-transform: rotate(359deg);}
+}
+
+@-ms-keyframes rotation {
+  from {-ms-transform: rotate(0deg);}
+  to   {-ms-transform: rotate(359deg);}
+}
+
+.shortWizardCommitStatusPage {
+
+  font-size: 12px;
+
+  .commitStatusMessage {
+    text-align: center;
+    line-height: 1.5;
+    .icon_error {
+      width: 18px;
+      height: 18px;
+      display: inline-block;
+    }
+    .icon_success {
+      width: 16px;
+      height: 16px;
+      display: inline-block;
+    }
+    .commit_heading{
+      vertical-align: top;
+    }
+
+  }
+
+  .progressContainer {
+    text-align: center;
+
+    .progressIndicator {
+      margin: 40px;
+      text-align: center;
+      @include prefixed(animation, rotation 2s infinite linear);
+    }
+  }
+
+  .commitStatusErrors {
+    text-align: center;
+    list-style-type: none;
+    margin: 20px 0 0 0;
+    font-weight: bold;
+    font-size: 12px;
+    color: #d32222;
+  }
+
+  .commitFooter {
+    margin-top: 100px;
+    .commitFooterMessage {
+      margin-bottom: 20px;
+    }
+
+    ul {
+      list-style-type: none;
+      margin: 0;
+    }
+    a {
+      font-size: 12px;
+      color: $input-active-border;
+    }
+  }
+}
+
+
+.wizard_intro_page_content,
+.shortWizardCancelConfirmArea{
+  padding: 0 0 20px 0;
+  font-family: $body-font-family;
+  font-size: 12px;
+  line-height: 1.4;
+  font-weight: 300;
+  font-style: normal;
+  color: $form-value-color;
+  text-rendering: optimizeLegibility;
+  margin: 0;
+}
+
+.shortWizardButtonBar {
+  position: absolute;
+  bottom: 0px;
+  left: 0px;
+  right: 0px;
+  border-top: 1px solid $border-color;
+  padding-top: 10px;
+}
+
+.start-over {
+  margin-top: 10em;
+  font-weight: normal;
+  color: $body-font-color;
+}

@@ -1,0 +1,1 @@
+<strong>&quot;{{query}}&quot;</strong>

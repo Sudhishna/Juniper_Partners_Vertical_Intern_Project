@@ -1,0 +1,55 @@
+<!doctype html>
+<html class="no-js" lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Test Map View Reload</title>
+    <link rel="stylesheet" href="/assets/css/app.css" />
+
+</head>
+<style>
+    .map {
+        margin-left: 100px;
+        margin-right:100px;
+        margin-top: 50px;
+        margin-bottom: 50px;
+        margin: 50px;
+        height: 700px; 
+        border-style: solid;
+        border-width: 1px;
+        border-color: rgb(187, 187, 187);
+    }
+    .external_btn{
+        margin-left: 50px;
+    }
+</style>
+    <body>
+        <div id="main_content" class="map-widget-test slipstream-widget-test-page">
+            <div class="slipstream-content-title">Map Widget</div>
+            <h4>Map View</h4>
+            <div class="map"></div>
+            <div class="external_btn">
+                <button type='button' class='slipstream-secondary-button' id='reload'>Reload Map View</button>
+            </div>            
+            <div class="external_btn">
+                <button type='button' class='slipstream-secondary-button' id='animate'>Animate Threat Event - San Jose - Cairo </button>
+            </div>
+            <div class="external_btn">
+                <button type='button' class='slipstream-secondary-button' id='animate2'>Animate Threat Event - Detroit - Sao Paulo </button>
+            </div>
+            <div class="external_btn">
+                <button type='button' class='slipstream-secondary-button' id='animate3'>Animate Threat Event - Capetown - Toronto </button>
+            </div>
+            <div class="external_btn">
+                <button type='button' class='slipstream-secondary-button' id='animate4'>Animate Threat Event - Siem Reap - San Fernando </button>
+            </div> 
+            <div class="external_btn">
+                <button type='button' class='slipstream-secondary-button' id='animate5'>Animate Threat Event - Unknown - San Fernando </button>
+            </div>   
+            <div class="external_btn">
+                <button type='button' class='slipstream-secondary-button' id='animate6'>Animate Threat Event - Toronto - Unknown </button>
+            </div>              
+        </div>
+    <script data-main="main" src="/assets/js/vendor/require/require.js"></script>
+    </body>
+</html>

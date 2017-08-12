@@ -1,0 +1,69 @@
+<div class='dashboardDashlet' id='{{dashletId}}'>
+
+    <div class='dashboardDashletHeader'>&nbsp;
+        <div class='dashletHandle'></div>
+        <div class='dashletTitle'>
+            <span class='dashletTitleText'>
+                {{title}}
+            </span>
+        </div>
+        <dl class='sub-nav dashletActions'>
+            {{#editExists}}
+            <dd>
+               <span class='dashletButton'>
+                  <a class='edit'><img src="/assets/images/dashboard/edit_12X12_small.png" alt="" /></a>
+               </span>
+            </dd>
+            {{/editExists}}
+            {{#refreshExists}}
+            <dd>
+               <span class='dashletButton'>
+                  <a class='refresh'><img src="/assets/images/dashboard/refresh_12X12_small.png" alt="" /></a>
+               </span>
+            </dd>
+            {{/refreshExists}}
+            <dd>
+               <span class='dashletButton'>    
+                  <a class='close'><img src="/assets/images/dashboard/close_12X12_small.png" alt="" /></a>
+               </span>
+            </dd>
+        </dl>
+    </div>
+    <div class='clear'></div>
+    <div class='dashboardDashletFiltersArea row'>
+        {{#filters}}
+            <div class='dashboardDashletFilters'>
+                <label for='{{name}}' name='{{name}}' class='dashboardDashletFilterLabel elementlabel left'>{{label}}: </label>
+                <div class="element_dropdown left styleselect">
+                    <select name='{{name}}' id='{{name}}' class='right dashletFilter'>
+                        {{#values}}
+                            <option value='{{value}}' {{#selected}}selected=selected{{/selected}}>
+                                {{label}}
+                            </option>
+                        {{/values}}
+                    </select>
+                </div>
+            </div>
+        {{/filters}}
+    </div>
+    <div class='dashletOverlay'/>
+    <div class='dashletRefreshing'>
+    </div>
+    <div class='dashletRefreshError'>
+        <div class='row dashletRefreshErrorContainer'>
+            <img src='/assets/images/dashboard/icon_minor_alert.svg' class='dashletRefreshErrorIndicator'/>
+            <span class='dashletRefreshStatusMessage'></span>
+        </div>
+    </div>
+    <div class='dashboardDashletContent'>&nbsp;</div>
+    <div class='dashboardDashletFooter'>
+        <span>
+            <div class='updated'>{{lastUpdated_label}}&nbsp;{{footer}}</div>
+            {{#detailsHref}}
+                <div class='moreDetails'>
+                    <a class='moreDetailsLink'>{{moreDetails_label}}</a>
+                </div>
+            {{/detailsHref}}
+        </span>
+    </div>
+</div>

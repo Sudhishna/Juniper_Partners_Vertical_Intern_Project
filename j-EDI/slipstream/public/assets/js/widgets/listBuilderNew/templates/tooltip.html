@@ -1,0 +1,14 @@
+<div class="list_builder_tooltips">
+    {{^items}}<span class="more-loading">Loading...</span>{{/items}}
+    {{#items}}
+        {{#title}}
+            <div class="list_builder_tooltip" data-id="{{key}}"><b>{{title}}</b></div>
+        {{/title}}
+        {{#label}}
+            <div class="list_builder_tooltip" data-id="{{key}}">{{label}}</div>
+        {{/label}}
+        {{#link}}
+            <div class="list_builder_tooltip" data-id="{{key}}"><a id='{{id}}'>{{link}}</a></div>
+        {{/link}}
+    {{/items}}
+</div>

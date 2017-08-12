@@ -1,0 +1,151 @@
+.search-widget{
+  @import "../../js/vendor/jquery/tagit/jquery.tagit.scss";
+  @import "../../js/vendor/jquery/tagit/tagit.ui-zendesk.scss";
+
+  padding: 0px;
+  margin: 0px;
+  height: 100%;
+  border: 1px solid $menu-border;
+  padding-top: 2px;
+  margin-bottom: 6px;
+  overflow: hidden;
+
+  &, & a, .tokens{
+    font-family: $body-font-family;
+    font-size: 12px !important;
+    color: $body-font-color !important;
+  }
+
+  .filterMenu {
+    cursor: pointer;
+    margin: 4px;
+    float: left;
+    @extend .icon_add_column, .icon_add_column-dims;
+    &:hover{
+      @extend .icon_add_column_hover, .icon_add_column_hover-dims;
+    }
+  }
+  .tokensWrapper{
+    float: left;
+    border-right: 1px solid $menu-border;
+    width: calc(100% - 100px);
+    .tokens{
+      line-height: 16px;
+      margin-bottom: 0px;
+      padding: 0px 5px;
+    }
+  }
+  .removeAllTokens{
+    cursor: pointer;
+    float: right;
+    margin: 5px 5px 0px 0px;
+    span{
+      display: inline-block;
+      @extend .icon_exit_filters, .icon_exit_filters-dims;
+      &:hover{
+        @extend .icon_exit_filters_hover, .icon_exit_filters_hover-dims;
+      }
+    }
+    em{
+      font-style: normal;
+      vertical-align: top;
+      line-height: 16px;
+      padding-left: 6px;
+      &:hover{
+        color: $menu-item-color;
+      }
+    }
+  }
+  &.readOnly{
+    padding: 4px;
+    border: none;
+    background-color: $table-filter-bg;
+    margin-bottom: 0px;
+    .tokensWrapper{
+      width: calc(100% - 80px);
+      .tokens{
+        padding-left: 0px;
+        border-left: 0px;
+      }
+    }
+  }
+
+  ul.tagit{ //overwrite tokens (tag-it) style
+    border: none;
+    padding: 1px 0px;
+    border-left: 1px solid $menu-border;
+    li{
+      &.tagit-color{
+        background-color: inherit !important;
+        border: 0px !important;
+      }
+      &.tagit-choice {
+        padding: 3px 8px 3px 3px;
+        background-color: inherit;
+        border-radius: 0px;
+        border: 0px;
+        color: $body-font-color;
+        .tag-it-close-span{
+          margin-right: 10px;
+          a.tagit-close{
+            margin-top: -3px;
+            @extend .icon_exit_filters, .icon_exit_filters-dims;
+            &:hover{
+              @extend .icon_exit_filters_hover, .icon_exit_filters_hover-dims;
+            }
+          }
+        }
+        .tag-it-open-span{
+          margin-right:8px;
+          a.tag-it-select{
+            background: url("/assets/images/advancedFilterIcons.png") no-repeat -300px -1px;
+            width: 10px;
+            height: 4px;
+            margin-top: 5px;
+            margin-left: 2px;
+            position: absolute;
+            cursor: pointer;
+          }
+        }
+      }
+       input[type="text"] {
+         font-size: 12px;
+         height: 18px;
+      }
+    }
+  }
+
+  .ui-autocomplete{ //overwrites menu (autocomplete) style
+    z-index: 200;
+    border-radius: 0px !important;
+    border: 1px solid $menu-border !important;
+    height: auto;
+    position: absolute !important;
+    &.hideMenu{
+      display:none !important;
+    }
+    .ui-menu-item a{
+      line-height: 16px;
+      border-radius: 0px;
+      border: 0px;
+      background-color: $body-bg !important;
+      &:hover{
+        background-color: $menu-item-color !important;
+        color: $body-bg !important;
+      }
+    }
+  }
+
+//  &:after{
+//    content: "";
+//    clear:both;
+//  }
+}
+
+.search-widget-test .test_buttons{
+  margin-bottom: 10px;
+  line-height: 40px;
+}
+
+
+

@@ -1,0 +1,74 @@
+$color-dark-gray: #333;
+
+.determinateSpinnerContainer{
+	margin: auto;
+	text-align: center;
+	height: 110px;
+	position: absolute;
+	top: 0;
+	left: 0;
+	bottom: 0;
+	right: 0;
+	z-index: 9999;
+	
+	.spinnerContainer{
+		position: relative;
+	}
+	.spinner{
+		width: 65px;
+		height: 65px;
+		position: relative;
+		margin: 10px auto;
+	}
+	.spinner_label{
+		font-size: 12px;
+		color: $color-dark-gray;
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		margin: 0;
+		transform: translate(-50%, -50%);
+	}
+	.spinnerLabel{
+		font-size: 12px;
+		color: $color-dark-gray;
+	}
+}
+
+.indeterminateSpinnerContainer{
+	margin: auto;
+	text-align: center;
+	height: 85px;
+	position: absolute;
+	top: 0;
+	left: 0;
+	bottom: 0;
+	right: 0;
+	z-index: 5;
+
+	.icon_spinner{
+		width:65px;
+	    height:65px;
+	    display: inline-block;
+	    margin-top: 10px;
+	    @include prefixed(animation, rotation 2s infinite linear);
+	}
+	.spinnerLabel{
+		font-size: 12px;
+		color: $color-dark-gray;
+	}
+}
+
+.parentContainer{
+	position: relative;
+}
+
+.test_spinner_widget{
+	#spinner1, #spinner2{
+		width: 210px;
+		height: 150px;
+	}
+	#overlay_btn{
+		width: 120px;
+	}
+}

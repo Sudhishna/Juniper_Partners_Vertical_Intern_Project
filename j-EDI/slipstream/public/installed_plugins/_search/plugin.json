@@ -1,0 +1,29 @@
+{
+    "name": "search",
+    "description": "Search plugin for Slipstream",
+    "publisher": "Juniper Networks, Inc.",
+    "version": "0.0.1",
+    "release_date": "02.24.2015",
+    "min_platform_version": "0.0.1",
+    "activities" : [
+        {
+            "url_path": "/",
+            "module": "searchActivity",
+            "filters": [
+                {
+                    "id": "global-search",
+                    "action": "slipstream.intent.action.ACTION_SEARCH",
+                    "data": {
+                        "scheme": "search"
+                    }
+                }
+            ]
+        }
+    ],
+    "navigation_paths": [
+        {
+          "path": "/",
+          "filter": "global-search"
+        }
+    ]
+}

@@ -1,0 +1,17 @@
+{{#element_text}}
+    <input type="text" {{>partialInput}}
+    {{#required}}data-validation="validtext"{{/required}}
+    {{#pattern}}data-pattern="{{pattern}}"{{/pattern}}
+    >
+    {{#error}}<small class="error errorimage">{{{error}}}</small>{{/error}}
+    <span class="inline-help{{#help}} help-style{{/help}}">{{help}}</span>
+{{/element_text}}
+{{#element_dropdown}}
+    <select data-validation="validtext"
+        {{#id}}id="{{id}}"{{/id}}
+        {{#name}}name="{{name}}"{{/name}}
+        {{#required}}required{{/required}}
+    >
+        {{>partialDropdown}}
+    </select>
+{{/element_dropdown}}

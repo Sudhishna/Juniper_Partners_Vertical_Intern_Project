@@ -1,0 +1,138 @@
+.login_widget{
+  $login-padding: 30px 25px 15px 25px;
+
+  .login_logo{
+    @extend .icon_juniper_logo_white, .icon_juniper_logo_white-dims;
+    float: left;
+    margin: 40px 40px 0px;
+  }
+  .login_burst{
+    @extend .icon_burst_white, .icon_burst_white-dims;
+    float: right;
+  }
+  .login_form_block {
+    text-align: center;
+    position: absolute;
+    top: 0px;
+    bottom: 0px;
+    left: 0px;
+    right: 0px;
+    &:before {
+      content: '';
+      display: inline-block;
+      height: 100%;
+      vertical-align: middle;
+    }
+    .centered {
+      padding: $login-padding !important;
+      display: inline-block;
+      vertical-align: middle;
+      width: 550px;
+      background: $body-bg;
+      text-align: left;
+      opacity: 0.9;
+    }
+  }
+  .centered {
+    padding: 0px 10px 15px 10px;
+  }
+  .login_form{
+    .slipstream-content-title{
+      font-size: 30px;
+      border-bottom: 0px;
+      text-align: center;
+      margin-bottom: 0px;
+      padding-bottom: 0px;
+      padding-top: 28px;
+      color: $body-font-color;
+    }
+    .section_description h6{
+      font-size: 14px;
+      text-align: center;
+      padding: 10px 0px 0px;
+      color: $body-font-color;
+    }
+    .content{
+      padding-top: 0px !important;
+      #errorDiv.alert-box{
+        margin: 15px 0 0;
+      }
+      .form_section{
+        margin-bottom: 0px !important;
+        .section_description{
+          #heading_text{
+            font-family:$body-font-family !important;
+            font-size:14px;
+            line-height: 28px;
+            padding-left: 10px;
+            text-align: center;
+          }
+        }
+        .section_content{
+          clear: both;
+          padding-top: 40px;
+          .row{
+            .elementinput{
+              float: none !important;
+              margin: 0px auto 12px;
+              input{
+                font-size: 16px;
+                border: 0px;
+                box-shadow: none;
+                padding-left: 0px;
+                border-bottom: 1px solid $secondary-body-bg-color;
+                &:focus{
+                  border-bottom:1px solid $input-active-border;
+                }
+              }
+              small.error{
+                margin-top: 10px;
+                visibility: hidden;
+                display: block;
+                margin-bottom: 0px;
+                padding: 0px;
+                height:12px;
+              }
+              &.error{
+                small.error{
+                  visibility: visible;
+                }
+              }
+            }
+            &.login_username .elementinput{
+              margin-bottom: 16px;
+            }
+          }
+        }
+      }
+    }
+    .buttons .elementinput{
+      float: none !important;
+      margin: 0px auto 52px;
+//      margin-top: -30px;
+      width: 295px;
+      input{
+        font-size: 16px;
+        width: 100%;
+        height: 40px;
+        background-color: $button-login-background !important;
+      }
+    }
+  }
+  .login_footer{
+    font-size: 12px;
+    line-height: 20px;
+    display: inline-block;
+    color: $negative-font-primary-light-color;
+    position: absolute;
+    left: 50px;
+    bottom: 33px;
+    a{
+      color:$negative-font-primary-light-color;
+    }
+  }
+}
+.login_background{
+  background: url('/assets/images/login_bckgrnd_image.png') no-repeat;
+  background-size: 100% 100%;
+}

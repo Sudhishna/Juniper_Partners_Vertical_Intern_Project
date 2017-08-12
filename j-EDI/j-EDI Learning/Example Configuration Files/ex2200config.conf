@@ -1,0 +1,264 @@
+version 12.3R6.6;
+system {
+    root-authentication {
+        encrypted-password "$1$pRb2STKM$9sEWhOwfWs.f3A.gxqjqh/"; ## SECRET-DATA
+    }
+    name-server {
+        10.45.67.1;
+        8.8.8.8;
+    }
+    login {
+        user ssendhil {
+            uid 2000;
+            class super-user;
+            authentication {
+                encrypted-password "$1$JN1HSbCP$2ZfWy3JnDdU6OxR0Ygr56/"; ## SECRET-DATA
+            }
+        }
+    }
+    services {
+        ssh {
+            root-login allow;
+        }                               
+        telnet;                         
+        netconf {                       
+            ssh;                        
+        }                               
+        dhcp {                          
+            traceoptions {              
+                file dhcp_logfile;      
+                level all;              
+                flag all;               
+            }                           
+        }                               
+    }                                   
+    syslog {                            
+        user * {                        
+            any emergency;              
+        }                               
+        host 192.168.20.92 {            
+            any any;                    
+            match "commit complete";    
+        }                               
+        host 192.168.20.75 {            
+            any any;                    
+            match "commit complete";    
+        }                               
+        host 192.168.20.2 {             
+            any any;                    
+            match "commit complete";    
+        }                               
+        file messages {                 
+            any notice;                 
+            authorization info;         
+        }                               
+        file interactive-commands {     
+            interactive-commands any;   
+        }                               
+        file trigger_logs {             
+            any any;                  
+       }                               
+        source-address 192.168.20.1;    
+    }                                   
+}                                       
+chassis {                               
+    auto-image-upgrade;                 
+}                                       
+interfaces {                            
+    ge-0/0/0 {                          
+        unit 0 {                        
+            family inet {               
+                address 192.168.135.121/24;
+            }                           
+        }                               
+    }                                   
+    ge-0/0/1 {                          
+        unit 0 {                        
+            family inet {               
+                address 192.168.20.5/24;
+            }                           
+        }                               
+    }                                   
+    ge-0/0/2 {                          
+        unit 0 {                        
+            family inet {               
+                address 192.168.20.1/24;
+            }                           
+        }                               
+    }                                   
+    ge-0/0/3 {                          
+        unit 0 {                        
+            family inet {               
+                address 192.168.20.10/24;
+            }                           
+        }                               
+    }                                   
+    ge-0/0/4 {                          
+        unit 0 {                        
+            family ethernet-switching;  
+        }                               
+    }                                   
+    ge-0/0/5 {                          
+        unit 0 {                        
+            family ethernet-switching;  
+        }                               
+    }                                   
+    ge-0/0/6 {                          
+        unit 0 {                        
+            family ethernet-switching;  
+        }                               
+    }                                   
+    ge-0/0/7 {                          
+        unit 0 {                        
+            family ethernet-switching;  
+        }                               
+    }                                   
+    ge-0/0/8 {                          
+        unit 0 {                        
+            family ethernet-switching;  
+        }                               
+    }                                   
+    ge-0/0/9 {                          
+        unit 0 {                        
+            family ethernet-switching;  
+        }                               
+    }                                   
+    ge-0/0/10 {                         
+        unit 0 {                        
+            family ethernet-switching;  
+        }                               
+    }                                   
+    ge-0/0/11 {                         
+        unit 0 {                        
+            family ethernet-switching;  
+        }                               
+    }                                   
+    ge-0/0/12 {                         
+        unit 0 {                        
+            family ethernet-switching;  
+        }                               
+    }                                   
+    ge-0/0/13 {                         
+        unit 0 {                        
+            family ethernet-switching;  
+        }                               
+    }                                   
+    ge-0/0/14 {                         
+        unit 0 {                        
+            family ethernet-switching;  
+        }                               
+    }                                   
+    ge-0/0/15 {                         
+        unit 0 {                        
+            family ethernet-switching;  
+        }                               
+    }                                   
+    ge-0/0/16 {                         
+        unit 0 {                        
+            family ethernet-switching;  
+        }                               
+    }                                   
+    ge-0/0/17 {                         
+        unit 0 {                        
+            family ethernet-switching;  
+        }                               
+    }                                   
+    ge-0/0/18 {                         
+        unit 0 {                        
+            family ethernet-switching;  
+        }                               
+    }                                   
+    ge-0/0/19 {                         
+        unit 0 {                        
+            family ethernet-switching;  
+        }                               
+    }                                   
+    ge-0/0/20 {                         
+        unit 0 {                        
+            family ethernet-switching;  
+       }                               
+    }                                   
+    ge-0/0/21 {                         
+        unit 0 {                        
+            family ethernet-switching;  
+        }                               
+    }                                   
+    ge-0/0/22 {                         
+        unit 0 {                        
+            family ethernet-switching;  
+        }                               
+    }                                   
+    ge-0/0/23 {                         
+        unit 0 {                        
+            family ethernet-switching;  
+        }                               
+    }                                   
+    ge-0/1/0 {                          
+        unit 0 {                        
+            family ethernet-switching;  
+        }                               
+    }                                   
+    ge-0/1/1 {                          
+        unit 0 {                        
+            family ethernet-switching;  
+        }                               
+    }                                   
+    ge-0/1/2 {                          
+        unit 0 {                        
+            family ethernet-switching;  
+        }                               
+    }                                   
+    ge-0/1/3 {                          
+        unit 0 {                        
+            family ethernet-switching;  
+        }                               
+    }                                   
+    me0 {                               
+        unit 0 {                        
+            family inet {               
+                dhcp {                  
+                    vendor-id Juniper-ex2200-24p-4g;
+                }                       
+            }                           
+        }                               
+    }                                   
+    vlan {                              
+        unit 0 {                        
+            family inet {               
+                dhcp {                  
+                    vendor-id Juniper-ex2200-24p-4g;
+                }                       
+            }                           
+        }                               
+    }                                   
+}                                       
+routing-options {                       
+    static {                            
+        route 0.0.0.0/0 next-hop 192.168.135.129;
+    }                                   
+}                                       
+protocols {                             
+    igmp-snooping {                     
+        vlan all;                       
+    }                                   
+    rstp;                               
+    lldp {                              
+        interface all;                  
+    }                                   
+    lldp-med {                          
+        interface all;                  
+    }                                   
+}                                       
+ethernet-switching-options {            
+    storm-control {                     
+        interface all;                  
+    }                                   
+}                                       
+vlans {                                 
+    default {                           
+        l3-interface vlan.0;            
+    }                                   
+}                                       
+poe {                                   
+    interface all;                      
+}                        

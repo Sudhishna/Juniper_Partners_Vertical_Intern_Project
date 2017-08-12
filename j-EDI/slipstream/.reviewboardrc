@@ -1,0 +1,4 @@
+REVIEWBOARD_URL = "ssd-codereview3.juniper.net"
+REPOSITORY = "slipstream"
+BRANCH = "master"
+LAND_DEST_BRANCH = "master"

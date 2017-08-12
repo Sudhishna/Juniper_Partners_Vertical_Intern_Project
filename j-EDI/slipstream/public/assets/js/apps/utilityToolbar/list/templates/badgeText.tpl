@@ -1,0 +1,1 @@
+<p class="toolbar_icon_badge_text">{{badge_number}}</p>

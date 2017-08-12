@@ -1,0 +1,1046 @@
+ .grid-widget{
+
+  @import "../../js/vendor/jquery/jqGrid/ui.jqgrid";
+  overflow-x:auto;
+
+  .slipstream-content-title{
+    margin-bottom: 0px;
+  }
+  .cbox, .tree_custom_checkbox {
+      transform: scale(1.15,1.15);
+  }
+  a{
+    color:$link-active-color;
+    font-size: 12px;
+  }
+  @mixin actionIcon($url) {
+     span{ 
+      @extend .icon_#{$url}, .icon_#{$url}-dims;
+      display:inline-block;
+      margin-right: 5px;
+    }
+  }
+  @mixin actionHover($url) {
+    &:hover{
+      color: $input-active-border;
+      cursor: pointer;
+      span{
+        @extend .icon_#{$url}, .icon_#{$url}-dims;
+      }
+    }
+  }
+  @mixin actionDisable($url) {
+    &.disabled, &.disabled:hover{
+      span{
+        @extend .icon_#{$url}, .icon_#{$url}-dims;
+      }
+    }
+  }
+
+  &.slipstream_tree_grid .ui-jqgrid .ui-jqgrid-bdiv{
+    overflow-y: scroll;
+  }
+  
+  .filter_input{
+    .filter{
+      color:$form-value-color;
+      height: 22px;
+      margin: 0px;
+      padding: 0px 24px 0px 0px;
+      border: 0px;
+      box-shadow: none;
+      border-bottom: 1px solid $secondary-body-bg-color;
+      float: left;
+      &:focus{
+        border-bottom:1px solid $input-active-border;
+      }
+    }
+    .filter-icon{
+      width: 15px;
+      height: 16px;
+      display: inline-block;
+      float: right;
+      cursor: pointer;
+      margin-right: 5px;
+      margin-top: -20px;
+      &.search-icon{
+        @extend .icon_search_sm, .icon_search_sm-dims;
+        background-repeat: no-repeat;
+        &:hover{
+          @extend .icon_search_sm_hover, .icon_search_sm_hover-dims;
+        }
+      }
+      &.filter-clear{
+        @extend .icon_close, .icon_close-dims;
+        background-repeat: no-repeat;
+        
+      }
+    }
+
+  }
+  .action-filter-container{
+    margin-left:inherit;
+    font-size:12px;
+    padding-top: 18px;
+    .action-filter-wrapper{
+      display:inline-block; 
+      float: right;
+    }
+    .sub-nav{
+      margin-left:0px;
+      padding-bottom: 10px;
+    }
+    dd{
+      font-size:12px;
+      margin-right: 10px;
+      line-height: 18px;
+      .slipstream-small-primary-button{
+        margin-right: 0px !important;
+      }
+      .iconImg{
+        margin-right: 5px;
+        width: 16px;
+        height: 16px;
+        display: inline-block;
+      }
+      &.disabled, &.disabled:hover{
+        cursor: default;
+      }
+    }
+    .create{
+      @include actionIcon('create');
+      @include actionHover('create_hover');
+      @include actionDisable('create_disable');
+    }
+    .edit{
+      @include actionIcon('edit');
+      @include actionHover('edit_hover');
+      @include actionDisable('edit_disable');
+    }
+    .delete{
+      @include actionIcon('delete');
+      @include actionHover('delete_hover');
+      @include actionDisable('delete_disable');
+    }
+    .expand{
+      @include actionIcon('expand_all');
+      @include actionHover('expand_all_hover');
+      @include actionDisable('expand_all_disable');
+    }
+    .collapse{
+      @include actionIcon('collapse_all');
+      @include actionHover('collapse_all_hover');
+      @include actionDisable('collapse_all_disable');
+    }
+    .actionIcon:hover{
+      color: $input-active-border;
+      cursor: pointer;
+    }
+
+    .filter-container{
+      dd{
+        margin-right: 0px !important;
+        &.hide{
+          display: none;
+        }
+        &.grid_filter_input{
+          @extend .filter_input;
+          input{
+            background-color: $content-body-bg;
+          }
+        }
+        &.grid_show_filters{
+          margin-left: 10px !important;
+        }
+        &.grid_filter_options{
+          height: 20px;
+          span{
+            background-repeat: no-repeat;
+            display: inline-block;
+            margin: 2px 0px 0px 8px;
+            @extend .icon_filter_menu, .icon_filter_menu-dims;
+            &:hover{
+              @extend .icon_filter_menu_hover, .icon_filter_menu_hover-dims;
+            }
+          }
+        }
+      }
+    }
+
+    .actionSeparator>span{
+      border-right: 1px solid $secondary-body-bg-color;
+    }
+  }
+
+  .actionMenu{
+    border: 1px solid $button-persistence-border;
+    background-color: $button-disabled-background;
+    padding: 0px 5px 0px 10px;
+    color: $button-active-font-color !important;
+    font-size: 11px !important;
+    line-height: 20px !important;
+    & span{
+      @extend .icon_arrow_down_centered, .icon_arrow_down_centered-dims;
+      background-repeat: no-repeat;
+      height: 5px;
+      width: 8px;
+      display: inline-block;
+      margin-left: 10px;
+      margin-top: 8px;
+      vertical-align: top;
+    }
+    &.disabled{
+      color: $button-disabled-font-color !important;
+      background: $primary-button-disabled-background;
+      border-color: $primary-button-disabled-border-color;
+      & span{
+        @extend .icon_arrow_down_centered_disable;
+      }
+    }
+  }
+  .search-container .search-widget.readOnly{
+    border-top: 1px solid $border-color;
+  }
+
+  .search-save-container.saveSearch{
+    overflow: hidden;
+    .search-container{
+      float: left;
+      width: calc(100% - 75px);
+    }
+    .save-container{
+      display: inline-block;
+      float: right;
+    }
+  }
+
+  &>.ui-jqgrid{
+    width: inherit !important;
+  }
+  .ui-jqgrid{
+    font-family: $body-font-family;
+    overflow-x: auto;
+    &.minHeight{
+      min-height: 230px;
+    }
+    .loading{
+      vertical-align: middle;
+      color: transparent;
+      z-index: 15;
+    }
+    .jqgfirstrow{
+      padding:0px;
+      margin:0px;
+      border:none !important;
+      background-color:$table-filter-bg;
+      td{
+        padding:0px !important;
+      }
+    }
+    .jqgrow{
+      height:30px;
+      background:$body-bg;
+    }
+    .ui-jqgrid-hbox{
+      padding-right: 0px;
+    }
+    .ui-jqgrid-htable {/* table header */
+      border: none;
+//      border: 1px solid $table-title-border-color;
+      border-bottom:0px;
+      th.ui-th-column{
+        float:none;
+      }
+      .ui-jqgrid-labels{
+        height:34px;
+        background:$table-head-grid-bg;
+//        border-bottom: 1px solid $table-title-border-color;
+        th{
+          padding: 0px;
+          position: relative;
+          div{
+            font-weight: normal;
+            color:$font-secondary-color;
+            text-overflow: ellipsis;
+            font-weight: bold;
+          }
+          .ui-jqgrid-resize{
+            border-right: 1px dotted $table-title-resize;
+            margin: 0px;
+          }
+          .ui-jqgrid-sortable{
+            text-align: left;
+            padding-left: 15px;
+            position: relative;
+            .s-ico{
+              position: absolute;
+              left:3px;
+              top:0px;
+              margin-top:-2px;
+              .ui-icon{
+                width:6px;
+                height:8px;
+                margin-top: 4px;
+                &.ui-icon-asc{
+                  @extend .icon_arrow_up_grid, .icon_arrow_up_grid-dims;
+                }
+                &.ui-icon-asc:hover{
+                  @extend .icon_arrow_up_grid_hover, .icon_arrow_up_grid_hover-dims;
+                }
+                &.ui-icon-desc{
+                  @extend .icon_arrow_down_grid, .icon_arrow_down_grid-dims;
+                }
+                &.ui-icon-desc:hover{
+                  @extend .icon_arrow_down_grid_hover, .icon_arrow_down_grid_hover-dims;
+                }
+                &.ui-state-disabled{
+                  display:none;
+                }
+              }
+            }
+            &.not-sortable{
+              cursor:auto;
+            }
+            &.orderable{
+              cursor: move;
+            }
+          }
+          input[type="checkbox"]{
+            height: 12px !important;
+            margin-left: 3px;
+          }
+          &.ui-th-column{
+            border-right:none;
+          }
+          &[aria-selected~="true"]{
+            color:$input-active-border;
+            font-weight: bold;
+          }
+          &[aria-selected~="false"]{
+            color:$title-font-color;
+            font-weight: normal;
+          }
+          &:last-child{
+            span{
+              border-right: none;
+            }
+          }
+          &[id$="slipstreamgrid_more"]{//title that ends with - more icon
+            border-right: 1px solid $border-color;
+            div{
+              cursor: default;
+            }
+          }
+          .tree-select-all{
+            margin-left: -10px;
+          }
+          &.leftNestedHeader{
+            width: 93px !important;
+            text-align: left;
+            .leftHeader{
+              border-right: 1px dotted $table-border-color;
+            }
+          }
+        }
+      }
+      .ui-search-toolbar{
+        background-color:$table-filter-bg;
+        height: 34px;
+        th{
+          position: relative;
+          .ui-search-table{
+            margin: 0px;
+            padding: 0px 10px;
+            background-color:$table-filter-bg;
+            .ui-search-input{
+              background-color:$body-bg;
+              padding: 0px 6px;
+              input{
+                height: 20px;
+                color:$body-font-color;
+                font-size: 12px;
+                border: 0px;
+                box-shadow: none;
+                &.hasDatepicker{
+                  width: 100px !important;
+                  float: left;
+                }
+                &.hasDropdown{
+                  background: url('/assets/images/arrow_down_centered.png') no-repeat right;
+                  cursor: pointer;
+                }
+                &.detailView{
+                  background: url('/assets/images/icon_input_field.png') no-repeat right;
+                  cursor: pointer;
+                }
+              }
+              &.dropdown-widget{
+                .select2-container{
+                  height: 19px;
+                  .select2-selection{
+                    border:0px;
+                  }
+                }
+              }
+              img.ui-datepicker-trigger{
+                left: 10px;
+              }
+              & > select{
+                line-height: 15px;
+                padding: 2px 5px;
+              }
+            }
+            .ui-search-clear{
+              padding: 0px;
+            }
+          }
+        }
+      }
+    }
+    .ui-jqgrid-bdiv{ /* content container */
+      overflow-x: hidden;
+      overflow-y: auto;
+      min-height: 30px; //shows at least 1 row
+      &>div{
+        border-bottom: none !important;
+      }
+      &.defaultHeight>div{
+        height: auto !important;
+      }
+      .ui-jqgrid-btable{
+        border-collapse: collapse;
+        border-color: transparent !important;
+        background-color: $table-head-grid-bg;
+        // border-top: 0px; // Note: IMPORTANT - Do not set value for 'border-top', issue in FF: jqGrid reloadGrid method not triggered after scroll on page (PR-1165741)
+        border-left: 0px;
+        border-right: 0px;
+        border-bottom: 1px solid $table-border-color !important; /* border at the bottom of the table */
+        tbody{
+          tr{
+            &:hover{
+              background-color: $table-row-selected-color;
+              .left_action_column .quickView{ //quick view column
+                @extend .icon_quick_view_hover, .icon_quick_view_hover-dims;
+              }
+            }
+            &.selectedRow{
+              background-color: $table-row-selected-color;
+            }
+            &.scroll_highlight {
+              animation: scrollRowColorPulse 5s;
+              -webkit-animation: scrollRowColorPulse 5s;
+              -moz-animation: scrollRowColorPulse 5s;
+            }
+            border-top: solid $table-row-border-color 1px;
+            vertical-align: top;
+            &.ui-widget-content{
+              select,option{
+                font-size:12px !important;
+                font: $body-font-family;
+                padding: 2px;
+                background-color: $body-bg;
+                margin: 3px 0;
+              }
+            }
+            td{
+              border: 0px;
+              padding: 5px 0px 0px 15px;
+              color:inherit;
+              font-size: 12px;
+              line-height: 18px;
+              text-overflow: ellipsis;
+              position: relative;
+              input[type="text"]{
+                font-size: inherit;
+                padding: 2px;
+                height: auto;
+                &:focus{
+                  border:1px solid $input-active-border;
+                }
+              }
+              input[type="checkbox"]{
+                margin-left: -14px !important;
+              }
+              .ui-icon-carat-1-sw{
+                background-image: none !important;
+              }
+              .ui-sgcollapsed{
+                vertical-align: bottom;
+                padding-bottom: 12px;
+                & ~ td{
+                  font-weight: bold;
+                  vertical-align: bottom;
+                  padding-bottom: 8px;
+                }
+              }
+              &[aria-describedby$="slipstreamgrid_more"]{
+                border-right: 1px solid $border-color;
+                width:32px;
+              }
+              .ui-icon-circlesmall-minus{
+                margin:4px;
+              }
+              .ui-icon-circlesmall-plus{
+                margin: 2px 4px;
+              }
+              &.tree_custom_checkbox{
+                text-align: center;
+              }
+              &.draggable-source{
+                background-color: $drag-n-drop-background-color;
+              }
+              &.droppable-hover{
+                background-color: $drag-n-drop-background-color;
+                border: 1px $input-active-border solid;
+              }
+              &.jqgrid-rownum{
+                padding-left: 0px;
+                text-align: right !important;
+              }
+            }
+            &[editable='1'] td{
+              &:hover{
+                background-color: inherit !important;
+                cursor: pointer;
+              }
+              .cell-wrapper, .cell-wrapperleaf{
+                float: left;
+              }
+            }
+            .editable textarea{
+                width:100%;
+                font-size:12px;
+                padding:2px;
+                min-height: 100%;
+                resize: none;
+                line-height: 18px;
+                &:focus{
+                  border:1px solid $input-active-border;
+              }
+            }
+            &.jqgroup{
+              td{
+                background-color: $body-bg;
+              }
+              span.tree-wrap-ltr{
+                top: 6px;
+                & + span{
+                  margin-left: 30px;
+                }
+              }
+            }
+          }
+        }
+        &.nestedTable{ //nestedTable fix
+          background-color: transparent;
+          &>tbody>tr{
+            &:hover, &[aria-selected=true], &[aria-selected=true].context-menu-hover{
+              border:0px;
+              border-top: solid $table-border-color 1px;
+            }
+          }
+          .jqgfirstrow{ //title of nested table
+            td {
+              &:first-child{
+                width:25px !important;
+              }
+            }
+          }
+          .jqgrow{ //title of nested table
+            background:none;
+            height:40px;
+            td {
+              font-weight:bold;
+//              &:first-child{
+//                width:25px !important;
+//              }
+            }
+            .ui-sgcollapsed{
+              padding: 5px 0 0 10px;
+            }
+          }
+          .ui-subgrid{ //nested table
+            &:hover{
+              border:0px;
+            }
+            td.subgrid-cell{
+              display: none;
+            }
+            td.subgrid-data{
+              padding:0px;
+              .ui-jqgrid-hdiv{
+                display: none;
+              }
+              .ui-jqgrid-bdiv{
+                background-color: $body-bg;
+                top: 0px !important;
+                height: auto;
+                position: relative !important;
+                .ui-jqgrid-btable tr{
+                  vertical-align: top !important;
+                }
+                &>div{
+                  overflow-x: hidden;
+                  background-color: $body-bg;
+                }
+                .editFix{
+                  height: 100% !important;
+                }
+                .jqgfirstrow{
+                  border:none; //fix for removing double border
+                  td{
+                    min-width: 31px;
+                  }
+                  td:first-child{
+                    width:31px !important;
+                  }
+                }
+                .jqgrow{
+                  height:30px;
+                  background:$table-body-bg;
+                  td{
+                    font-weight:normal;
+                    &.jqgrid-rownum{
+                      text-align: right !important;
+                      padding-left: 4px;
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+
+    .slipstream-edit-grid-inline.ui-jqgrid-btable tr td:hover{
+      background-color: $row-cell-hover;
+      cursor: pointer;
+    }
+
+    @mixin moreLessIcon($url,$width,$height) {
+     @extend .icon_#{$url}, .icon_#{$url}-dims;
+     background-repeat: no-repeat;
+//     background-origin: !important;
+    }
+    .moreIcon{
+      @include moreLessIcon('arrow_right_dark', 6px, 8px);
+      display:inline-block;
+      cursor: pointer;
+    }
+    .lessIcon {
+      @include moreLessIcon('arrow_down_dark', 8px, 6px);
+      display:inline-block !important;
+      cursor: pointer;
+      margin-top: 6px;
+      vertical-align: top;
+    }
+    .ui-icon-plus, .ui-icon-circlesmall-plus {
+      @include moreLessIcon('arrow_rightFW', 8px, 12px);
+    }
+    .ui-icon-minus, .ui-icon-circlesmall-minus {
+       @include moreLessIcon('arrow_downFW', 14px, 7px);
+        position: absolute;
+        top: 12px;
+    }
+    .ui-icon.tree-plus{  
+     @include moreLessIcon('arrow_rightFW', 8px, 12px);
+    }
+    .ui-icon.tree-minus {
+      @include moreLessIcon('arrow_downFW', 16px, 7px);
+      top: 5px;
+    }
+    .moreContent, .originalCellValue{
+      display: none !important;
+    }    
+    .cell_mask{
+      position: absolute !important; 
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100% !important; 
+      z-index: 100;
+      background: rgba(0, 0, 0, 0.25);
+    }
+    .cellContent{
+      clear:both;
+      .cellContentValue{
+        display: inline-block;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        width: 100%;
+        clear: both;
+        &.cellItem{
+          float: left;
+        }
+      }
+      .moreTooltip{
+        float:right;
+      }
+      .cellContentWrapper{
+        overflow: auto;
+        display: block;
+      }
+      &.moreIcon{
+        padding-top: 5px;
+        margin: 6px 0px 0px;
+        line-height: 1px;
+      }
+      .cellCollapseWrapper{
+        max-height: 21px; //default to 1 column with a height of 21 per row (adjusted in gridFormatter - rowHeight, setCollapseRowConfiguration)
+        .cellContentValue{
+          width: calc(100% - 35px);
+        }
+      }
+      .cellExpandWrapper{
+        max-height: 90px; //default to 5 columns with a height of 21 per row (adjusted in gridFormatter - rowHeight, setCollapseRowConfiguration)
+        height: auto; //auto for 5 columns
+        margin-bottom: 4px;
+      }
+    }
+    .cellContentInput{
+      background-color: $body-bg;
+    }
+    @mixin cellContentKeyDropdown() {
+      display: inline-block;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      overflow: hidden;
+    }
+    .cellContentKey{
+      @include cellContentKeyDropdown();
+      width:30% !important;
+      float:left;
+
+    }
+    .cellContentKeyValue{
+      @include cellContentKeyDropdown();
+      font-weight: bold;
+    }
+    .cellContentBlock{
+      display:block;
+      line-height: 18px;
+      height: 18px;
+    }
+    .rowDisabled{
+      color: $font-tertiary-color;
+      background-color: $table-row-disabled-color !important;
+    }
+    .updateButtons{
+      text-align: center;
+      left: 0;
+      right: 0;
+      position: absolute;
+      span{
+        display: inline-block;
+        margin: 9px 0px;
+        input{
+          font-size:12px !important;
+        }
+      }
+      &.disabled{
+        display:block;
+      }
+    }
+    .updateBackground{
+      height:50px;
+    }
+    .error{
+      margin:8px 0px 0px;
+      padding:0px;
+      font-style: normal;
+      font-size: 11px;
+      background: inherit;
+      color: $form-error-color;
+      width: 98%;
+      word-wrap: break-word;
+      white-space: normal;
+      display: block;
+      &.hidden{
+        display: none;
+      }
+    }
+    #errorDiv:before, .errorimage:before {
+      @extend .icon_error, .icon_error-dims;
+      float: left;
+      padding-right: 5px;
+      margin-top: 0;
+    }
+    .left_action_column{
+      padding-left:8px !important;
+      .quickView{
+        float: left;
+        width: 18px;
+        height: 18px;
+        display: block;
+      }
+    }
+  }
+  .lineThrough{
+    text-decoration: line-through;
+  }
+  .opacityOnEdition{
+    opacity: 0.4;
+  }
+
+  #number_filter_overlay{ //overlay for the number column filter
+    .form_section{
+      width: 200px;
+      float: left;
+      padding-left: 1px;
+      .elementinput{
+        width: 200px;
+        .optionselection {
+          height: 40px;
+        }
+      }
+      &.number_column_filter_section{
+        .elementinput{
+          width: auto;
+          input[type="text"]{
+            width: 80px;
+          }
+        }
+        .between_number{
+          float: left !important;
+          .elementlabel{
+            width: 20px;
+            margin-left: 10px;
+            label{
+              font-weight: normal;
+              color: $form-value-color;
+            }
+          }
+        }
+        .after_between_number{
+          clear: both;
+        }
+      }
+    }
+  }
+
+  //cell tooltip for expand/collapse rows
+  .moreTooltipWrapper{
+    height: 100%;
+    .moreTooltip{
+      border: 1px solid $button-active-border;
+      padding: 0px 4px;
+      border-radius: 4px;
+      color: $button-active-border;
+      line-height: 10px;
+      position: absolute;
+      bottom: 8px;
+      right: 0px;
+      i{
+        font-size: 10px;
+        font-style: normal;
+      }
+      em{
+        font-size: 11px;
+        font-style: normal;
+      }
+    }
+    &.expandContent .moreTooltip{
+      bottom: 3px;
+    }
+  }
+  .more-items{
+    .more_filter_input{
+      @extend .filter_input;
+      clear: both;
+    }
+    .more-content{
+      max-height:300px;
+      width:100%;
+      overflow: auto;
+      margin-top: 6px;
+      float: left;
+      .more-item{
+        line-height: 14px;
+        padding: 3px 4px;
+      }
+    }
+  }
+   div.noResultContainer {
+     display: none;
+     border-top: 1px $secondary-body-bg-color solid;
+     border-bottom: 1px $secondary-body-bg-color solid;
+     padding: 5px 0px 3px 15px;
+     font-size: 12px;
+     line-height: 18px;
+     &.autoTool{
+       margin-bottom: 200px;
+     }
+   }
+}
+
+.ui-jqgrid-dnd{
+  display:none;
+}
+.dragNdrop-container{
+  font: 12px $body-font-family;
+  color: $form-label-color;
+  border: 1px $input-active-border solid;
+  height: 40px;
+  padding: 10px 15px;
+  background-color: $body-bg;
+  span{
+    display: inline-block;
+    padding-left: 10px;
+    vertical-align: middle;
+  }
+  .icon_access{
+    width: 18px;
+    height: 18px;
+  }
+  .icon_deny{
+    width: 14px;
+    height: 14px;
+  }
+}
+
+.gridTableFooter {
+  box-shadow: 0px 2px 0px 0px rgba(204, 204, 204, 0.6);
+  background-color: $table-footer-background-color;
+  font: 12px $body-font-family;
+  padding: 10px 15px;
+  position: relative;
+  display:inline-block;
+  width: 100%;
+  height: 35px;
+  margin: 0 0 5px 0;
+  .selectionText {
+      font-weight: bold;
+  }
+
+  .refresh {
+      display: inline-block;
+      @extend .icon_refresh, .icon_refresh-dims;
+      vertical-align: middle;
+      margin-left: 12px;
+      margin-bottom: 12px;
+      &:hover {
+          @extend .icon_refresh_active, .icon_refresh_active-dims;
+          cursor: pointer    
+      }
+  }
+
+  .rowTotal{
+    display: inline-block;
+    font: 12px $body-font-family;
+    margin: 0;
+    vertical-align: middle;
+    height: 26px;
+    .totalRowsContainer{
+      display: inline-block;
+    }
+  }
+
+  .paginationContainer{
+    display: inline-block;
+    position: absolute;
+    right: 8px;
+    top: 5px;
+    .pagination{
+      display: inline-block;
+      margin-right: 30px;
+      div {
+        float: left;
+        display: inline-block;
+      }
+      .pageCountContainer{
+          span{
+            font-size: 12px;
+            padding: 0 8px;
+          }
+          .pageContent, .pageCount{
+            display: inline-block;
+          }
+          .pageCount{
+            color: $link-active-color;
+            cursor: pointer;
+          }
+          input{
+            width: 50px;
+            height: 26px;
+            display: inline-block;
+            text-align: center; 
+            margin: 0 8px;
+          }
+        }
+      .iconContainer{
+        display: inline-block;
+        margin: 0 16px;
+        span{
+          display: inline-block;
+          width: 6px;
+          height: 12px;
+          cursor: pointer;
+          &.icon_nav_big_arrow_right_disable{
+            cursor: default;
+          }
+        }
+        &.prev{
+          transform: rotate(180deg);
+          padding-bottom: 5px;
+        }
+        &.next{
+          padding-top: 7px;
+        }
+      }
+    }
+    .displayRowsContainer{
+      display: inline-block;
+      padding-right: 5px;
+      position: relative;
+      width: 131px;
+      height: 26px;
+      .page-size-label{
+        position: absolute;
+        top: 7px;
+        width: 25px;
+      }
+      .displayRows{
+        width: 65px;
+        height: 26px;
+        display: inline-block;
+        margin-left: 56px;
+        .select2-container{
+          position: absolute;
+        }
+        .select2-container--default .select2-selection--single{
+          border-color: $border-color;
+          height: 26px;
+          .select2-selection__rendered{
+            line-height: 26px;
+          }
+        }
+      }
+    }
+  }
+}
+ul.context-menu-list.grid-widget-show-hide-columns-menu {
+   max-height: 400px;
+   overflow-y: scroll;
+}
+
+.slipstream-widget-test-page {
+  padding-bottom: 0px;
+
+  .getSelection {
+    margin-top:20px;
+  }
+}
+
+
+/*
+//grids on overlay configuration example
+#physical_interface_id {
+  max-height:350px;
+  height:350px;
+}
+.saved_filters_grid_list {
+  max-height:300px;
+  height:300px;
+}
+*/

@@ -1,0 +1,27 @@
+@mixin prefixed($property, $value, $second:false) {
+  @if $second {
+    -webkit-#{$property}: $value, $second;
+       -moz-#{$property}: $value, $second;
+        -ms-#{$property}: $value, $second;
+         -o-#{$property}: $value, $second;
+            #{$property}: $value, $second;
+  } @else {
+    -webkit-#{$property}: $value;
+       -moz-#{$property}: $value;
+        -ms-#{$property}: $value;
+         -o-#{$property}: $value;
+            #{$property}: $value;
+  }
+}
+
+@mixin vertical-align {
+  position: relative;
+  top: 50%;
+  @include prefixed(transform, translateY(-50%));
+}
+
+@mixin background-radial-gradient ($centerColor,$outsideColor) {
+  background: -webkit-radial-gradient($centerColor, $outsideColor); /* Safari 5.1 to 6.0 */
+  background: -moz-radial-gradient($centerColor, $outsideColor); /* For Firefox 3.6 to 15 */
+  background: radial-gradient($centerColor, $outsideColor); /* Standard syntax */
+}

@@ -1,0 +1,92 @@
+.map-widget{
+    @import "../../js/vendor/leaflet/leaflet-0.7.3";
+    overflow-x:auto;
+
+    min-height: 400px;
+    height: inherit;
+    height: 100%;
+    .unknownCountryFeature {
+    }
+
+    .mapContent{
+      min-height: inherit;
+      height: inherit;
+    }
+
+    .slipstream-content-title{
+      margin-bottom: 10px;
+    }
+    a{
+      color:$link-active-color;
+      font-size: 12px;
+    }
+    .slipstream-widget-test-page {
+      .getSelection{
+        margin-top:20px;
+      }
+    }
+    .country-name{
+      margin: 10px;
+    }
+    .flag-wrapper{
+        position: relative;
+        box-shadow: 0 0 1px black;
+        overflow: hidden;
+    }
+    .info {
+      padding: 6px 8px;
+      font: 12px/14px Arial, Helvetica, sans-serif;
+    }
+    .info h4 {
+      margin: 0 0 5px;
+      color: #777;
+    }
+    .legend {
+        line-height: 18px;
+        color: #555;
+        padding-bottom: 9px;
+    }
+    .legend i {
+        width: 18px;
+        height: 18px;
+        float: left;
+        margin-right: 8px;
+        opacity: 0.7;
+    }
+
+    .legendTitle{
+      padding-bottom: 5px;
+      text-align:center;
+    }
+
+    .legendItem {
+      float: left;
+    }
+
+    .leaflet-bottom.leaflet-left {
+      z-index: initial;
+      .info.legend.leaflet-control {
+        width: 135px;
+        z-index: 0;
+      }
+    }
+    .leaflet-top, .leaflet-bottom {
+      z-index: 4;
+    }
+
+    .hoverPopup{
+      .leaflet-popup-tip-container{
+        display: none;
+      }
+    }
+
+    .path-start {
+        -webkit-transition:stroke-dashoffset 1s ease-in;
+        -moz-transition:stroke-dashoffset 1s ease-in;
+          -o-transition:stroke-dashoffset 1s ease-in;
+            transition:stroke-dashoffset 1s ease-in;
+    }
+    .flag-icon-qq {
+      background-image: url(/assets/images/icon_unknown_flag.svg);
+    }
+}

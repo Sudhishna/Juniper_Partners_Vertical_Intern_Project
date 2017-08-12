@@ -1,0 +1,19 @@
+<div class="overlay-wrapper">
+    <div class="bbm-modal__topbar">
+        {{#title}}
+        <div class="slipstream-content-title overlay-title">{{title}}</div>
+        {{/title}}
+    </div>
+
+    <div class="bbm-modal__section bbm-modal_scrolldiv {{^title}}no-title{{/title}} {{^showBottombar}}no-bottom-bar{{/showBottombar}}"></div>
+    {{#showBottombar}}
+    <div class="bbm-modal__bottombar">
+        {{#okButton}}
+        <input type="submit" id="ok" name="ok" class="slipstream-primary-button overlay-done" value="{{ok_button}}"/>
+        {{/okButton}}
+        {{#cancelButton}}
+        <span id="cancel" name="cancel" class="cancelLink overlay-cancel"><a>{{cancel_button}}</a></span>
+        {{/cancelButton}}
+    </div>
+    {{/showBottombar}}
+</div>

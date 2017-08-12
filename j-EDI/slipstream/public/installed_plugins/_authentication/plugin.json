@@ -1,0 +1,78 @@
+{
+    "name": "authentication",
+    "description": "Handle user authentication",
+    "publisher": "Juniper Networks, Inc.",
+    "version": "0.0.1",
+    "release_date": "04.06.2015",
+    "min_platform_version": "0.0.1",
+    "activities": [
+        {
+            "module": "loginActivity",
+            "auth_required": false,
+            "filters": [
+                {
+                    "id": "login",
+                    "action": "slipstream.intent.action.ACTION_AUTHENTICATE",
+                    "data": {
+                        "scheme": "auth"
+                    }
+                }
+            ]
+        },
+        {
+            "module": "logoutActivity",
+            "auth_required": false,
+            "filters": [
+                {
+                    "id": "logout",
+                    "action": "slipstream.intent.action.ACTION_UNAUTHENTICATE",
+                    "data": {
+                        "scheme": "auth"
+                    }
+                }
+            ]
+        },
+        {
+            "module": "loginFailedActivity",
+            "auth_required": false,
+            "filters": [
+                {
+                    "id": "loginFailed",
+                    "action": "slipstream.intent.action.ACTION_AUTHENTICATE_FAILED",
+                    "data": {
+                        "scheme": "auth"
+                    }
+                }
+            ]
+        },
+        {
+            "module": "myProfileActivity",
+            "filters": [
+                {
+                    "action": "slipstream.intent.action.ACTION_MYPROFILE",
+                    "data": {
+                        "scheme": "auth"
+                    }
+                }
+            ]
+        }
+    ],
+    "utility_toolbar": [
+        {
+            "bindsTo": "user",
+            "actions": [
+                {
+                    "label": "My Profile",
+                    "module": "myProfileActivity"
+                },
+                {
+                    "label": "Logout",
+                    "filter": "logout"
+                }
+            ],
+            "activity": {
+                 "module": "usernameActivity"
+            }
+        }
+    ]
+}

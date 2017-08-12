@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    	<meta charset="utf-8">
+    	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+    	<meta name="viewport" content="width=device-width, initial-scale=1">
+	 	<link rel="stylesheet" href="/assets/js/vendor/leaflet/leaflet-0.7.3.css" />
+	 	<link rel="stylesheet" href="/assets/js/vendor/flag-icon-css/flag-icon.css" />
+	 	<script src="/assets/js/vendor/leaflet/leaflet-0.7.3.js"></script>
+	 	<script src="/assets/js/vendor/jquery/jquery.min.js"></script>
+	 	<script src="/assets/js/vendor/leaflet/arc-0.1.0.js"></script>
+	 	<script src='/assets/js/vendor/leaflet/Terminator.js'></script>
+ 	</head>
+ 	<style>
+ 		#map { 
+ 			margin-left: 100px;
+ 			margin-right:100px;
+ 			margin-top: 50px;
+ 			margin-bottom: 50px;
+ 			margin: 50px;
+ 			width: auto; 
+ 			height: 700px;  		
+ 		}
+ 		.info {
+			padding: 6px 8px;
+			font: 14px/16px Arial, Helvetica, sans-serif;
+			background: white;
+			background: rgba(255,255,255,0.8);
+			box-shadow: 0 0 15px rgba(0,0,0,0.2);
+			border-radius: 5px;
+		}
+		.info h4 {
+			margin: 0 0 5px;
+			color: #777;
+		}
+ 		.legend {
+		    line-height: 18px;
+		    color: #555;
+		}
+		.legend2{
+			line-height: 18px;			
+		}
+		.legend i {
+		    width: 29px;
+		    height: 18px;
+		    float: left;
+		    opacity: 0.7;
+		}
+		.country-name{
+			margin: 10px;
+		}
+		.flag-wrapper{
+		  	position: relative;
+		  	box-shadow: 0 0 1px black;
+		  	overflow: hidden;
+		}
+		.path-start {
+  			-webkit-transition:stroke-dashoffset 1s ease-in;
+     		-moz-transition:stroke-dashoffset 1s ease-in;
+       		-o-transition:stroke-dashoffset 1s ease-in;
+          	transition:stroke-dashoffset 1s ease-in;
+  		}
+ 	</style>
+ 	<body>
+ 		<div id="map"></div>
+ 	</body>
+ 	<script>
+ 		var zoomLevel = 2.2;
+ 		var mapCenter = [29.278420174798246, -5.309598025402226];
+		var map = L.map('map', {
+			attributionControl: false, 
+			zoomControl: false, 
+			minZoom: zoomLevel, 
+			maxZoom:zoomLevel, 
+			dragging: false
+		}).setView(mapCenter, zoomLevel);
+		// show day / night
+		// L.terminator().addTo(map);
+		var orangeHex = '#FF9E00';
+	    var yellowHex = '#F7D708';
+	    var redHex = '#CE0000';
+		var legend2 = L.control({position: 'bottomleft'});
+		legend2.onAdd = function (map) {
+		    var div = L.DomUtil.create('div', 'info legend2');
+
+		    // loop through our density intervals and generate a label with a colored square for each interval
+		        div.innerHTML ='<i><img src="/assets/js/vendor/leaflet/images/marker-icon.png" height="20" width="10">&nbsp;&nbsp;Source</i>' + '<br><i><img src="/assets/js/widgets/map/tests/demo/marker-icon-red.png" height="20" width="10">&nbsp;&nbsp;Destination</i>'; 
+		    return div;
+		};
+		legend2.addTo(map);
+
+		var legend = L.control({position: 'bottomright'});
+		legend.onAdd = function (map) {
+		    var div = L.DomUtil.create('div', 'info legend'),
+		        grades = [yellowHex, orangeHex, redHex];
+
+		    // loop through our density intervals and generate a label with a colored square for each interval
+		    for (var i = 0; i < grades.length; i++) {
+		        div.innerHTML +=
+		            '<i style="background:' + grades[i] + '"></i> ' 
+		    }
+		    return div;
+		};
+		legend.addTo(map);
+
+		// Add popup support.
+		var popup = L.popup();
+
+		function showPopover(e) {
+			var country = e.target.toGeoJSON().properties.iso_a2.toLowerCase();
+		    popup
+		        .setLatLng(e.latlng)
+		        .setContent(
+		        	'<span class="flag-wrapper flag-icon flag-icon-' + country + '"></span><span class="country-name">' +  e.target.toGeoJSON().properties.name + '</span>' +
+		        	'<div><a href="/xyz">' + e.target.toGeoJSON().properties.threatevents + '</a> Threat Events (since 12:00AM PST) </div>' + 
+		        	'<div><br>Countries Initiating Most Threat Events: <br> Russia, India, China </div><br>' + 
+		        	'<div><img src="/assets/js/widgets/map/tests/demo/pie_chart.jpg" height="108" width="200"></div>'
+		        	)
+		        .openOn(map);
+
+		}
+
+		// map.on('click', onMapClick);
+
+		function getColor(d) {
+			return 'gray';
+		}
+
+		function style(feature) {
+		    return {
+		        fillColor: getColor(feature.properties.threatevents),
+		        weight: 1,
+		        opacity: 1,
+		        color: 'white',
+		        dashArray: '3',
+		        fillOpacity: 0.7
+		    };
+		}
+
+		function showName(e) {
+		    popup
+		        .setLatLng(e.latlng)
+		        .setContent('<div>' + e.target.toGeoJSON().properties.name + '</div>')
+		        .openOn(map);
+		}
+
+		function highlightFeature(e) {
+		    var layer = e.target;
+		    layer.setStyle({
+		        weight: 2,
+		        color: '#666',
+		        dashArray: '',
+		        fillOpacity: 0.7
+		    });
+
+		    if (!L.Browser.ie && !L.Browser.opera) {
+		        layer.bringToFront();
+		    }
+		}
+
+		function resetHighlight(e) {
+    		geojson.resetStyle(e.target);
+		}
+
+		function onEachFeature(feature, layer){
+			layer.on({
+				mouseover: highlightFeature,
+				mouseout: resetHighlight,
+				click: showPopover
+			});
+		}
+
+		var geojson;
+		$.ajax({
+			type: "GET",
+			crossDomain: false,
+			dataType: 'json',
+			url: '/assets/js/widgets/map/conf/countries.geojson.json',
+			success: function(data){
+				var countries = data.features.length;
+				for(var i=0; i < countries; i++){
+					data.features[i].properties.threatevents = (Math.floor(Math.random() * (5000 - 0)) + 0);
+				}
+				geojson = L.geoJson(data, {
+						style: style,
+						onEachFeature: onEachFeature
+				}).addTo(map);
+
+		        //Extend the Default marker class
+		        var RedIcon = L.Icon.Default.extend({
+		            options: {
+		            	    iconUrl: '/assets/js/widgets/map/tests/demo/marker-icon-red.png' 
+		            }
+		         });
+		        var redIcon = new RedIcon();
+
+				var london = new L.LatLng(51.5, -0.09);
+				var omaha = new L.LatLng(41.2586100, -95.9377900);
+				var auckland = new L.LatLng(-36.8666700, 174.7666700);
+				var toronto = new L.LatLng(43.7001100, -79.4163000);
+				var bangalore = new L.LatLng(12.97, 77.56);
+				var jakarta = new L.LatLng(-6.18, 106.83);
+				var shanghai = new L.LatLng(31.23, 121.47);
+				var lima = new L.LatLng(-12.07, -77.05);
+				var saopaulo = new L.LatLng(-23.53, -46.63);
+				var tallinn = new L.LatLng(59.4369600, 24.7535300);
+				var manila = new L.LatLng(14.62, 120.97);
+				var telaviv = new L.LatLng(32.0808800, 34.7805700);
+				var johannesburg = new L.LatLng(-26.19, 28.04);
+				var nanjing = new L.LatLng(32.05, 118.78);
+				var guangzhou = new L.LatLng(23.12, 113.25);
+				var taipei = new L.LatLng(25.0477600, 121.5318500);
+				var hochiminhcity = new L.LatLng(10.8230200, 106.6296500);
+				var amsterdam = new L.LatLng(52.3740300, 4.8896900);
+				var paris = new L.LatLng(48.86, 2.34);
+				var stpetersburg = new L.LatLng(59.93, 30.32);
+				var moscow = new L.LatLng(55.75, 37.62);
+				var milan = new L.LatLng(45.48, 9.19);
+				var nyc = new L.LatLng(40.67, -73.94);
+				var tokyo = new L.LatLng(35.67, 139.77);
+				var seoul = new L.LatLng(37.5660000, 126.9784000);
+				var mexicocity = new L.LatLng(19.43, -99.14);
+				var karachi = new L.LatLng(24.86, 67.01);
+				var tianjin = new L.LatLng(39.13, 117.2);
+				var istanbul = new L.LatLng(41.1, 29);
+
+				var lagos = new L.LatLng(6.5, 3.35);
+				var mumbai = new L.LatLng(19.0728300, 72.8826100);
+				var cairo = new L.LatLng(30.06, 31.25);
+				var lahore = new L.LatLng(31.56, 74.35);
+				var bombay = new L.LatLng(18.96, 72.82);
+				var kinshasa = new L.LatLng(-4.31, 15.32);
+				var bangkok = new L.LatLng(13.73, 100.5);
+				var dongguan = new L.LatLng(23.0488900, 113.7447200);
+				var nanjing = new L.LatLng(32.0616700, 118.7777800);
+				var tehran = new L.LatLng(35.67, 51.43);
+				var hongkong = new L.LatLng(22.2855200, 114.1576900);
+				var capetown = new L.LatLng(-33.93, 18.46);
+				var madrid =  new L.LatLng(40.42, -3.71);
+				var nairobi = new L.LatLng(-1.29, 36.82);
+				var durban = new L.LatLng(-29.87, 30.99);
+				var berlin = new L.LatLng(52.52, 13.38);
+				var losangeles = new L.LatLng(34.11, -118.41);
+				var baghdad = new L.LatLng(12.97, 77.56);
+				var sanfrancisco = new L.LatLng(37.77, -122.45);
+				var pyongyang = new L.LatLng(39.02, 125.75);
+				var detroit = new L.LatLng(42.38, -83.1);
+				var sanjose = new L.LatLng(37.3393900, -121.8949600);
+				var washingtondc =  new L.LatLng(38.8951100, -77.0363700);
+				var busan = new L.LatLng(35.11, 129.03);
+				var montreal = new L.LatLng(45.52, -73.57);
+				var osaka = new L.LatLng(34.68, 135.5);
+				var anchorage = new L.LatLng(61.2180600, -149.9002800);
+
+				var source = [london, lagos, mumbai, cairo, lahore, paris, kinshasa, bangkok,
+				dongguan, nanjing, tehran, hongkong, capetown, madrid, nairobi, durban,
+				berlin, losangeles, baghdad, sanfrancisco, pyongyang, detroit, sanjose,
+				washingtondc, busan, montreal, osaka, anchorage];
+
+				var dest = [omaha, auckland, toronto, bangalore, jakarta, shanghai, lima,
+				saopaulo, tallinn, manila, telaviv, johannesburg, nanjing, guangzhou,
+				taipei, hochiminhcity, amsterdam, bombay, stpetersburg, moscow, milan,
+				nyc, tokyo, seoul, mexicocity, karachi, tianjin, istanbul];
+
+				// var source = [london, mumbai, osaka, moscow, pyongyang, cairo];
+				// var dest = [omaha, toronto, bangalore, sanfrancisco, telaviv, shanghai];
+
+				// var source = [london,moscow];
+				// var dest = [omaha, tokyo];
+				var arcMap = {};
+
+				function transformLLtoXY(ll) { return { y: ll['lat'], x: ll['lng'] }; }
+				
+				for (var i = 0; i < source.length; i++) {
+				    // Transform each pair of coordinates into a pretty
+				    // great circle using the Arc.js plugin, as included above.
+				    var generator = new arc.GreatCircle(
+				            transformLLtoXY(source[i]),
+				            transformLLtoXY(dest[i]));
+				    var line = generator.Arc(100, { offset: 10 });
+				    // Leaflet expects [lat,lng] arrays, but a lot of
+				    // software does the opposite, including arc.js, so
+				    // we flip here.
+
+				    var orangeHex = '#FF9E00';
+				    var yellowHex = '#F7D708';
+				    var redHex = '#CE0000';
+
+				    var randomColor =  Math.floor(Math.random() * (3 - 0) + 0);
+				    var colors = [yellowHex, orangeHex, redHex];
+
+				    var newLine = L.polyline(line.geometries[0].coords.map(function(c) {
+				        return c.reverse();
+				    }), {
+				        color: colors[randomColor],
+				        weight: 3,
+				        opacity: 1
+				    });
+
+				    newLine.addTo(map);
+
+				    var totalLength = newLine._path.getTotalLength();
+				    newLine._path.classList.add('path-start');
+				    // This pair of CSS properties hides the line initially
+				    // See http://css-tricks.com/svg-line-animation-works/
+				    // for details on this trick.
+				    newLine._path.style.strokeDashoffset = totalLength;
+				    newLine._path.style.strokeDasharray = totalLength;
+
+				    var _arc = newLine;
+				    arcMap[source[i].toString() + dest[i].toString()] = _arc;
+
+				    // Offset the timeout here: setTimeout makes a function
+				    // run after a certain number of milliseconds - in this
+				    // case we want each arc path to be staggered a bit.
+				    setTimeout((function(path) {
+				    	var dst = L.marker(dest[i], {icon: redIcon});
+				    	var src = L.marker(source[i]);
+				    	var obj = {};
+				    	obj['index'] = i;
+				    		
+				        return function() {
+							dst.addTo(map);
+							src.addTo(map);
+				            // setting the strokeDashoffset to 0 triggers
+				            // the animation.
+				            path.style.strokeDashoffset = 0;
+
+				            obj['src'] = src;
+				            obj['dest'] = dst;
+				            obj['arc'] = newLine;
+				            	
+
+				            setTimeout((function(){
+				            	$(arcMap[source[obj.index].toString() + dest[obj.index].toString()]._container).fadeOut(750, function(){
+					            	map.removeLayer(obj.src);
+					            	map.removeLayer(obj.dest);
+					            	map.removeLayer(arcMap[source[obj.index].toString() + dest[obj.index].toString()]);
+					            	delete arcMap[source[obj.index].toString() + dest[obj.index].toString()];
+				            	})
+				            }), 8000);
+
+
+				        };
+				    })(newLine._path), i * 1800);
+				}
+
+			},
+			error: function(error){
+				console.log('Error getting geoJson data.  :  ' + error);
+			}
+		});
+ 	</script>
+</html>

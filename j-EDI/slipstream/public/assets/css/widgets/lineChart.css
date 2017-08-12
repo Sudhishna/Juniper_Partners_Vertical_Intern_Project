@@ -1,0 +1,5 @@
+.lineChart {
+  height: inherit;
+  width: inherit; }
+  .lineChart .lineLegendLabelEllipsis {
+    overflow: hidden; }

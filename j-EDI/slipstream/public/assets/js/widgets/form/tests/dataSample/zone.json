@@ -1,0 +1,71 @@
+[
+    {
+        "name": "trust-inet",
+        "screen": "STD_SCREENS",
+        "host-inbound-traffic": {
+            "system-services": [
+                {
+                    "name": "ping"
+                }
+            ]
+        },
+        "interfaces": [
+            {
+                "name": "ge-0/0/2.60"
+            }
+        ]
+    },
+    {
+        "name": "untrust-inet",
+        "screen": "STD_SCREENS",
+        "interfaces": [
+            {
+                "name": "ge-0/0/1.0"
+            }
+        ]
+    },
+    {
+        "name": "esf-inet",
+        "screen": "STD_SCREENS",
+        "interfaces": [
+            {
+                "name": "ge-0/0/2.20"
+            }
+        ]
+    },
+    {
+        "name": "esf-bp",
+        "screen": "STD_SCREENS",
+        "interfaces": [
+            {
+                "name": "ge-0/0/2.30"
+            }
+        ]
+    },
+    {
+        "name": "ra-inet",
+        "screen": "STD_SCREENS",
+        "interfaces": [
+            {
+                "name": "ge-0/0/2.35"
+            }
+        ]
+    },
+    {
+        "name": "trust-bp",
+        "screen": "STD_SCREENS",
+        "interfaces": [
+            {
+                "name": "ge-0/0/2.65"
+            }
+        ]
+    },
+    {
+        "name": "untrust-bp",
+        "interfaces": [
+            {
+                "name": "ge-0/0/3.40"
+            }
+        ]
+    }
+]

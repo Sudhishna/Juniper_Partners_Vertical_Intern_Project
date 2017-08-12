@@ -1,0 +1,20 @@
+        <!-- Error-UA display -->
+        {{#error}}<small class="error errorimage">{{{error}}}</small>{{/error}}
+        <span class="inline-help{{#help}} help-style{{/help}}">{{{help}}}</span>
+    </div>
+    {{#inlineLinks}}
+        <span class="elementlink {{class}}"><a {{#id}}id="{{id}}"{{/id}}>{{value}}</a></span>
+    {{/inlineLinks}}
+    {{#inlineIcons}}
+        <span class="elementicon {{class}}" {{#id}}id="{{id}}"{{/id}}></span>
+    {{/inlineIcons}}
+    {{#inlineButtons}}
+        <div class="elementbuttons left">
+        <input type="button" class="slipstream-primary-button {{#isInactive}}slipstream-secondary-button{{/isInactive}} {{class}}"
+        {{#id}}id="{{id}}"{{/id}}
+        {{#name}}name="{{name}}"{{/name}}
+        {{#value}}value="{{value}}"{{/value}}
+        >
+        </div>
+    {{/inlineButtons}}
+</div>

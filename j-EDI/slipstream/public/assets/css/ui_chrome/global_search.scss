@@ -1,0 +1,81 @@
+$search-description-color: #aaaaaa;
+$filter-group-header-color: #aaaaaa;
+$link-color: #3366cc;
+$object-name-color: $link-color;
+$facet-count-color: #999;
+
+.global-search-results {
+	.search-result {
+	    line-height: 1.5;
+	    margin-bottom: 25px;
+	    font-size: 14px;
+
+	    .title {
+	        margin-bottom: 8px;
+	    }
+
+		.object-name a {
+			color: $object-name-color;
+		}
+
+		.object-description {
+			color: $search-description-color;
+			font-size: 0.85em;
+			a {
+			    color: $link-color;
+			}
+		}
+	}
+
+	.results-header {
+	    @extend .slipstream-content-title;
+	    border: 0;
+	}
+
+	.filter-group {
+	    margin-top: 20px;
+	}
+
+	.filter-group-header {
+	    font-size: .65em;
+	    color: $filter-group-header-color;
+	}
+
+	.filter-header {
+	    font-size: .85em;
+	    font-weight: bold;
+
+	    a {
+	        color: $link-color;
+	        font-weight: normal;
+	        margin-left: 4px;
+	    }
+	}
+
+	.results-row {
+	    margin-left: 0;
+	    margin-right:0;
+	}
+
+	.facets {
+	    float:left;
+
+	    .facet-count {
+	        color: $facet-count-color;
+	        margin-left: 3px;
+	    }
+	}
+
+	.search-info {
+	    margin-bottom: 20px;
+	    font-size: 16px;
+	}
+
+	.page-size-controls {
+	    float: right;
+	    
+	    .page-size-label {
+	        font-size: 0.85em;
+	    }
+	}
+}

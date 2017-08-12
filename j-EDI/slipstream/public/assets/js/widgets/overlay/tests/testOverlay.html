@@ -1,0 +1,67 @@
+<!doctype html>
+<html class="no-js" lang="en">
+    <head>
+        <meta charset="utf-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <title>Overlay Widget</title>
+        <link rel="stylesheet" href="/assets/css/app.css"/>
+        <style>
+        .fixedHeightGrid {
+          height: 546px;
+        }
+        </style>
+    </head>
+    <body>
+        <div class="test_widgets">
+        <div class="slipstream-content-title">Overlay Widget</div>
+            <div>
+              <p>
+              Tab order:  Overlay has title, Minimal, Extra Small, Overlay has buttons
+              </p>
+            </div>
+            <div>
+              <label>Overlay Sizes</label>
+              <input type="radio" name="overlaySize" value="xsmall" id="xsmall" checked tabindex="3"><label>Extra Small</label>
+              <input type="radio" name="overlaySize" value="small" id="small"><label>Small</label>
+              <input type="radio" name="overlaySize" value="medium" id="medium"><label>Medium</label>
+              <input type="radio" name="overlaySize" value="large" id="large"><label>Large</label>
+              <input type="radio" name="overlaySize" value="xlarge" id="xlarge"><label>Extra Large</label>
+              <label>Overlay Widget Options</label>
+              <input type="checkbox" id="overlayTitle"  checked tabindex="1"><label>Overlay default title</label>
+              <input type="checkbox" id="overlayButtons" checked tabindex="4"><label>Overlay default buttons</label>
+            </div>
+            <br />
+            <div>
+              <label>Content Size</label>
+              <input type="radio" name="contentSize" value="minimal" id="minimal" checked tabindex="2"><label>Minimal</label>
+              <input type="radio" name="contentSize" value="overflowing" id="overflowing"><label>Scrolling</label>
+              <br />
+              <label>Content View Options</label>
+              <input type="checkbox" id="contentTitle" value="false" ><label>Content title</label>
+              <input type="checkbox" id="contentButtons" value="false"><label>Content buttons</label>
+              <input type="checkbox" id="contentField" value="false"><label>Content field</label>
+            </div>
+            <div class="testCaseLink"><button class="slipstream-primary-button" id="open">Open Overlay</button></div>
+            <br /><br />
+            <h4>Other Examples of Common Overlay Usage</h4>
+            <h6>All examples below use an overlay configuration with <b>No Title</b> and <b>No Buttons</b></h6>
+            <div class="slipstream-link"><a id="nestedOverlay">Overlay that contains Other Nested Overlays</a></div>
+            <br /><br />
+            <div class="slipstream-link"><a id="formTestCaseLinkMin">Medium Overlay with Nested Form (Min)</a></div>
+            <br />
+            <br />
+            <div class="slipstream-link"><a id="formTestCaseLink">Medium Overlay with Nested Form (Scrolling)</a></div> 
+            <br />
+            <br />
+            <div class="slipstream-link"><a href='/assets/js/widgets/shortWizard/tests/testShortWizard.html' id="formWizardTestCaseLink">Large Overlay with Nested Short Wizard</a></div>
+            <br />
+            <br />
+            <div class="slipstream-link"><a id="overlayWithFixedContainerTestCaseLink">Overlay with Fixed Height Content (Content is within a Form)</a></div>
+        </div>
+        
+        <div id="main_content" class="slipstream-widget-test-page ">
+            <div id="overlay_content"></div>
+        </div>
+        <script data-main="main" src="/assets/js/vendor/require/require.js"></script>
+    </body>
+</html>

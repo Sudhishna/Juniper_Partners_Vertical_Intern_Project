@@ -1,0 +1,13 @@
+var xmlTocData = "";
+xmlTocData += '<?xml version=\"1.0\" encoding=\"utf-8\"?>';
+xmlTocData += '<CatapultToc Version=\"1\" conditions=\"\" DescendantCount=\"10\">';
+xmlTocData += '    <!-- saved from url=(0016)http://localhost -->';
+xmlTocData += '    <TocEntry Title=\"Welcome\" Link=\"/Content/helpSystem/ua_product_welcome.htm\" ComputedResetPageLayout=\"true\" ComputedFirstTopic=\"true\" DescendantCount=\"0\" />';
+xmlTocData += '    <TocEntry Title=\"What\'s New in Release 1.0\" Link=\"/Content/helpSystem/ua_product_whatsNew.htm\" ComputedFirstTopic=\"false\" DescendantCount=\"0\" />';
+xmlTocData += '    <TocEntry Title=\"Web User Interface Feature Overview\" Link=\"/Content/helpSystem/ua_gui_overview.htm\" ComputedFirstTopic=\"false\" DescendantCount=\"0\" />';
+xmlTocData += '    <TocEntry Title=\"User Assistance Overview\" Link=\"/Content/helpSystem/ua_gui_user_assistance_overview.htm\" ComputedFirstTopic=\"false\" DescendantCount=\"0\" />';
+xmlTocData += '    <TocEntry Title=\"References\" ComputedFirstTopic=\"false\" DescendantCount=\"1\">';
+xmlTocData += '        <TocEntry Title=\"Web User Interface Supported Client Environments Reference\" Link=\"/Content/helpSystem/ua_reference.htm\" ComputedFirstTopic=\"false\" DescendantCount=\"0\" />';
+xmlTocData += '    </TocEntry>';
+xmlTocData += '</CatapultToc>';
+CMCXmlParser._FilePathToXmlStringMap.Add('Toc', xmlTocData);

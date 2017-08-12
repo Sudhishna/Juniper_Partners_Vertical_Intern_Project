@@ -1,0 +1,48 @@
+<!doctype html>
+<html class="no-js" lang="en">
+<head>
+    <!-- <meta charset="utf-8"/> -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Time Range Widget</title>
+    <link rel="stylesheet" href="/assets/css/app.css"/>
+</head>
+
+<body class='timeRangeDemo'>
+
+<h3>Examples of Time Range Widget</h3>
+<hr>
+
+<h4>Time Range Widget and Grid</h4>
+<div id="timeRange1"></div>
+<div id="grid"></div>
+<hr>
+
+<h4>Time Range Widget and Chart</h4>
+<div id="timeRange2"></div>
+<div id="barchart"></div>
+<hr>
+
+<h4>Multiple Data in the Time Range Widget</h4>
+<div id="timeRange3">
+	<div class='IPS_event_label'>
+		<div id="all" data-name= "All"><span class="default"></span><span class="text dark_gray">All</span></div>
+		<div id="critical" data-name= "CRITICAL"><span class="default"></span><span class="text">Critical</span></div>
+		<div id="major" data-name= "MAJOR"><span class="default"></span><span class="text">Major</span></div>
+		<div id="minor" data-name= "MINOR"><span class="default"></span><span class="text">Minor</span></div>
+		<div id="warning" data-name= "WARNING"><span class="default"></span><span class="text">Warning</span></div>
+	</div>
+	<div id="timeRange3Container"></div>
+</div>
+<hr>
+
+
+<h4>Set Time Range in the Time Range Widget</h4>
+<div id="timeRange4">
+<div id="timeRange4Container"></div>
+<div class="elementbuttons left"><input type="button" class="slipstream-primary-button  input_button" id="set" name="set" value="Set Series Extremes"></div>
+</div>
+<hr>
+
+<script data-main="main" src="/assets/js/vendor/require/require.js"></script>
+</body>
+</html>

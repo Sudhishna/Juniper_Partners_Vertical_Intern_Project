@@ -1,0 +1,18 @@
+data-validation="multiple"
+{{#pattern-error}}
+    {{^regexId}}{{index}}_data-validation_{{pattern}}="{{error}}"{{/regexId}}
+    {{#regexId}}
+        {{^regexObj}}
+            data-validation-regex-pattern_{{regexId}}="{{pattern}}"
+            data-validation-regex_{{regexId}}="{{error}}"
+        {{/regexObj}}
+        {{#regexObj}}
+            data-validation-regexobj-pattern_{{regexId}}="{{pattern}}"
+            data-validation-regexobj_{{regexId}}="{{error}}"
+        {{/regexObj}}
+    {{/regexId}}
+    {{#length}}data-length="{{length}}"{{/length}}
+    {{#min_length}}data-minLength="{{min_length}}"{{/min_length}}
+    {{#max_length}}data-maxLength="{{max_length}}"{{/max_length}}
+{{/pattern-error}}
+{{#notshowvalid}}data-hide_valid={{notshowvalid}}{{/notshowvalid}}

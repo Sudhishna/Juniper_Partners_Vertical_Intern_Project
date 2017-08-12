@@ -1,0 +1,12 @@
+<select data-validation="validtext" data-widget="dropDown"
+    {{#id}}id="{{id}}"{{/id}}
+    {{#name}}name="{{name}}"{{/name}}
+    {{#required}}required{{/required}}
+    {{#dropdown_disabled}}disabled{{/dropdown_disabled}}
+>
+    {{#values}}
+        <option value="{{value}}" {{#selected}}selected{{/selected}} {{#disabled}}disabled{{/disabled}}>
+            {{label}}
+        </option>
+    {{/values}}
+</select>

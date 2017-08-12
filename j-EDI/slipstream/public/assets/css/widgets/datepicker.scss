@@ -1,0 +1,178 @@
+input[data-widget='datepicker'], input[widget-type='datepicker'] {
+  display: inline;
+  height: 30px;
+  width: 125px !important;
+  margin: 0;
+  &:focus::-webkit-input-placeholder {
+    color: transparent !important;
+  }
+  &:focus::-moz-placeholder {
+    color: transparent !important;
+  }
+  &::-ms-clear {
+    // ie hack to not show clear icon in input field
+    display: none;
+  }
+}
+
+img.ui-datepicker-trigger {
+  position: relative;
+  left: -30px;
+  cursor: pointer;
+  font-size: 12px;
+}
+
+#datepicker_wrapper {
+  @import "../../js/vendor/jquery/jquery-ui-datepicker";
+
+  #ui-datepicker-div {
+    font: 62.5% "Helvetica Neue", "Helvetica", Helvetica, sans-serif !important;
+    width: 225px !important;
+  }
+  .ui-datepicker {
+    padding: 0;
+
+    .ui-widget-header {
+      padding: 0;
+      border: none;
+      border-bottom: 1px solid $border-color;
+      .ui-state-hover {
+        border: none;
+      }
+    }
+    table {
+      border: none;
+    }
+    th {
+      padding: 8px .3em 7px .3em;
+      background: $body-bg;
+      color: $form-label-color;
+      border-bottom: 1px solid $border-color;
+    }
+    tr {
+      background: $body-bg;
+    }
+    table tr.even, table tr.alt, table tr:nth-of-type(even) {
+      background: $body-bg;
+    }
+    td span, td a {
+      text-align: center;
+    }
+    .ui-datepicker-buttonpane {
+      margin: 0;
+      height: 35px;
+      button {
+        margin: 6px .2em 6px 75px;
+        padding-top: 3px;
+        height: 22px;
+        width: 66px;
+      }
+      button.ui-datepicker-current {
+        border: 1px solid $button-active-background;
+        background: $button-active-background;
+        color: $body-bg;
+      }
+    }
+    .ui-priority-secondary {
+      opacity: 1;
+      filter: Alpha(Opacity=100);
+    }
+    .ui-state-highlight {
+      font-weight: bold !important;
+      border: 1px solid $button-active-background;
+      background-color: $body-bg;
+      color: $form-label-color;
+    }
+    .ui-state-active {
+      font-weight: bold;
+      border: 1px solid $button-active-background;
+      background-color: $button-active-background;
+      color: $body-bg;
+    }
+    select.ui-datepicker-month, select.ui-datepicker-year {
+      border: none;
+      background: $body-bg url("/assets/images/icon_arrow_down_small_blue.svg") no-repeat right;
+      background-size: 8px 6px;
+      background-position-x: 80%;
+      background-position-y: center;
+      font-weight: 500;
+      outline: none;
+      -moz-outline: none;
+      color: $select-drop-down-color;
+      -moz-appearance: none;
+      text-indent: 0.01px;
+      text-overflow: '';
+      option:checked:hover {
+        background-color: $button-active-background !important;
+      }
+      height: 27px;
+    }
+    select.ui-datepicker-month {
+      width: 50%;
+    }
+    select.ui-datepicker-year {
+      width: 33%;
+    }
+    .ui-datepicker-prev, .ui-datepicker-next {
+      top: 0;
+      margin-top: 2px;
+    }
+    .ui-datepicker-prev {
+      .ui-icon {
+        @extend .icon_arrow_left_small, .icon_arrow_left_small-dims;
+        background-repeat: no-repeat;
+      }
+      span {
+        margin-left: 0;
+        margin-top: 0;
+      }
+    }
+    .ui-datepicker-next {
+      right: 6px;
+      .ui-icon {
+        @extend .icon_arrow_right_small, .icon_arrow_right_small-dims;
+        background-repeat: no-repeat;
+      }
+      span {
+        margin-left: 0;
+        margin-top: 0;
+      }
+    }
+    .ui-datepicker-prev-hover {
+      border: none;
+      margin-left: 0;
+      margin-top: 2px;
+      .ui-icon {
+      @extend .icon_arrow_left_small_blue, .icon_arrow_left_small_blue-dims;
+      background-repeat: no-repeat;
+      }
+    }
+    .ui-datepicker-next-hover {
+      border: none;
+      margin-left: 0;
+      margin-top: 2px;
+      .ui-icon {
+      @extend .icon_arrow_right_small_blue, .icon_arrow_right_small_blue-dims;
+      background-repeat: no-repeat;
+      }
+    }
+    .ui-icon-circle-triangle-w, .ui-icon-circle-triangle-e {
+      background-position: initial;
+    }
+  }
+
+  button.ui-datepicker-close {
+    display: none;
+  }
+
+  .ui-state-default, .ui-state-hover, .ui-state-focus, .ui-state-active, .ui-state-highlight, .ui-state-error, .ui-widget-overlay, .ui-widget-shadow {
+    background-image: none;
+  }
+
+  .ui-widget-content, .ui-widget-header {
+    background-image: none;
+    .ui-state-default, .ui-state-hover, .ui-state-focus, .ui-state-active, .ui-state-highlight, .ui-state-error {
+      background-image: none;
+    }
+  }
+}

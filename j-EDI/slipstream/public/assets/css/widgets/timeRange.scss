@@ -1,0 +1,65 @@
+.timeRangeDemo{
+  margin: 0 10px;	
+  #grid{
+    margin-left: 15px;
+
+    .action-filter-container{
+     display:none;
+    } 
+  }
+  #barchart{
+    .barchart{
+      margin: 0;
+    }
+  }
+  .IPS_event_label{
+    div{
+      display: inline-block;
+      cursor: pointer;
+      .default{
+        background-color: #CCC;
+        width: 10px;
+        height: 10px;
+        display: inline-block;
+        margin: 0 5px 0 10px;
+        
+      }
+      .text{
+        font-size: 10px;
+        color: #CCC;
+        display: inline-block;
+        vertical-align: middle;
+      }
+    }
+    #all {
+      cursor: default;
+      .default{
+        background-color: #05a4ff;
+      }
+      .text{
+        color: #333;
+      }
+    }
+  }  
+}
+.timeRange{
+  height: 88px;
+
+  .highcharts-navigator-handle-right, .highcharts-navigator-handle-left{
+    rect{
+      width: 4px;
+      height: 16px;
+      x: -2.5px;
+    }
+    path{
+      stroke: transparent;
+    }
+  }
+}
+.timestamp{
+  width: 100%;
+  text-align: left; 
+  padding: 10px 9px;
+  font-size: 10px;
+}
+

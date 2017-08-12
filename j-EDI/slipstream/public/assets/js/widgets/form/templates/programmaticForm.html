@@ -1,0 +1,278 @@
+<form id="{{form_id}}" name="{{form_name}}" class="form-pattern validate {{#on_overlay}}onOverlay{{/on_overlay}}" novalidate
+            {{#err_timeout}}data-err-timeout="{{err_timeout}}"{{/err_timeout}}
+            {{#disableAutocomplete}}autocomplete="off"{{/disableAutocomplete}}
+            {{#valid_timeout}}data-valid-timeout="{{valid_timeout}}"{{/valid_timeout}}
+        >
+    {{#title}}
+        <div class="slipstream-content-title">
+            <div>
+                {{title}}
+                {{>titleHelp}}
+            </div>
+        </div>
+    {{/title}}
+    <div class="content row {{#on_overlay}}onOverlay{{/on_overlay}}">
+        <div class="slipstream-content-wrapper">
+            <div id="{{err_div_id}}" data-alert class="alert-box errdivimage">
+                {{err_div_message}}
+                <a href="{{err_div_link}}" target="_blank"> {{err_div_link_text}}</a>
+            </div>
+            {{#sections}}
+            <div {{#section_id}}id="{{section_id}}"{{/section_id}} class="form_section {{section_class}}">
+                {{#heading}}
+                <div class="section_title">
+                    {{#progressive_disclosure}}<span class="progressive_disclosure {{progressive_disclosure}}"></span>{{/progressive_disclosure}}
+                    <h5>{{heading}}</h5>
+                </div>
+                {{/heading}}
+                <div {{#progressive_disclosure}}class="progressive_disclosure_content {{progressive_disclosure}}"{{/progressive_disclosure}}>
+                    {{#heading_text}}
+                    <div class="section_description">
+                        <h6 {{#heading_id}}id="{{heading_id}}"{{/heading_id}}>
+                            {{{heading_text}}}
+                        </h6>
+                    </div>
+                    {{/heading_text}}
+                    {{#toggle_section}}
+                    <div class="toggle_section optionselection">
+                        <input type="checkbox" {{#checked}}checked{{/checked}}>
+                        <label>{{label}}</label>
+                    </div>
+                    {{/toggle_section}}
+                    <div class="section_content {{#toggle_section}}{{status}}{{/toggle_section}}">
+                        {{#elements}}
+                        <!-- Form element -->
+                        {{>partialElementStart}}
+
+                            <!-- Input field -->
+                            {{#element_text}}
+                                <input type="text" {{>partialInput}}
+                                    {{#required}}data-validation="validtext"{{/required}}
+                                    {{#pattern}}
+                                        {{#regexObj}}data-regexobj-pattern="{{pattern}}"{{/regexObj}}
+                                        {{^regexObj}}data-pattern="{{pattern}}"{{/regexObj}}
+                                    {{/pattern}}
+                                >
+                            {{/element_text}}
+                            {{#element_multiple_error}}
+                                <input type="text" {{>partialInput}}
+                                    {{>partialMultipleValidation}}
+                                >
+                            {{/element_multiple_error}}
+                            {{#element_password}}
+                                <input type="password" {{>partialInput}}
+                                    {{>partialMultipleValidation}}
+                                    {{#pattern}}pattern="{{pattern_type}}"{{/pattern}}
+                                    {{#dependency}}data-equalto="{{dependency}}"{{/dependency}}
+                                >
+                            {{/element_password}}
+                            {{#element_ipCidrWidget}}
+                                <input type="text" data-widget="ipCidr" {{>partialInput}}
+                                    data-ip_label="{{label}}" data-ip_id="{{ip_id}}" data-ip_name="{{ip_name}}" data-ip_placeholder="{{ip_placeholder}}" data-ip_required="{{ip_required}}" data-ip_field_help_content="{{ip_field-help.content}}" data-ip_field_help_alias="{{ip_field-help.ua-help-identifier}}" data-ip_error="{{ip_error}}" data-ip_value="{{ip_value}}" data-ip_ip_version="{{ip_version}}"
+                                    data-cidr_id="{{cidr_id}}" data-cidr_name="{{cidr_name}}" data-cidr_placeholder="{{cidr_placeholder}}" data-ip_placeholder="{{ip_placeholder}}" data-cidr_error="{{cidr_error}}" data-cidr_value="{{cidr_value}}"
+                                    data-subnet_label="{{subnet_label}}" data-subnet_id="{{subnet_id}}" data-subnet_name="{{subnet_name}}" data-subnet_placeholder="{{subnet_placeholder}}" data-subnet_field_help_content="{{subnet_field-help.content}}" data-subnet_field_help_alias="{{subnet_field-help.ua-help-identifier}}" data-subnet_error="{{subnet_error}}" data-subnet_value="{{subnet_value}}"
+                            >
+                            {{/element_ipCidrWidget}}
+                            {{#element_datePickerWidget}}
+                                <input type="text" data-widget="datePicker" widget-type="datepicker" {{>partialInput}}
+                                    {{>partialMultipleValidation}}
+                                    {{#dateFormat}}data-dateformat={{dateFormat}}{{/dateFormat}}
+                                >
+                            {{/element_datePickerWidget}}
+                            {{#element_timeWidget}}
+                                <div data-widget="time" {{#id}}id="{{id}}"{{/id}} {{#name}}name="{{name}}"{{/name}} ></div>
+                            {{/element_timeWidget}}
+                            {{#element_dateTimeWidget}}
+                                {{#datePickerWidget}}
+                                <input type="text"  data-widget="datePicker" widget-type="datepicker" {{>partialInput}}
+                                {{>partialMultipleValidation}}
+                                {{#dateFormat}}data-dateformat={{dateFormat}}{{/dateFormat}}
+                                >
+                                 <small class="error errorimage"></small>
+                                {{/datePickerWidget}}
+                                {{#timeWidget}}
+                                <div data-widget="dateTime" {{#id}}id="{{id}}"{{/id}} {{#name}}name="{{name}}"{{/name}} ></div>
+                                <span class="inline-help"></span>
+                                {{/timeWidget}}
+                            {{/element_dateTimeWidget}}
+                            {{#element_timeZoneWidget}}
+                                <div data-widget="timeZone" {{>partialInput}}></div>
+                            {{/element_timeZoneWidget}}
+                            {{#element_email}}
+                                <input type="email" data-validation="email" {{>partialInput}}>
+                            {{/element_email}}
+                            {{#element_url}}
+                                <input type="url" data-validation="url" {{>partialInput}}>
+                            {{/element_url}}
+                            {{#element_string}}
+                                <input type="text" data-validation="alpha" {{>partialInput}}>
+                            {{/element_string}}
+                            {{#element_number}}
+                                <input type="number" data-validation="number" {{>partialInput}} min="{{min_value}}" max="{{max_value}}">
+                            {{/element_number}}
+                            {{#element_alphanumeric}}
+                                <input type="text" data-validation="alphanumeric" {{>partialInput}}>
+                            {{/element_alphanumeric}}
+                            {{#element_hexadecimal}}
+                                <input type="text" data-validation="hexadecimal" {{>partialInput}}>
+                            {{/element_hexadecimal}}
+                            {{#element_color}}
+                                <input type="text" data-validation="color" {{>partialInput}}>
+                            {{/element_color}}
+                            {{#element_lowercase}}
+                                <input type="text" data-validation="lowercase" {{>partialInput}} >
+                            {{/element_lowercase}}
+                            {{#element_uppercase}}
+                                <input type="text" data-validation="uppercase" {{>partialInput}}>
+                            {{/element_uppercase}}
+                            {{#element_integer}}
+                                <input type="text" data-validation="integer" {{>partialInput}}>
+                            {{/element_integer}}
+                            {{#element_float}}
+                                <input type="text" data-validation="float" {{>partialInput}}>
+                            {{/element_float}}
+                            {{#element_divisible}}
+                                <input type="text" data-validation="divisible" data-divisibleBy="{{divisible_by}}" {{>partialInput}}>
+                            {{/element_divisible}}
+                            {{#element_minlength}}
+                                <input type="text" data-validation="minlength" data-length="{{length}}" {{>partialInput}}>
+                            {{/element_minlength}}
+                            {{#element_length}}
+                                <input type="text" data-validation="length" data-minLength="{{min_length}}" data-maxLength="{{max_length}}" {{>partialInput}}>
+                            {{/element_length}}
+                            {{#element_date}}
+                                <input type="date" data-validation="date" {{>partialInput}}>
+                            {{/element_date}}
+                            {{#element_afterdate}}
+                                <input type="date" data-validation="afterdate" data-afterDate="{{after_date}}" {{>partialInput}}>
+                            {{/element_afterdate}}
+                            {{#element_beforedate}}
+                                <input type="date" data-validation="beforedate" data-beforeDate="{{before_date}}" {{>partialInput}}>
+                            {{/element_beforedate}}
+                            {{#element_time}}
+                                <input type="time" data-validation="time" {{>partialInput}}>
+                            {{/element_time}}
+                            {{#element_inarray}}
+                                <input type="text" data-validation="inarray" data-array="{{#values}}{{value}},{{/values}}" {{>partialInput}}>
+                            {{/element_inarray}}
+                            {{#element_creditcard}}
+                                <input type="text" data-validation="creditcard" {{>partialInput}}>
+                            {{/element_creditcard}}
+                            {{#element_ip}}
+                                <input type="text" data-validation="ipv4v6" data-ipVersion="{{ip_version}}" {{>partialInput}}>
+                            {{/element_ip}}
+                            {{#element_cidr}}
+                                <input type="text" data-validation="cidr" {{>partialInput}}>
+                            {{/element_cidr}}
+                            {{#element_subnet}}
+                                <input type="text" data-validation="subnet" {{>partialInput}}>
+                            {{/element_subnet}}
+                            {{#element_fqdn}}
+                                <input type="text" data-validation="fqdn" {{>partialInput}}>
+                            {{/element_fqdn}}
+                            {{#element_iporfqdn}}
+                                <input type="text" data-validation="iporfqdn" {{>partialInput}}>
+                            {{/element_iporfqdn}}
+                            {{#element_fingerprint}}
+                                <input type="text" data-validation="fingerprint" {{>partialInput}}>
+                            {{/element_fingerprint}}
+                            {{#element_textarea}}
+                                <textarea data-validation="validtext" {{>partialInput}}
+                                    {{#pattern}}
+                                        {{#regexObj}}data-regexobj-pattern="{{pattern}}"{{/regexObj}}
+                                        {{^regexObj}}data-pattern="{{pattern}}"{{/regexObj}}
+                                    {{/pattern}}
+                                    {{#rows}}rows="{{rows}}"{{/rows}}>{{value}}</textarea>
+                            {{/element_textarea}}
+                            {{#element_description}}
+                                <span {{#id}}id="{{id}}"{{/id}} {{#value}}class="optionselection inline"{{/value}}>
+                                    {{#value}}<label>{{{value}}}</label>{{/value}}
+                                </span>
+                            {{/element_description}}
+                            {{#element_description_encode}}
+                                <span {{#id}}id="{{id}}"{{/id}} {{#value}}class="optionselection inline"{{/value}}>
+                                    {{#value}}<label>{{value}}</label>{{/value}}
+                                </span>
+                            {{/element_description_encode}}
+                            {{#element_checkbox}}
+                                {{#values}}
+                                    <div class="optionselection">
+                                        <input type="checkbox" data-validation="validtext"
+                                            {{#id}}id="{{id}}"{{/id}}
+                                            {{#name}}name="{{name}}"{{/name}}
+                                            {{#value}}value="{{value}}"{{/value}}
+                                            {{#checked}}checked{{/checked}}
+                                            {{#disabled}}disabled{{/disabled}}
+                                            {{#required}}required{{/required}}
+                                            {{#post_validation}} data-trigger={{post_validation}} {{/post_validation}}
+                                        >
+                                        <label for="{{id}}" {{#disabled}}class="disabled"{{/disabled}}>{{label}}</label>
+                                    </div>
+                                {{/values}}
+                            {{/element_checkbox}}
+                            {{#element_dropdown}}
+                                {{>partialDropdown}}
+                            {{/element_dropdown}}
+                            {{#element_radio}}
+                                {{#values}}
+                                    <div class="optionselection">
+                                        <input type="radio" data-validation="validtext"
+                                            {{#id}}id="{{id}}"{{/id}}
+                                            {{#name}}name="{{name}}"{{/name}}
+                                            {{#value}}value="{{value}}"{{/value}}
+                                            {{#checked}}checked{{/checked}}
+                                            {{#disabled}}disabled{{/disabled}}
+                                            {{#required}}required{{/required}}
+                                        >
+                                        <label for="{{id}}" {{#disabled}}class="disabled"{{/disabled}}>{{label}}</label>
+                                    </div>
+                                {{/values}}
+                            {{/element_radio}}
+                            {{#element_file}}
+                                <div class="fileupload_container">
+                                    <input type="text" class="fileupload-text" disabled="disabled" {{>partialInput}} data-validation="validtext" {{#value}}value="{{value}}"{{/value}}>
+                                    <span class="slipstream-primary-button fileupload-button">{{fileupload_button_label}}</span>
+                                    <input type="file" class="fileupload">
+                                </div>
+                            {{/element_file}}
+                        {{>partialElementEnd}}
+                    {{/elements}}
+                    </div>
+                </div>
+            </div>
+            {{/sections}}
+        </div>
+    </div>
+    <!-- Buttons -->
+    <div class="buttons row {{buttonsClass}} {{#on_overlay}}onOverlay{{/on_overlay}}">
+        {{^unlabeled}}
+            <div class="elementlabel left">&nbsp;</div>
+        {{/unlabeled}}
+        <div class="elementinput left {{#buttonsAlignedRight}}buttonsAlignedRight{{/buttonsAlignedRight}}">
+            {{#buttons}}
+                <input type="{{^type}}submit{{/type}}{{type}}" class="slipstream-primary-button {{#isInactive}}slipstream-secondary-button{{/isInactive}}" {{#data}} data-button={{data}} {{/data}}
+                    {{#id}}id="{{id}}"{{/id}}
+                    {{#name}}name="{{name}}"{{/name}}
+                    {{#value}}value="{{value}}"{{/value}}
+                >
+            {{/buttons}}
+            {{#cancel_link}}
+            <span class="cancelLink"><a {{#id}}id="{{id}}"{{/id}}>{{value}}</a></span>
+            {{/cancel_link}}
+        </div>
+    </div>
+
+    <div class="row">
+        {{#footer}}
+            <div class="footer">
+                <h6>{{{text}}}
+                    {{#url}}
+                        <a {{#href}}href="{{href}}" target="_blank"{{/href}} {{#id}}id="{{id}}"{{/id}}>{{url}}</a>
+                    {{/url}}
+                </h6>
+            </div>
+        {{/footer}}
+    </div>
+
+
+</form>

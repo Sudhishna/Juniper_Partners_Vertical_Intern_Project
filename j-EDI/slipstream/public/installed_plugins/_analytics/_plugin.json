@@ -1,0 +1,14 @@
+{
+    "name": "analyticsProvider",
+    "description": "Analytics provider plugin for Slipstream",
+    "publisher": "Juniper Networks, Inc.",
+    "version": "0.0.1",
+    "release_date": "06.16.2015",
+    "min_platform_version": "0.0.1",
+    "providers": [
+        {
+            "uri": "analytics://",
+            "module": "piwikAnalyticsProvider"
+        }
+    ]
+}

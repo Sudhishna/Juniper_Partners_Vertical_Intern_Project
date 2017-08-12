@@ -1,0 +1,14 @@
+{
+    "name": "navigateAway",
+    "description": "Provider for Navigate Away Events",
+    "publisher": "Juniper Networks, Inc.",
+    "version": "0.0.1",
+    "release_date": "11.05.2015",
+    "min_platform_version": "0.0.1",
+    "providers": [
+        {
+            "uri": "topics://navigateAway",
+            "module": "NavigateAwayProvider"
+        }
+    ]
+}

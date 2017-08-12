@@ -1,0 +1,15 @@
+<div class="row {{#class}}{{class}}{{/class}}{{#toggle_section}} {{status}}{{/toggle_section}}">
+    <!-- Label -->
+    {{#label}}
+        <div class="elementlabel left">
+            <label for="{{id}}"
+            class="left inline {{#required}} required {{/required}} {{#notshowrequired}} notshowrequired {{/notshowrequired}} {{#field-help}} labelwithfieldhelp {{/field-help}}">
+            {{label}}
+            </label>
+            {{#field-help}}
+                <span class="ua-field-help form-element {{#field-help.content}}tooltip{{/field-help.content}}" {{#field-help.content}} title="{{field-help.content}}" {{/field-help.content}} {{#field-help.ua-help-identifier}}data-ua-id="{{field-help.ua-help-identifier}}"{{/field-help.ua-help-identifier}}></span>
+            {{/field-help}}
+        </div>
+    {{/label}}
+    <!-- Form field -->
+    <div class="elementinput left{{#element_radio}} elementgroup{{/element_radio}}{{#element_checkbox}}  elementgroup{{/element_checkbox}}{{#element_dateTimeWidget}}  elementgroup{{/element_dateTimeWidget}}" {{#element_radio}} data-widget="radioButton" id="{{id}}"{{/element_radio}}{{#element_checkbox}} data-widget="checkBox" id={{id}}{{/element_checkbox}}{{#element_dateTimeWidget}} id={{id}}{{/element_dateTimeWidget}}>

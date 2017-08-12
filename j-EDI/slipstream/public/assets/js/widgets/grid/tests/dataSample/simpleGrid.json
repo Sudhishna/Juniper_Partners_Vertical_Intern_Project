@@ -1,0 +1,7 @@
+{
+  "minions":[
+  {"device":"ex2200_192_135_20_1","ip":"100.23.42.1","version":"1.0","upordown":"up"},
+  {"device":"ubuntu","ip":"100.25.19.1","version":"2.0","upordown":"down"},
+  {"device":"srx100","ip":"10.17.13.1","version":"3.0","upordown":"up"}
+  ]
+}

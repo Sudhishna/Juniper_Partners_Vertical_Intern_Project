@@ -1,0 +1,25 @@
+<div class="gridTableFooter">
+	{{^hideSelectionAndRowCount}}
+		<div class="rowTotal">
+			<div class="totalRowsContainer">
+				{{^selectionEnabled}}
+					<span class="totalRows selectionText">0</span> {{rowsLabel}}
+				{{/selectionEnabled}}
+
+				{{#selectionEnabled}}
+						<span class="selectedRows selectionText">0</span>
+						{{^hideRowCount}}  
+							{{ofLabel}} <span class="totalRows selectionText">0</span>
+						{{/hideRowCount}} {{selectedLabel}}
+				{{/selectionEnabled}}
+			</div>		
+		</div>
+	{{/hideSelectionAndRowCount}}	
+	{{#footerPaginationContainer}}
+		{{>pagination}}
+	{{/footerPaginationContainer}}
+	
+	{{#refreshEnabled}}
+		 <div class="refresh"></div>
+	{{/refreshEnabled}}
+</div>

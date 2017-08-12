@@ -1,0 +1,16 @@
+<div class="cards">
+    <div class="title-help">
+        <span class="title left">{{title}}</span>
+        {{#field-help}}
+        <span class="ua-field-help tooltip right" {{#field-help.content}} title="{{field-help.content}}" {{/field-help.content}} {{#field-help.ua-help-identifier}}data-ua-id="{{field-help.ua-help-identifier}}"{{/field-help.ua-help-identifier}}></span>
+        {{/field-help}}
+    </div>
+    <div class="description bars clear">
+        {{#description}}
+            <div class="clear">
+                <span class="left subtitle">{{subtitle}}</span>
+                <span class="left details">{{details}}</span>
+            </div>
+        {{/description}}
+    </div>
+</div>

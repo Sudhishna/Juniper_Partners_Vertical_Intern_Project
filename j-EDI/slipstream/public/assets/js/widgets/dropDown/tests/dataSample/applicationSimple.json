@@ -1,0 +1,10 @@
+[
+  {
+    "id": "ftpnew",
+    "text": "junos-ftp-new"
+  },
+  {
+    "id": "tftpnew",
+    "text": "junos-tftp-new"
+  }
+]

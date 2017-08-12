@@ -1,0 +1,1 @@
+<div class="toolbar_badge"></div>

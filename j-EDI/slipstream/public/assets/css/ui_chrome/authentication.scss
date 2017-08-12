@@ -1,0 +1,23 @@
+#logout_form {
+    height: 360px;
+    width: 525px;
+}
+
+.logout_message  #msg > label {
+    color: #e87e04;
+    font-family: Helvetica Neue - Regular;
+    font-size: 21px;
+    text-align: center;
+}
+
+.logout_info #info > label {
+    font-family: arial-regular;
+    font-size: 14px;
+    line-height: 26px;
+    padding-top: 18px;
+    text-align: center;
+}
+
+#logout_form .elementinput {
+    width: 351px;
+}

@@ -1,0 +1,87 @@
+<!-- Main HTML form that holds tabContainerWidget and all views
+     tabContainerWidget is placed in "navigationTab" ID
+     "overlay_content" ID allows for overlays to be rendered on top of the tabContainerWidget
+     The view that holds the tabContainerWidget is rendered with ID = "main_content". COnfiguration of this
+     can be found in tabContainerWidget/tests/main.js-->
+
+<!doctype html>
+<html class="no-js" lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Juniper Event Driven Infrastructure</title>
+    <link rel="stylesheet" href="/assets/css/app.css" />
+</head>
+<body class="slipstream">
+  <div id="slipstream_ui"><!-- Top nav bar-->
+  <!--<div class="top-bar-region">-->
+  <div>
+      <nav class="top-bar" data-topbar="">
+          <div class="row">
+              <div class="left">
+                  <section class="top-bar-section logo-section">
+                      <!--<a href="/mainui">-->
+                      <a href="#">
+                          <img class="burst tooltipstered" src="/assets/images/icon_space_burst.svg">
+                      </a>
+                      <a href="#">
+                          <img src="/assets/images/Nut001-Jumiper-W.png" style="height: 40px; width:144px;">
+                      </a>
+                  </section>
+              </div>
+
+              <!--
+              <div class="left small-2 medium-2 large-3 columns">
+                  <section class="top-bar-section advanced-section">
+                      <ul class="left">
+                          <li><a href="#" id="top_adv_search_icon" class="top_adv_search_icon">Advanced</a></li>
+                      </ul>
+                  </section>
+              </div>
+              -->
+
+              <!-- <div class="right">
+                  <section class="top-bar-section">
+                          <ul class="right">
+                              <li class="utility_toolbar">
+                                  <ul id="view_elements">
+                                  </ul>
+                                  <ul id="toolbar_elements">
+                                  <li class="utility_toolbar_element tooltipstered"><img class="toolbar_icon" src="/installed_plugins/_alertsAlarms/img/icon_alert.svg">
+  </li><li class="utility_toolbar_element"><img class="toolbar_icon" src="/assets/images/human_one.svg">
+  <a href="#" class="userid">
+      <span class="username"></span>
+      <div class="down-arrow"></div>
+  </a>
+  </li></ul>
+                                  <ul>
+                                      <li class="utility_toolbar_element">
+                                          <div class="toolbar_icon top_help slipstream-top-help" data-ua-id="#cshid=1035"></div>
+                                      </li>
+                                  </ul>
+                              </li>
+
+                      </ul>
+                  </section>
+              </div> -->
+          </div>
+      </nav>
+  </div>
+
+  <!-- Primary nav bar-->
+
+  <div>
+          <div class="tabContainer-widget-test slipstream-widget-test-page">
+              <!--<div class="slipstream-content-title">Tab Container Widget</div>-->
+              <div id="main_content"> <!--tab container view here-->
+                  <div id="navigationTab"></div>
+                    <!-- <div id="standardTab"></div>-->
+                    <div id="display_data"></div>
+              </div>
+          </div>
+  </div>
+<div id="overlay_content"></div>
+
+<script data-main="main" src="/assets/js/vendor/require/require.js"></script>
+</body>
+</html>

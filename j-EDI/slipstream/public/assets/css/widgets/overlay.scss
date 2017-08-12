@@ -1,0 +1,208 @@
+$bottom-bar-height: 60px;
+$top-bar-height: 70px;
+
+$minimum-padding: 30px;
+
+$xlarge-width: 1100px;
+$xlarge-min-height: 570px;
+$xlarge-max-height: 900px;
+
+$large-width: 940px;
+$large-min-height: 460px;
+$large-max-height: 800px;
+
+$medium-width: 780px;
+$medium-min-height: 460px;
+$medium-max-height: 700px;
+
+$small-width: 620px;
+$small-min-height: 350px;
+$small-max-height: 680px;
+
+$xsmall-width: 460px;
+$xsmall-min-height: 150px;
+$xsmall-max-height: 300px;
+
+$flexible-min-width: 780px;
+$flexible-min-height: 460px;
+
+$modal_bottombar_border_top_color: #ccc;
+
+/* Modal positioning */
+.bbm-wrapper * {
+  box-sizing: border-box;
+}
+
+.bbm-wrapper {
+  box-sizing: border-box;
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 100;
+  overflow: hidden;
+  &.overlayBg {
+    background: rgba(0, 0, 0, 0.25) !important;
+  }
+}
+
+.bbm-modal {
+  background: white;
+}
+
+.bbm-modal__xicon {
+  width: 12px;
+  height: 12px;
+  margin: 15px 15px 0 0;
+}
+
+.bbm-modal_scrolldiv {
+  overflow: auto;
+  overflow-y: auto;
+  overflow-x: hidden;
+  height: 100%;
+}
+
+.bbm-modal__bottombar {
+  text-align: right;
+  padding: 10px 25px 15px 0;
+  position: absolute;
+  bottom: 0px;
+  border-top: 1px solid $modal_bottombar_border_top_color;
+  width: 100%;
+  .bbm-space { //todo: delete once the dependency from Appvisibility code is removed
+    margin-right: 13px;
+  }
+  .overlay-done{
+    float: right !important;
+  }
+  .overlay-cancel {
+    padding-left: 20px;
+    float: right !important;
+  }
+}
+
+.bbm-modal--open {
+  box-shadow: 2px 2px 19px $box-shadow-color-2;
+  -o-box-shadow: 2px 2px 19px $box-shadow-color-2;
+  -webkit-box-shadow: 2px 2px 19px $box-shadow-color-2;
+  -moz-box-shadow: 2px 2px 19px $box-shadow-color-2;
+}
+
+.bbm-modal--stacked {
+  -webkit-animation-duration: 0.1s;
+  -webkit-animation-name: bbm-stacked;
+  -webkit-animation-fill-mode: both;
+}
+
+@mixin overlay($min-width, $max-width, $min-height, $max-height) {
+  min-width: $min-width;
+  //max-width: $max-width;
+  max-width: 90vw;  
+  width: $max-width;
+  min-height: $min-height;
+  //max-height: $max-height;
+  max-height: 90vh;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+
+  .bbm-modal__section.no-title {
+      min-height: $min-height - $bottom-bar-height !important;
+      top: 0px;
+      overflow: hidden;
+      overflow-y: auto;
+  }
+
+  .bbm-modal__section.no-bottom-bar {
+      bottom: 0px !important;
+  }
+
+  .bbm-modal__section {
+    min-height: $min-height - $bottom-bar-height - $top-bar-height;
+    height: auto;
+    width: 100%;
+    overflow-x: hidden;
+    overflow-y: auto;
+    position: absolute;
+    top: $top-bar-height;
+    bottom: $bottom-bar-height;
+      &.contentPadding {
+        padding: 0px 10px 0px;
+      }
+  }
+
+}
+
+.overlay-title {
+  padding-top: 25px;
+  padding-left: 15px;
+  margin-bottom: 0px !important;
+}
+
+.overlay-xlarge {
+  @include overlay($xlarge-width, $xlarge-width, $xlarge-min-height, $xlarge-max-height);
+}
+
+.overlay-large {
+  @include overlay($large-width, $large-width, $large-min-height, $large-max-height);
+}
+
+.overlay-medium {
+  @include overlay($medium-width, $medium-width, $medium-min-height, $medium-max-height);
+}
+
+.overlay-small {
+  @include overlay($small-width, $small-width, $small-min-height, $small-max-height);
+}
+
+.overlay-xsmall {
+  @include overlay($xsmall-width, $xsmall-width, $xsmall-min-height, $xsmall-max-height);
+}
+
+.overlay-wrapper {
+  height: 100%;
+  .button {
+    padding: 0px 30px;
+    font-size: 13px;
+    font-family: $body-font-family;
+    margin-top: 15px;
+    background-color: $button-active-background;
+    border-color: $button-active-border;
+  }
+
+  .button:hover {
+    background-color: $button-hover-background;
+    border-color: $button-hover-border;
+  }
+
+  input {
+    margin: 0px;
+    height: 30px;
+  }
+
+  .content-wrapper {
+    .activity_indicator_img {
+      text-align: center;
+      margin: 20px 0 0 0;
+      span.activity_img {
+        background: url('/assets/images/activity_indicator.svg') no-repeat right;
+        width:63px;
+        height:63px;
+        display: inline-block;
+        @include prefixed(animation, rotation 2s infinite linear);
+      }
+    }
+  }
+  .grid-widget .ui-jqgrid .loading{
+    z-index: 3;
+  }
+}
+
+#overlay_content .ui-resizable {
+  position: absolute !important;
+}

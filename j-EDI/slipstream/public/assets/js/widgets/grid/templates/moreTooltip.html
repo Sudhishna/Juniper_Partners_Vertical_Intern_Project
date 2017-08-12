@@ -1,0 +1,12 @@
+<div class="more-items">
+    <div class="more_filter_input">
+        <span><input class="filter" type="text">
+        <span class="filter-icon"></span></span>
+    </div>
+    <div class="more-content">
+    {{^items}}<span class="more-loading">Loading...</span>{{/items}}
+    {{#items}}
+        <div class="more-item" data-id="{{key}}">{{label}}</div>
+    {{/items}}
+    </div>
+</div>
