@@ -1,13 +1,7 @@
-Rotation 1: Strategic Vertical
+Rotation 1: Partners Vertical
 -----------------------------
-Reporting to: Erwin Nazareno
+Reporting to: Mike Messina 
 
 Projects:
 ---------
-1. DAT (Data Analysis Tool)
-
-2. Tesla DC Automation Infrastructure Demo
-
-3. High CPU Usage Issue (Datrium)
-
-4. Custom CLI Command (Aryaka)
+1. J-EDI (Juniper Event Driven Infrastructure)
